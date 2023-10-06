@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "@feature-sliced/eslint-config/rules/import-order",
+    "@feature-sliced/eslint-config/rules/layers-slices"
+  ],
+  "rules": { 
+    "react/display-name": "off" 
+  } 
+}

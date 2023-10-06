@@ -1,0 +1,9 @@
+
+:root {
+    --main-bg-color: #FAF3E0;
+    --main-text-color: #000000;
+    --main-gold: #ffd34b;
+    --main-text-black: #000;
+    --main-text-white: #fff;
+    --darken-main-gold: #{darken(#ffd34b, 10%)};
+}

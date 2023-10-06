@@ -1,0 +1,12 @@
+.root {
+    padding: 24px 0;
+    background-color: #000;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-text-white);
+}

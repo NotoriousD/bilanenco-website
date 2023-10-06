@@ -1,0 +1,26 @@
+.root {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    padding: 12px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.actions {
+    padding: 12px;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}

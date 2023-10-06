@@ -1,0 +1,18 @@
+.root {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.link {
+    color: var(--main-text-white);
+    font-size: 18px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        color: var(--darken-main-gold);
+    }
+}

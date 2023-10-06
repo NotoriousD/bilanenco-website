@@ -1,0 +1,14 @@
+@import "fonts";
+@import "root";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New Cyr', arial;
+    background-color: var(--main-bg-color);
+    overflow-x: hidden;
+}

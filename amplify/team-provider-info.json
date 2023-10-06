@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bilanencowebsite-dev-105536-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-105536-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-105536-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+      "UnauthRoleName": "amplify-bilanencowebsite-dev-105536-unauthRole",
+      "StackName": "amplify-bilanencowebsite-dev-105536",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-105536/250023e0-514a-11ee-ae01-0ae4f8e3c267",
+      "AmplifyAppId": "d24x07cx8pvyyw"
+    }
+  }
+}
