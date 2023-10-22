@@ -46,5 +46,46 @@
         "orders": {}
       }
     }
+  },
+  "stage": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bilanencowebsite-stage-11906-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-stage-11906-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-stage-11906-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+      "UnauthRoleName": "amplify-bilanencowebsite-stage-11906-unauthRole",
+      "StackName": "amplify-bilanencowebsite-stage-11906",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-stage-11906/66719500-7131-11ee-b8a7-022cd50ce3d9",
+      "AmplifyAppId": "d24x07cx8pvyyw"
+    },
+    "categories": {
+      "function": {
+        "events": {
+          "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+          "s3Key": "amplify-builds/events-63502b57376c65582b59-build.zip"
+        },
+        "orders": {
+          "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+          "s3Key": "amplify-builds/orders-366f4b656c3267516331-build.zip",
+          "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
+          "paymentUrl": "https://api.monobank.ua",
+          "callbackUrl": "https://ensayco35g.execute-api.eu-west-1.amazonaws.com/stage"
+        },
+        "statuses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+          "s3Key": "amplify-builds/statuses-57454850384a4e78584a-build.zip"
+        }
+      },
+      "api": {
+        "events": {},
+        "orders": {},
+        "status": {}
+      },
+      "storage": {
+        "events": {},
+        "orders": {}
+      }
+    }
   }
 }
