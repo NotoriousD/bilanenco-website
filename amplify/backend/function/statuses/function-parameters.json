@@ -1,0 +1,11 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "orders": [
+        "read",
+        "update"
+      ]
+    }
+  }
+}

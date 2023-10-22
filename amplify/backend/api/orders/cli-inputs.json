@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "orders",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

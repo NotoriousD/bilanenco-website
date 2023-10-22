@@ -10,6 +10,37 @@
       "StackName": "amplify-bilanencowebsite-dev-105536",
       "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-105536/250023e0-514a-11ee-ae01-0ae4f8e3c267",
       "AmplifyAppId": "d24x07cx8pvyyw"
+    },
+    "categories": {
+      "auth": {
+        "bilanencowebsite99fa1af9": {}
+      },
+      "function": {
+        "orders": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/orders-39534671612f384f7336-build.zip",
+          "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
+          "callbackUrl": "https://ssodwjoeyf.execute-api.eu-west-1.amazonaws.com/dev",
+          "paymentUrl": "https://api.monobank.ua"
+        },
+        "events": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/events-71577765377758625039-build.zip"
+        },
+        "statuses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/statuses-7139504832356d727269-build.zip"
+        }
+      },
+      "api": {
+        "events": {},
+        "orders": {},
+        "status": {}
+      },
+      "storage": {
+        "events": {},
+        "orders": {}
+      }
     }
   }
 }
