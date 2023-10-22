@@ -1,4 +1,20 @@
 {
+  "api": {
+    "events": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "events"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "bilanencowebsite99fa1af9": {
       "customAuth": false,
@@ -26,6 +42,18 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "events": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "orders": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -127,6 +155,14 @@
     }
   },
   "storage": {
+    "eventsdev": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "eventsprod": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
     "ordersdev": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
