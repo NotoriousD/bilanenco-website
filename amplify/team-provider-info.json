@@ -10,6 +10,29 @@
       "StackName": "amplify-bilanencowebsite-dev-105536",
       "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-105536/250023e0-514a-11ee-ae01-0ae4f8e3c267",
       "AmplifyAppId": "d24x07cx8pvyyw"
+    },
+    "categories": {
+      "auth": {
+        "bilanencowebsite99fa1af9": {}
+      },
+      "storage": {
+        "ordersdev": {
+          "tableName": "orders-dev",
+          "region": "eu-west-1",
+          "arn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-dev",
+          "streamArn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-dev/stream/2023-07-13T21:00:08.581",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        },
+        "ordersprod": {
+          "tableName": "orders-prod",
+          "region": "eu-west-1",
+          "arn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-prod",
+          "streamArn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-prod/stream/2023-07-14T15:19:10.842",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        }
+      }
     }
   }
 }

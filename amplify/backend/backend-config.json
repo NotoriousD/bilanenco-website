@@ -1,1 +1,143 @@
-{}
+{
+  "auth": {
+    "bilanencowebsite99fa1af9": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL",
+          "PHONE_NUMBER"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_storage_ordersdev_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_streamArn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersprod_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersprod"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersprod_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersprod"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersprod_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersprod"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersprod_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersprod"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersprod_streamArn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersprod"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersprod_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersprod"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "ordersdev": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    },
+    "ordersprod": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    }
+  }
+}
