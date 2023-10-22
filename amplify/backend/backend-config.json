@@ -56,102 +56,10 @@
       "service": "Lambda"
     }
   },
-  "parameters": {
-    "AMPLIFY_storage_ordersdev_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_streamArn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersprod_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersprod"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersprod_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersprod"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersprod_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersprod"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersprod_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersprod"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersprod_streamArn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersprod"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersprod_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersprod"
-        }
-      ]
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
     }
   },
   "storage": {
@@ -162,18 +70,6 @@
     "eventsprod": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
-    },
-    "ordersdev": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "ordersprod": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
     }
   }
 }
