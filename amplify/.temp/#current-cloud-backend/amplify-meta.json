@@ -1,0 +1,252 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bilanencowebsite-dev-105536-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-105536-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-105536-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+      "UnauthRoleName": "amplify-bilanencowebsite-dev-105536-unauthRole",
+      "StackName": "amplify-bilanencowebsite-dev-105536",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-105536/250023e0-514a-11ee-ae01-0ae4f8e3c267",
+      "AmplifyAppId": "d24x07cx8pvyyw"
+    }
+  },
+  "function": {
+    "events": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-10-22T21:35:20.945Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-10-22T21:35:24.551Z",
+      "distZipFilename": "events-63502b57376c65582b59-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+        "s3Key": "amplify-builds/events-63502b57376c65582b59-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/function/events-cloudformation-template.json",
+        "logicalId": "functionevents"
+      },
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::177883174913:role/bilanencowebsiteLambdaRolef668ef79-dev",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:177883174913:function:events-dev",
+        "Name": "events-dev",
+        "LambdaExecutionRole": "bilanencowebsiteLambdaRolef668ef79-dev"
+      },
+      "lastPushDirHash": "T4UCBq0lMI7eS00mllLo+yZ7/hs=",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "events",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "orders": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-10-22T21:35:27.704Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-10-22T21:35:30.965Z",
+      "distZipFilename": "orders-5a675941777073764576-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+        "s3Key": "amplify-builds/orders-5a675941777073764576-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/function/orders-cloudformation-template.json",
+        "logicalId": "functionorders"
+      },
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::177883174913:role/bilanencowebsiteLambdaRole7b1086ba-dev",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:177883174913:function:orders-dev",
+        "Name": "orders-dev",
+        "LambdaExecutionRole": "bilanencowebsiteLambdaRole7b1086ba-dev"
+      },
+      "lastPushDirHash": "2jEdgEkZUMjFpAI1KyNPQ0iP6Ho=",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "events",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        },
+        {
+          "category": "storage",
+          "resourceName": "orders",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "statuses": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "orders",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "lastBuildTimeStamp": "2023-10-22T21:35:33.600Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-10-22T21:35:34.056Z",
+      "distZipFilename": "statuses-57454850384a4e78584a-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+        "s3Key": "amplify-builds/statuses-57454850384a4e78584a-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/function/statuses-cloudformation-template.json",
+        "logicalId": "functionstatuses"
+      },
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::177883174913:role/bilanencowebsiteLambdaRolec5b2f66b-dev",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:177883174913:function:statuses-dev",
+        "Name": "statuses-dev",
+        "LambdaExecutionRole": "bilanencowebsiteLambdaRolec5b2f66b-dev"
+      },
+      "lastPushDirHash": "c61hRTvFXGL3wRJLf2wYm2VpfB8="
+    }
+  },
+  "api": {
+    "events": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "events",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/api/events-cloudformation-template.json",
+        "logicalId": "apievents"
+      },
+      "output": {
+        "ApiName": "events",
+        "RootUrl": "https://ssodwjoeyf.execute-api.eu-west-1.amazonaws.com/dev",
+        "ApiId": "ssodwjoeyf"
+      },
+      "lastPushDirHash": "t1WgtGQr6UOr7wH1VTDVdHXoHqM="
+    },
+    "orders": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "orders",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/api/orders-cloudformation-template.json",
+        "logicalId": "apiorders"
+      },
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "output": {
+        "ApiName": "orders",
+        "RootUrl": "https://utsqo9dr1j.execute-api.eu-west-1.amazonaws.com/dev",
+        "ApiId": "utsqo9dr1j"
+      },
+      "lastPushDirHash": "GHudj+BYUcnIbmihdqJb0ei7c1U="
+    },
+    "status": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "statuses",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/api/status-cloudformation-template.json",
+        "logicalId": "apistatus"
+      },
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "output": {
+        "ApiName": "status",
+        "RootUrl": "https://m3ofhl2wsh.execute-api.eu-west-1.amazonaws.com/dev",
+        "ApiId": "m3ofhl2wsh"
+      },
+      "lastPushDirHash": "j+6M4GqqXim9Ja1xRg+v57Jj4Nc="
+    }
+  },
+  "storage": {
+    "events": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/storage/events-cloudformation-template.json",
+        "logicalId": "storageevents"
+      },
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "output": {
+        "PartitionKeyName": "id",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:dynamodb:eu-west-1:177883174913:table/events-dev",
+        "StreamArn": "arn:aws:dynamodb:eu-west-1:177883174913:table/events-dev/stream/2023-10-22T17:58:03.421",
+        "PartitionKeyType": "S",
+        "Name": "events-dev"
+      },
+      "lastPushDirHash": "MQEj1y5YNa/z/a3AHsdmahsCbiY="
+    },
+    "orders": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-105536-deployment/amplify-cfn-templates/storage/orders-cloudformation-template.json",
+        "logicalId": "storageorders"
+      },
+      "lastPushTimeStamp": "2023-10-22T21:37:09.025Z",
+      "output": {
+        "PartitionKeyName": "id",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-dev",
+        "StreamArn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-dev/stream/2023-10-22T17:58:03.367",
+        "PartitionKeyType": "S",
+        "Name": "orders-dev"
+      },
+      "lastPushDirHash": "jennYa/fNOOpeNqlSTuQjQpq7D8="
+    }
+  }
+}
