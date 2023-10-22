@@ -1,5 +1,10 @@
-
-/*
+/* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_EVENTS_ARN
+	STORAGE_EVENTS_NAME
+	STORAGE_EVENTS_STREAMARN
+Amplify Params - DO NOT EDIT *//*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
     http://aws.amazon.com/apache2.0/
@@ -10,12 +15,13 @@ See the License for the specific language governing permissions and limitations 
 
 
 
+const AWS = require('aws-sdk')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const bodyParser = require('body-parser')
 const express = require('express')
 const uuid = require('uuid')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
-const validation = require('./validation')
+const { validation } = require('./validation')
 
 const EVENTS_TABLE_NAME = `events-${process.env.ENV}`
 
@@ -37,11 +43,11 @@ app.use(function(req, res, next) {
  **********************/
 
 app.get('/events', async (req, res) => {
-  await docClient.get({
+  await docClient.scan({
     TableName: EVENTS_TABLE_NAME,
   }, (err, data) => {
     if(err) {
-      res.status(404).send({ message: 'Events: something went wrong' })
+      res.status(404).json(err)
       return
     }
     res.status(200).json(data)
@@ -86,7 +92,8 @@ app.post('/events', function(req, res) {
     Item: newEvent
   }, (err, data) => {
     if(err) {
-      res.status(404).send({ message: 'Event was not created' })
+      console.log(err)
+      res.status(404).json(err)
       return
     }
     res.status(200).json({ message: 'Event was created', data })

@@ -16,25 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageeventsName": {
+    "storageordersName": {
       "Type": "String",
-      "Default": "storageeventsName"
+      "Default": "storageordersName"
     },
-    "storageeventsArn": {
+    "storageordersArn": {
       "Type": "String",
-      "Default": "storageeventsArn"
+      "Default": "storageordersArn"
     },
-    "storageeventsStreamArn": {
+    "storageordersStreamArn": {
       "Type": "String",
-      "Default": "storageeventsStreamArn"
-    },
-    "apieventsApiName": {
-      "Type": "String",
-      "Default": "apieventsApiName"
-    },
-    "apieventsApiId": {
-      "Type": "String",
-      "Default": "apieventsApiId"
+      "Default": "storageordersStreamArn"
     }
   },
   "Conditions": {
@@ -67,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "events",
+            "statuses",
             {
               "Fn::Join": [
                 "",
                 [
-                  "events",
+                  "statuses",
                   "-",
                   {
                     "Ref": "env"
@@ -90,20 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "API_EVENTS_APINAME": {
-              "Ref": "apieventsApiName"
+            "STORAGE_ORDERS_NAME": {
+              "Ref": "storageordersName"
             },
-            "API_EVENTS_APIID": {
-              "Ref": "apieventsApiId"
+            "STORAGE_ORDERS_ARN": {
+              "Ref": "storageordersArn"
             },
-            "STORAGE_EVENTS_NAME": {
-              "Ref": "storageeventsName"
-            },
-            "STORAGE_EVENTS_ARN": {
-              "Ref": "storageeventsArn"
-            },
-            "STORAGE_EVENTS_STREAMARN": {
-              "Ref": "storageeventsStreamArn"
+            "STORAGE_ORDERS_STREAMARN": {
+              "Ref": "storageordersStreamArn"
             }
           }
         },
@@ -124,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "bilanencowebsiteLambdaRolef668ef79",
+            "bilanencowebsiteLambdaRolec5b2f66b",
             {
               "Fn::Join": [
                 "",
                 [
-                  "bilanencowebsiteLambdaRolef668ef79",
+                  "bilanencowebsiteLambdaRolec5b2f66b",
                   "-",
                   {
                     "Ref": "env"
@@ -200,59 +186,6 @@
         }
       }
     },
-    "eventsTriggerPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "lambda-trigger-policy-events",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:DescribeStream",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:ListStreams"
-              ],
-              "Resource": [
-                {
-                  "Ref": "storageeventsStreamArn"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    },
-    "eventsTrigger": {
-      "Type": "AWS::Lambda::EventSourceMapping",
-      "DependsOn": [
-        "eventsTriggerPolicy"
-      ],
-      "Properties": {
-        "BatchSize": 100,
-        "Enabled": true,
-        "EventSourceArn": {
-          "Ref": "storageeventsStreamArn"
-        },
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "LambdaFunction",
-            "Arn"
-          ]
-        },
-        "StartingPosition": "LATEST"
-      }
-    },
     "AmplifyResourcesPolicy": {
       "DependsOn": [
         "LambdaExecutionRole"
@@ -271,10 +204,6 @@
             {
               "Effect": "Allow",
               "Action": [
-                "dynamodb:Put*",
-                "dynamodb:Create*",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PartiQLInsert",
                 "dynamodb:Get*",
                 "dynamodb:BatchGetItem",
                 "dynamodb:List*",
@@ -288,14 +217,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageeventsArn"
+                  "Ref": "storageordersArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageeventsArn"
+                        "Ref": "storageordersArn"
                       },
                       "index/*"
                     ]
