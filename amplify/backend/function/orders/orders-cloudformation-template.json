@@ -51,10 +51,10 @@
       "Type": "String",
       "Default": "storageeventsStreamArn"
     },
-    "callbackUrl": {
+    "paymentUrl": {
       "Type": "String"
     },
-    "paymentUrl": {
+    "callbackUrl": {
       "Type": "String"
     }
   },
@@ -157,11 +157,11 @@
             "STORAGE_EVENTS_STREAMARN": {
               "Ref": "storageeventsStreamArn"
             },
-            "CALLBACK_URL": {
-              "Ref": "callbackUrl"
-            },
             "PAYMENT_URL": {
               "Ref": "paymentUrl"
+            },
+            "CALLBACK_URL": {
+              "Ref": "callbackUrl"
             }
           }
         },
