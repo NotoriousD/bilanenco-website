@@ -7,7 +7,7 @@ import { useCallback, useEffect } from "react"
 import { ProductList, mockProducts } from "widgets/ProductList"
 
 import { Banner } from "features/Banner"
-import { BannerType } from "features/Banner/ui/Banner"
+import { BannerType } from "entities/Carousel"
 
 const Home: NextPage = () => {
     const fetchPackages = useCallback(async () => {
@@ -22,13 +22,13 @@ const Home: NextPage = () => {
     useEffect(() => {
         fetchPackages();
     }, [fetchPackages]);
-    
+
     return (
         <>
             <Head>
                 <title>Home</title>
             </Head>
-            <Banner type={BannerType.Carousel}/>
+            <Banner type={BannerType.Carousel} />
             <ProductList title="Івенти" list={mockProducts} />
             <ProductList title="Послуги" list={mockProducts} />
             <ProductList title="Курси" list={mockProducts} />
