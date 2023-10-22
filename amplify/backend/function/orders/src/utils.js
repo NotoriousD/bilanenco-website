@@ -19,14 +19,14 @@ exports.productNames = {
     [this.productTypes.others]: 'Інше',
 }
 
-exports.currencies = {
+const currencies = {
     uah: 'uah',
     usd: 'usd'
 }
 
 exports.getProductPriceByCurrency = (currency, price) => {
-    if(currency === this.currencies.uah) return price
-    if(currency === this.currencies.usd) return Math.floor(price * 37.4406) * 100
+    if(currency === currencies.uah) return price * 100
+    if(currency === currencies.usd) return Math.floor(price * 37.4406) * 100
 }
 
 exports.getTableNameByProductType = (type, env) => `${type}-${env}`

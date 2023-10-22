@@ -53,7 +53,6 @@ app.use(function(req, res, next) {
   next()
 });
 
-
 const getPackageById = async (req, res, next) => {
   const { product_type, id, package_id } = req.body;
   let price = 0;
@@ -109,7 +108,6 @@ const createOrder = async (req, res, next) => {
 
   try {
     let total_amount = getProductPriceByCurrency(body.currency, req.price);
-    const date = new Date();
 
     const newOrder = {
       ...req.body,
@@ -118,7 +116,7 @@ const createOrder = async (req, res, next) => {
       total_amount,
       invoice_id: null,
       order_status: statuses.pending,
-      created_date: date,
+      created_date: body.created_date,
       paied_date: null,
     }
 
@@ -190,7 +188,7 @@ app.post('/orders', getPackageById, createOrder, updageAvailablePlaces, async fu
       amount: req.order.total_amount,
       productId: productNames[req.body.product_type],
       name: req.order.name,
-      redirectUrl: `https://workshop${process.env.ENV === 'dev' ? '-dev' : ''}.bilanenco.com/thank-you`,
+      redirectUrl: `https://${process.env.ENV === 'dev' ? 'dev' : ''}.bilanenco.com/thank-you`,
       webHookUrl: `${process.env.CALLBACK_URL}/status`,
       destination: `Оплата ${req.order.name}`,
       token: PAYMENT_TOKEN,

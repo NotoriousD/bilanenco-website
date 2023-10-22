@@ -39,7 +39,6 @@ export const schema = yup.object().shape({
   phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер (38099999999)'),
   // course_id: yup.string().required('Виберіть тариф'),
   subscribe: yup.bool()
-    .oneOf([true], 'Підтвердити')
 });
 
 export const Registration: React.FC<Props> = ({ packageId, packages = [], productId, onClose }) => {
@@ -57,12 +56,13 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], produc
 
   const handleSubmitForm = async (data: any) => {
     setIsSubmitting(true);
-    console.log(data);
     try {
       const response = await API.post('orders', '/orders', {
         body: {
           product_type: 'events',
+          currency: 'uah',
           id: productId,
+          created_date: new Date(),
           ...data,
         }
       });
@@ -72,6 +72,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], produc
         window.location.href = response.pageUrl;
       }
     } catch (e) {
+      setIsSubmitting(false);
       console.log(e);
     }
   };
@@ -195,9 +196,10 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], produc
                       control={
                         <Checkbox
                           {...field}
+                          checked={field.value}
                         />
                       }
-                      label="Підписатись на розсилку"
+                      label="Я хочу отримувати повідомлення про новинки, акції та події"
                       className={css.checkboxLabel}
                     />
                     {errors?.subscribe && (
@@ -213,7 +215,9 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], produc
                   message={String(errors?.phone.message)}
                 />
               )}
-
+            </div>
+            <div className={css.text}>
+              Натискаючи на &quot;Перейти до оплати&quot; я погоджуюсь на обробку персональних даних
             </div>
             <div className={css.btnWrapper}>
               <button className={css.button} type="submit">Перейти до оплати</button>

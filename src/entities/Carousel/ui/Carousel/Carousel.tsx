@@ -85,6 +85,7 @@ export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
                                     </div>
 
                                 </div>
+                                <div className={css.date}><span>Коли</span>: 24.10.2023</div>
                                 <Button onClick={handlerOpenModal}>Придбати за 700₴</Button>
                             </div>
                         </Container>

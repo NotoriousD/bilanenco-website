@@ -135,6 +135,14 @@
         }
       ]
     },
+    "AMPLIFY_function_orders_paymentUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
     "AMPLIFY_function_orders_s3Key": {
       "usedBy": [
         {

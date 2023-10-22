@@ -8,4 +8,6 @@ exports.validation = Joi.object({
   package_id: Joi.string(),
   phone: Joi.string().required(),
   subscribe: Joi.boolean().required(),
+  currency: Joi.string().required(),
+  created_date: Joi.string().required(),
 });

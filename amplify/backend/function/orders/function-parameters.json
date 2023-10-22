@@ -22,6 +22,10 @@
     {
       "cloudFormationParameterName": "callbackUrl",
       "environmentVariableName": "CALLBACK_URL"
+    },
+    {
+      "cloudFormationParameterName": "paymentUrl",
+      "environmentVariableName": "PAYMENT_URL"
     }
   ]
 }

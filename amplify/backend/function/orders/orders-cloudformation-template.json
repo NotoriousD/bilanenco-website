@@ -53,6 +53,9 @@
     },
     "callbackUrl": {
       "Type": "String"
+    },
+    "paymentUrl": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -156,6 +159,9 @@
             },
             "CALLBACK_URL": {
               "Ref": "callbackUrl"
+            },
+            "PAYMENT_URL": {
+              "Ref": "paymentUrl"
             }
           }
         },
