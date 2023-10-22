@@ -85,6 +85,9 @@
       "storage": {
         "events": {},
         "orders": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }
