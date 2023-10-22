@@ -6,12 +6,13 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import { Checkbox, FormControlLabel, FormLabel } from "@mui/material";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { API } from 'aws-amplify';
 
-import { Portal } from 'components/Portal';
-import { ErrorMessage } from 'components/ErrorMessage';
-import { Loader } from 'components/Loader';
+import { Portal } from "shared/ui/Portal";
+import { Loader } from "shared/ui/Loader";
+import { ErrorMessage } from "shared/ui/ErrorMessage";
 
 import css from './registration.module.scss';
 
@@ -21,10 +22,11 @@ export interface Package {
   price: number;
   benefits: string[];
   available_places: number;
+  policy: boolean
 }
 
 interface Props {
-  packages: Package[];
+  packages?: Package[];
   packageId: string;
   onClose: () => void;
 }
@@ -34,15 +36,34 @@ export const schema = yup.object().shape({
   email: yup.string().email('Email не валідний').required("Введіть email"),
   phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер (38099999999)'),
   course_id: yup.string().required('Виберіть тариф'),
+  policy: yup.bool()
+  .oneOf([true], 'Підтвердити'),
+  subscribe: yup.bool()
+  .oneOf([true], 'Підтвердити')
 });
 
-export const Registration: React.FC<Props> = ({ packageId, packages, onClose }) => {
+
+export const Registration: React.FC<Props> = ({ packageId, packages = [], onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubscribe, setSubscribe] = useState<boolean>(false);
+  const [isPolicy, setPolicy] = useState<boolean>(false);
+
+
+  const handleSubscribe = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSubscribe(event.target.checked);
+  };
+
+  const handlePolicy = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPolicy(event.target.checked);
+  };
+
+
   const { handleSubmit, formState: { errors }, control, register } = useForm({
     defaultValues: {
       fullName: '',
       phone: '',
       email: '',
+      policy: isPolicy
     },
     resolver: yupResolver(schema),
   });
@@ -66,7 +87,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages, onClose }) 
   };
 
   const getEnumOptions = useMemo(() => {
-    return packages.filter(({ available_places }) => available_places !== 0).map(({ id, name }) => ({
+    return packages?.filter(({ available_places }) => available_places !== 0).map(({ id, name }) => ({
       label: name,
       value: id,
     }))
@@ -149,7 +170,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages, onClose }) 
                 />
               )}
             </div>
-            <div className={css.row}>
+            {packages.length && <div className={css.row}>
               <FormControl className={css.selectWrapper}>
                 <InputLabel className={css.selectLabel}>
                   Тариф
@@ -170,6 +191,48 @@ export const Registration: React.FC<Props> = ({ packageId, packages, onClose }) 
                   message={String(errors?.course_id.message)}
                 />
               )}
+            </div>
+            }
+            <div className={css.row}>
+              <FormControl>
+                <FormControlLabel 
+                    control={
+                      <Checkbox 
+                      label="Підписатись на розсилку"
+                      checked={isSubscribe}
+                      onChange={handleSubscribe}
+                      />
+                    }
+                    label="Підписатись на розсилку"
+                    className={css.checkboxLabel}
+                />
+                {errors?.subscribe && !isSubscribe && (
+                  <ErrorMessage
+                    message={String(errors?.subscribe.message)}
+                  />
+                )}
+              </FormControl>
+               
+            </div>
+            <div className={css.row}>
+              <FormControl>
+                <FormControlLabel 
+                    control={
+                      <Checkbox 
+                      checked={isPolicy}
+                      onChange={handlePolicy}
+                      label="Погоджуюсь з умовами політики конфіденційності"
+                      />
+                    }
+                    label="Погоджуюсь з умовами політики конфіденційності"
+                    className={css.checkboxLabel}
+                />
+                {errors?.policy && !isPolicy && (
+                <ErrorMessage
+                  message={String(errors?.policy.message)}
+                />
+              )}
+              </FormControl>
             </div>
             <div className={css.btnWrapper}>
               <button className={css.button} type="submit">Перейти до оплати</button>

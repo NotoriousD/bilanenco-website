@@ -34,12 +34,13 @@ const mocks: TCarouselItem[] = [
 
 interface IBanner {
     type: BannerType
+    handlerOpenModal?: () => void
 }
 
-export const Banner: React.FC<IBanner> = ({type}) => {
+export const Banner: React.FC<IBanner> = ({type, handlerOpenModal}) => {
     return (
         <div className={css.root}>
-            <Carousel type={type}  items={mocks} />
+            <Carousel handlerOpenModal={handlerOpenModal} type={type}  items={mocks} />
         </div>
     );
 };

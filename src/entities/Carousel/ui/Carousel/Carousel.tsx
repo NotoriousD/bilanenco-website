@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { EffectFade } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cn from "classnames";
@@ -17,9 +17,11 @@ import { Container } from 'shared/ui/Container';
 interface Props {
     items: TCarouselItem[]
     type: BannerType
+    handlerOpenModal?: () => void
 }
 
-export const Carousel: FC<Props> = ({ items, type }) => {
+export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
+
     switch(type) {
         case (BannerType.Carousel) :
             return (
@@ -43,7 +45,7 @@ export const Carousel: FC<Props> = ({ items, type }) => {
                             <div>
                                 {item?.title && <h1>Подія</h1>}
                                 {item?.content && <div>text</div>}
-                                <Button>Записатися</Button>
+                                <Button onClick={handlerOpenModal}>Записатися</Button>
                             </div>
                         </SwiperSlide>
                     ))}
@@ -84,7 +86,7 @@ export const Carousel: FC<Props> = ({ items, type }) => {
                                     </div>
                                     
                                 </div>
-                                <Button>Придбати за 700₴</Button>
+                                <Button onClick={handlerOpenModal}>Придбати за 700₴</Button>
                             </div>
                         </Container>
                     </div>
