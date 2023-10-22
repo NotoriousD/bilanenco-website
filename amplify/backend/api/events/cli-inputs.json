@@ -7,6 +7,20 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "orders",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/status": {
+      "name": "/status",
+      "lambdaFunction": "statuses",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

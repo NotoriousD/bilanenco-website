@@ -16,8 +16,27 @@
         "bilanencowebsite99fa1af9": {}
       },
       "function": {
-        "orders": {},
+        "orders": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/orders-502b673159306f4c4439-build.zip",
+          "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
+          "callbackUrl": "https://ssodwjoeyf.execute-api.eu-west-1.amazonaws.com/dev"
+        },
+        "events": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/events-71577765377758625039-build.zip"
+        },
+        "statuses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/statuses-7139504832356d727269-build.zip"
+        }
+      },
+      "api": {
         "events": {}
+      },
+      "storage": {
+        "events": {},
+        "orders": {}
       }
     }
   }

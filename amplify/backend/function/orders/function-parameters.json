@@ -1,3 +1,21 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "orders": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "secretNames": [
+    "PAYMENT_TOKEN"
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "callbackUrl",
+      "environmentVariableName": "CALLBACK_URL"
+    }
+  ]
 }

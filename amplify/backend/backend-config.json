@@ -9,65 +9,150 @@
           ],
           "category": "function",
           "resourceName": "events"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "statuses"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     }
   },
-  "auth": {
-    "bilanencowebsite99fa1af9": {
-      "customAuth": false,
-      "dependsOn": [],
-      "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
-        },
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL",
-          "PHONE_NUMBER"
-        ],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito"
-    }
-  },
   "function": {
     "events": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
     "orders": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "orders"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "statuses": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "orders"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
-  "hosting": {
-    "S3AndCloudFront": {
-      "providerPlugin": "awscloudformation",
-      "service": "S3AndCloudFront"
+  "parameters": {
+    "AMPLIFY_function_events_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "events"
+        }
+      ]
+    },
+    "AMPLIFY_function_events_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "events"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_callbackUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
     }
   },
   "storage": {
-    "eventsdev": {
+    "events": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
-    "eventsprod": {
+    "orders": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }

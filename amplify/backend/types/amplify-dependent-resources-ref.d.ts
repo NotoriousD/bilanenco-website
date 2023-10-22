@@ -6,19 +6,6 @@ export type AmplifyDependentResourcesAttributes = {
       "RootUrl": "string"
     }
   },
-  "auth": {
-    "bilanencowebsite99fa1af9": {
-      "AppClientID": "string",
-      "AppClientIDWeb": "string",
-      "HostedUIDomain": "string",
-      "IdentityPoolId": "string",
-      "IdentityPoolName": "string",
-      "OAuthMetadata": "string",
-      "UserPoolArn": "string",
-      "UserPoolId": "string",
-      "UserPoolName": "string"
-    }
-  },
   "function": {
     "events": {
       "Arn": "string",
@@ -33,22 +20,17 @@ export type AmplifyDependentResourcesAttributes = {
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
-    }
-  },
-  "hosting": {
-    "S3AndCloudFront": {
-      "CloudFrontDistributionID": "string",
-      "CloudFrontDomainName": "string",
-      "CloudFrontOriginAccessIdentity": "string",
-      "CloudFrontSecureURL": "string",
-      "HostingBucketName": "string",
-      "Region": "string",
-      "S3BucketSecureURL": "string",
-      "WebsiteURL": "string"
+    },
+    "statuses": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
     }
   },
   "storage": {
-    "eventsdev": {
+    "events": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",
@@ -56,7 +38,7 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string",
       "StreamArn": "string"
     },
-    "eventsprod": {
+    "orders": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",

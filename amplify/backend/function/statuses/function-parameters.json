@@ -2,8 +2,7 @@
   "lambdaLayers": [],
   "permissions": {
     "storage": {
-      "events": [
-        "create",
+      "orders": [
         "read",
         "update"
       ]
