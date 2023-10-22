@@ -32,6 +32,10 @@
           "partitionKeyName": "id",
           "partitionKeyType": "S"
         }
+      },
+      "function": {
+        "orders": {},
+        "events": {}
       }
     }
   }
