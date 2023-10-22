@@ -5,6 +5,7 @@ import Head from "next/head"
 import { ProductList, mockProducts } from "widgets/ProductList"
 
 import { Banner } from "features/Banner"
+import { BannerType } from "features/Banner/ui/Banner"
 
 const Home: NextPage = () => {
     return (
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
             <Head>
                 <title>Home</title>
             </Head>
-            <Banner />
+            <Banner type={BannerType.Carousel}/>
             <ProductList title="Івенти" list={mockProducts} />
             <ProductList title="Послуги" list={mockProducts} />
             <ProductList title="Курси" list={mockProducts} />

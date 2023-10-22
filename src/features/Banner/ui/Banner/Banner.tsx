@@ -6,15 +6,40 @@ import mainImage from 'shared/assets/main.jpg';
 
 import css from './banner.module.scss'
 
-const mocks = [
-    { src: mainImage },
-    { src: mainImage }
+
+import { TCarouselItem } from "entities/Carousel/ui/Carousel/types";
+
+
+
+
+export enum BannerType {
+    Carousel = "carousel",
+    Banner = "banner"  
+}
+
+const mocks: TCarouselItem[] = [
+    { 
+        id: "1",
+        imgSource: mainImage,
+        title: "text",
+        content: "test"
+    },
+    { 
+        id: "2",
+        imgSource: mainImage,
+        title: "text",
+        content: "aaaa" 
+    }
 ]
 
-export const Banner: React.FC = () => {
+interface IBanner {
+    type: BannerType
+}
+
+export const Banner: React.FC<IBanner> = ({type}) => {
     return (
         <div className={css.root}>
-            <Carousel items={mocks} />
+            <Carousel type={type}  items={mocks} />
         </div>
     );
 };

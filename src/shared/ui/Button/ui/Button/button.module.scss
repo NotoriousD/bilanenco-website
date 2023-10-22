@@ -1,20 +1,24 @@
 
+$text: #353535;
+$accent: #FFD34B;
+
+
 .root {
     display: inline-block;
-    padding: 8px 12px;
+    padding: 15px 30px;
     border-radius: 50px;
-    background-color: var(--main-gold);
+    background-color: $accent;
     border: 0;
     transition: all .3s ease-in-out;
     outline: none;
-    color: var(--main-text-black);
-    font-size: 16px;
+    color: $text;
+    font-size: 24px;
     font-weight: 700;
     font-family: 'Courier New Cyr', arial;
     cursor: pointer;
 
     &:hover {
-        background-color: var(--darken-main-gold);
+        background-color: darken($accent, 10%);
     }
 
     &:disabled {
@@ -31,3 +35,4 @@
     // background-color: #000;
     color: var(--main-text-black);
 }
+

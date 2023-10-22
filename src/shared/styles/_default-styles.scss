@@ -1,0 +1,12 @@
+.h1-title{
+  font-size: clamp(40px,3.333vw,64px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 20px;
+  span{
+    color: var(--main-gold);
+    display: inline-block;
+    margin-left: 5px;
+  }
+}

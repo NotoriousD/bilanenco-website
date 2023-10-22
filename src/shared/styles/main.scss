@@ -1,5 +1,6 @@
 @import "fonts";
 @import "root";
+@import "default-styles";
 
 * {
     margin: 0;
@@ -11,4 +12,5 @@ body {
     font-family: 'Courier New Cyr', arial;
     background-color: var(--main-bg-color);
     overflow-x: hidden;
+    color: var(--main-text-white);
 }
