@@ -18,7 +18,7 @@
       "function": {
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/orders-502b673159306f4c4439-build.zip",
+          "s3Key": "amplify-builds/orders-353049534c647946452b-build.zip",
           "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
           "callbackUrl": "https://ssodwjoeyf.execute-api.eu-west-1.amazonaws.com/dev"
         },
@@ -32,7 +32,9 @@
         }
       },
       "api": {
-        "events": {}
+        "events": {},
+        "orders": {},
+        "status": {}
       },
       "storage": {
         "events": {},

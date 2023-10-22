@@ -2,10 +2,16 @@
   "lambdaLayers": [],
   "permissions": {
     "storage": {
-      "orders": [
+      "events": [
         "create",
         "read",
         "update"
+      ],
+      "orders": [
+        "create",
+        "read",
+        "update",
+        "delete"
       ]
     }
   },

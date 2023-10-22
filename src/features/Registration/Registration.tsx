@@ -1,18 +1,18 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Checkbox, FormControlLabel, FormLabel } from "@mui/material";
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+import { API } from 'aws-amplify';
 import React, { useMemo, useEffect, useState } from "react";
 import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
-import TextField from '@mui/material/TextField';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import { Checkbox, FormControlLabel, FormLabel } from "@mui/material";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { API } from 'aws-amplify';
 
-import { Portal } from "shared/ui/Portal";
-import { Loader } from "shared/ui/Loader";
 import { ErrorMessage } from "shared/ui/ErrorMessage";
+import { Loader } from "shared/ui/Loader";
+import { Portal } from "shared/ui/Portal";
 
 import css from './registration.module.scss';
 
@@ -29,6 +29,7 @@ export interface Package {
 interface Props {
   packages?: Package[];
   packageId: string;
+  productId?: string;
   onClose: () => void;
 }
 
@@ -36,45 +37,32 @@ export const schema = yup.object().shape({
   fullName: yup.string().required("Введіть ваше ПІБ"),
   email: yup.string().email('Email не валідний').required("Введіть email"),
   phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер (38099999999)'),
-  course_id: yup.string().required('Виберіть тариф'),
-  policy: yup.bool()
-  .oneOf([true], 'Підтвердити'),
+  // course_id: yup.string().required('Виберіть тариф'),
   subscribe: yup.bool()
-  .oneOf([true], 'Підтвердити')
+    .oneOf([true], 'Підтвердити')
 });
 
-
-export const Registration: React.FC<Props> = ({ packageId, packages = [], onClose }) => {
+export const Registration: React.FC<Props> = ({ packageId, packages = [], productId, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [isSubscribe, setSubscribe] = useState<boolean>(false);
-  const [isPolicy, setPolicy] = useState<boolean>(false);
-
-
-  const handleSubscribe = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSubscribe(event.target.checked);
-  };
-
-  const handlePolicy = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPolicy(event.target.checked);
-  };
-
 
   const { handleSubmit, formState: { errors }, control, register } = useForm({
     defaultValues: {
       fullName: '',
       phone: '',
       email: '',
-      policy: isPolicy,
-      subscribe: isSubscribe
+      subscribe: true
     },
     resolver: yupResolver(schema),
   });
 
   const handleSubmitForm = async (data: any) => {
     setIsSubmitting(true);
+    console.log(data);
     try {
       const response = await API.post('orders', '/orders', {
         body: {
+          product_type: 'events',
+          id: productId,
           ...data,
         }
       });
@@ -102,6 +90,8 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], onClos
       document.body.classList.remove('overflow');
     }
   }, []);
+
+  console.log(errors);
 
   return <Portal>
     <div className={css.root}>
@@ -172,7 +162,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], onClos
                 />
               )}
             </div>
-            {packages.length && <div className={css.row}>
+            {/* {packages.length && <div className={css.row}>
               <FormControl className={css.selectWrapper}>
                 <InputLabel className={css.selectLabel}>
                   Тариф
@@ -184,7 +174,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], onClos
                   disabled={isSubmitting}
                 >
                   {getEnumOptions.map(({ label, value }) => (
-                    <MenuItem value={value}>{label}</MenuItem>
+                    <MenuItem key={value} value={value}>{label}</MenuItem>
                   ))}
                 </Select>
               </FormControl>
@@ -194,47 +184,36 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], onClos
                 />
               )}
             </div>
-            }
+            } */}
             <div className={css.row}>
-              <FormControl>
-                <FormControlLabel 
-                    control={
-                      <Checkbox 
+              <Controller
+                name="subscribe"
+                control={control}
+                render={({ field }) => (
+                  <FormControl>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          {...field}
+                        />
+                      }
                       label="Підписатись на розсилку"
-                      checked={isSubscribe}
-                      onChange={handleSubscribe}
+                      className={css.checkboxLabel}
+                    />
+                    {errors?.subscribe && (
+                      <ErrorMessage
+                        message={String(errors?.subscribe.message)}
                       />
-                    }
-                    label="Підписатись на розсилку"
-                    className={css.checkboxLabel}
-                />
-                {errors?.subscribe && !isSubscribe && (
-                  <ErrorMessage
-                    message={String(errors?.subscribe.message)}
-                  />
+                    )}
+                  </FormControl>
                 )}
-              </FormControl>
-               
-            </div>
-            <div className={css.row}>
-              <FormControl>
-                <FormControlLabel 
-                    control={
-                      <Checkbox 
-                      checked={isPolicy}
-                      onChange={handlePolicy}
-                      label="Погоджуюсь з умовами політики конфіденційності"
-                      />
-                    }
-                    label="Погоджуюсь з умовами політики конфіденційності"
-                    className={css.checkboxLabel}
-                />
-                {errors?.policy && !isPolicy && (
+              />
+              {errors?.phone && (
                 <ErrorMessage
-                  message={String(errors?.policy.message)}
+                  message={String(errors?.phone.message)}
                 />
               )}
-              </FormControl>
+
             </div>
             <div className={css.btnWrapper}>
               <button className={css.button} type="submit">Перейти до оплати</button>

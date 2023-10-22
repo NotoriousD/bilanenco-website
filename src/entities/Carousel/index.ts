@@ -1,1 +1,1 @@
-export { Carousel } from './ui/Carousel'
+export { Carousel, type TCarouselItem, BannerType } from './ui/Carousel'

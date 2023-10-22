@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/events": {
-      "name": "/events",
-      "lambdaFunction": "events",
+    "/status": {
+      "name": "/status",
+      "lambdaFunction": "statuses",
       "permissions": {
         "setting": "open"
       }

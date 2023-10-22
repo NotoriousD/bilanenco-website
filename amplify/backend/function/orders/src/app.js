@@ -15,6 +15,9 @@ Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }
 /* Amplify Params - DO NOT EDIT
 	ENV
 	REGION
+	STORAGE_EVENTS_ARN
+	STORAGE_EVENTS_NAME
+	STORAGE_EVENTS_STREAMARN
 	STORAGE_ORDERS_ARN
 	STORAGE_ORDERS_NAME
 	STORAGE_ORDERS_STREAMARN
@@ -25,9 +28,6 @@ Licensed under the Apache License, Version 2.0 (the "License"). You may not use 
 or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
-
-
-
 
 const AWS = require('aws-sdk')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')

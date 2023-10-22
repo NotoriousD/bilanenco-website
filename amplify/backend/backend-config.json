@@ -9,7 +9,13 @@
           ],
           "category": "function",
           "resourceName": "events"
-        },
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "orders": {
+      "dependsOn": [
         {
           "attributes": [
             "Name",
@@ -17,7 +23,13 @@
           ],
           "category": "function",
           "resourceName": "orders"
-        },
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "status": {
+      "dependsOn": [
         {
           "attributes": [
             "Name",
@@ -51,6 +63,15 @@
     "orders": {
       "build": true,
       "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        },
         {
           "attributes": [
             "Name",

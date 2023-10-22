@@ -1,18 +1,17 @@
+import cn from "classnames";
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
 import { EffectFade } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import cn from "classnames";
 
+import { Button } from 'shared/ui/Button'
+import { Container } from 'shared/ui/Container';
 import css from './carousel.module.scss'
 
 import 'swiper/css'
 import 'swiper/css/effect-fade'
-import { Button } from 'shared/ui/Button'
 
-import { TCarouselItem } from './types'
-import { BannerType } from 'features/Banner/ui/Banner'
-import { Container } from 'shared/ui/Container';
+import { TCarouselItem, BannerType } from './types'
 
 interface Props {
     items: TCarouselItem[]
@@ -22,8 +21,8 @@ interface Props {
 
 export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
 
-    switch(type) {
-        case (BannerType.Carousel) :
+    switch (type) {
+        case (BannerType.Carousel):
             return (
                 <Swiper
                     modules={[EffectFade]}
@@ -38,8 +37,8 @@ export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
                 >
                     {items && items.map((item: TCarouselItem) => (
                         <SwiperSlide key={item.id}>
-                            {   
-                                item?.imgSource && 
+                            {
+                                item?.imgSource &&
                                 <Image src={item?.imgSource} className={css.image} alt='' />
                             }
                             <div>
@@ -51,19 +50,19 @@ export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
                     ))}
                 </Swiper>
             )
-        case(BannerType.Banner):
+        case (BannerType.Banner):
             return (
                 <div className={css.bannerWrapper}>
-                    <Image 
-                        src={items[0]?.imgSource} 
-                        className={cn(css.image,{[css.bigImage]: type === BannerType.Banner })} 
-                        alt='' 
+                    <Image
+                        src={items[0]?.imgSource}
+                        className={cn(css.image, { [css.bigImage]: type === BannerType.Banner })}
+                        alt=''
                     />
                     <div className={css.bannerContent}>
                         <Container>
                             <div className={css.bannerBox}>
-                                <h1 className={cn("h1-title",css.bannerTitle)}>
-                                <span>СЕЛФ-КОНТЕНТ</span>
+                                <h1 className={cn("h1-title", css.bannerTitle)}>
+                                    <span>СЕЛФ-КОНТЕНТ</span>
                                 </h1>
                                 <h2>Майстер-клас із самостійної зйомки </h2>
                                 <div className={css.bannerText}>
@@ -80,11 +79,11 @@ export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
                                         <h3>Що ви отримаєте?</h3>
                                         <ul>
                                             <li>Рекомендації по налаштуваннях камери телефону, обладнанню, зйомці, позуванню;</li>
-                                            
+
                                             <li>Секрети роботи та реалізації референсів 1:1,  дізнаєтеся, як створювати креативний контент, що впливає на вартість ваших зйомок;</li>
                                         </ul>
                                     </div>
-                                    
+
                                 </div>
                                 <Button onClick={handlerOpenModal}>Придбати за 700₴</Button>
                             </div>

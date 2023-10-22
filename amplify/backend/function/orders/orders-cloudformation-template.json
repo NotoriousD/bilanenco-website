@@ -31,6 +31,26 @@
     "secretsPathAmplifyAppId": {
       "Type": "String"
     },
+    "apiordersApiName": {
+      "Type": "String",
+      "Default": "apiordersApiName"
+    },
+    "apiordersApiId": {
+      "Type": "String",
+      "Default": "apiordersApiId"
+    },
+    "storageeventsName": {
+      "Type": "String",
+      "Default": "storageeventsName"
+    },
+    "storageeventsArn": {
+      "Type": "String",
+      "Default": "storageeventsArn"
+    },
+    "storageeventsStreamArn": {
+      "Type": "String",
+      "Default": "storageeventsStreamArn"
+    },
     "callbackUrl": {
       "Type": "String"
     }
@@ -118,6 +138,21 @@
                   "PAYMENT_TOKEN"
                 ]
               ]
+            },
+            "API_ORDERS_APINAME": {
+              "Ref": "apiordersApiName"
+            },
+            "API_ORDERS_APIID": {
+              "Ref": "apiordersApiId"
+            },
+            "STORAGE_EVENTS_NAME": {
+              "Ref": "storageeventsName"
+            },
+            "STORAGE_EVENTS_ARN": {
+              "Ref": "storageeventsArn"
+            },
+            "STORAGE_EVENTS_STREAMARN": {
+              "Ref": "storageeventsStreamArn"
             },
             "CALLBACK_URL": {
               "Ref": "callbackUrl"
@@ -302,6 +337,43 @@
                 "dynamodb:Update*",
                 "dynamodb:RestoreTable*",
                 "dynamodb:PartiQLUpdate"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageeventsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageeventsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate",
+                "dynamodb:Delete*",
+                "dynamodb:PartiQLDelete"
               ],
               "Resource": [
                 {

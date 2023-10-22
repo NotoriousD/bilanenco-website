@@ -6,3 +6,8 @@ export type TCarouselItem = {
   imgSource: string | StaticImport,
   content?: string
 }
+
+export enum BannerType {
+  Carousel = "carousel",
+  Banner = "banner"
+}
