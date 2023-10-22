@@ -22,7 +22,8 @@ export interface Package {
   price: number;
   benefits: string[];
   available_places: number;
-  policy: boolean
+  policy: boolean;
+  subscribe: boolean;
 }
 
 interface Props {
@@ -63,7 +64,8 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], onClos
       fullName: '',
       phone: '',
       email: '',
-      policy: isPolicy
+      policy: isPolicy,
+      subscribe: isSubscribe
     },
     resolver: yupResolver(schema),
   });
