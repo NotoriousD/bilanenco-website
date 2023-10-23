@@ -2,16 +2,17 @@ import React from "react"
 
 import { Carousel } from 'entities/Carousel'
 
-import { TCarouselItem, BannerType } from "entities/Carousel";
+import { TCarouselItem, BannerType } from "entities/Carousel"
 
-import mainImage from 'shared/assets/main.jpg';
+import eventMainImage from 'shared/assets/main-event.jpg'
+import mainImage from 'shared/assets/main.jpg'
 
 import css from './banner.module.scss'
 
 const mocks: TCarouselItem[] = [
     {
         id: "1",
-        imgSource: mainImage,
+        imgSource: eventMainImage,
         title: "text",
         content: "test"
     },
