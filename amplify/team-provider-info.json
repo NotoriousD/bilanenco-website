@@ -25,11 +25,11 @@
         },
         "events": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/events-71577765377758625039-build.zip"
+          "s3Key": "amplify-builds/events-63502b57376c65582b59-build.zip"
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/statuses-7139504832356d727269-build.zip"
+          "s3Key": "amplify-builds/statuses-57454850384a4e78584a-build.zip"
         }
       },
       "api": {
