@@ -53,11 +53,11 @@ export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
         case (BannerType.Banner):
             return (
                 <div className={css.bannerWrapper}>
-                    <Image
+                    {/* <Image
                         src={items[0]?.imgSource}
                         className={cn(css.image, { [css.bigImage]: type === BannerType.Banner })}
                         alt=''
-                    />
+                    /> */}
                     <div className={css.bannerContent}>
                         <Container>
                             <div className={css.bannerBox}>

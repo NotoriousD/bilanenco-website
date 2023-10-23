@@ -212,11 +212,6 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], contac
                   </FormControl>
                 )}
               />
-              {errors?.phone && (
-                <ErrorMessage
-                  message={String(errors?.phone.message)}
-                />
-              )}
             </div>
             <div className={css.text}>
               Натискаючи на &quot;Перейти до оплати&quot; я погоджуюсь на обробку персональних даних
