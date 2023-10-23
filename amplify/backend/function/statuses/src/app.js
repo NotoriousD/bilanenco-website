@@ -1,6 +1,15 @@
 /* Amplify Params - DO NOT EDIT
 	ENV
 	REGION
+	STORAGE_EVENTS_ARN
+	STORAGE_EVENTS_NAME
+	STORAGE_EVENTS_STREAMARN
+	STORAGE_ORDERS_ARN
+	STORAGE_ORDERS_NAME
+	STORAGE_ORDERS_STREAMARN
+Amplify Params - DO NOT EDIT *//* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
 	STORAGE_ORDERS_ARN
 	STORAGE_ORDERS_NAME
 	STORAGE_ORDERS_STREAMARN
@@ -23,7 +32,7 @@ const express = require('express')
 const { google } = require('googleapis')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
 
-const PACKAGES_TABLE_NAME = `packages-${process.env.ENV}`
+const EVENTS_TABLE_NAME = `events-${process.env.ENV}`
 const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`
 
 // declare a new express app
@@ -82,10 +91,10 @@ const updateCoursePackage = async (req, res, next) => {
     return;
   }
 
-  const coursePackage = await docClient.get({
-    TableName: PACKAGES_TABLE_NAME,
+  const product = await docClient.get({
+    TableName: EVENTS_TABLE_NAME,
     Key: {
-      id: order.Item.course_id,
+      id: order.Item.product_id,
     }
   }, (err, data) => {
     if(err) {
@@ -94,12 +103,15 @@ const updateCoursePackage = async (req, res, next) => {
     }
   }).promise();
 
-  if(Object.keys(coursePackage).length === 0) {
+  if(Object.keys(product).length === 0) {
     res.status(404).json({ message: 'Package doesnt exist' });
     return;
   }
   
-  if(req.body.status === 'failure' || req.body.status === 'reversed' || req.body.status === 'expired') {
+  if(
+    order.product_type === 'courses' &&
+    (req.body.status === 'failure' || req.body.status === 'reversed' || req.body.status === 'expired')
+  ) {
     try {
       await docClient.update({
         TableName: PACKAGES_TABLE_NAME,
@@ -126,14 +138,14 @@ const updateCoursePackage = async (req, res, next) => {
 
   req.details = {
     ...order.Item,
-    courseName: coursePackage.Item.name,
-    price: coursePackage.Item.price,
+    courseName: product.Item.name,
+    price: product.Item.price,
   };
 
   next();
 }
 
-app.post('/status', updateStatus, async (req, res) => {
+app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
   const { details } = req;
   if(req.body.status === 'success') {
     const auth = new google.auth.GoogleAuth({

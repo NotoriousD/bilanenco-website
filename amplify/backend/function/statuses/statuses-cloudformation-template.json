@@ -27,6 +27,21 @@
     "storageordersStreamArn": {
       "Type": "String",
       "Default": "storageordersStreamArn"
+    },
+    "storageeventsName": {
+      "Type": "String",
+      "Default": "storageeventsName"
+    },
+    "storageeventsArn": {
+      "Type": "String",
+      "Default": "storageeventsArn"
+    },
+    "storageeventsStreamArn": {
+      "Type": "String",
+      "Default": "storageeventsStreamArn"
+    },
+    "googleSheetsKey": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -90,6 +105,18 @@
             },
             "STORAGE_ORDERS_STREAMARN": {
               "Ref": "storageordersStreamArn"
+            },
+            "STORAGE_EVENTS_NAME": {
+              "Ref": "storageeventsName"
+            },
+            "STORAGE_EVENTS_ARN": {
+              "Ref": "storageeventsArn"
+            },
+            "STORAGE_EVENTS_STREAMARN": {
+              "Ref": "storageeventsStreamArn"
+            },
+            "GOOGLE_SHEETS_KEY": {
+              "Ref": "googleSheetsKey"
             }
           }
         },
@@ -201,6 +228,41 @@
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageeventsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageeventsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
             {
               "Effect": "Allow",
               "Action": [

@@ -58,7 +58,7 @@
     font-size: clamp(16px,1.042vw,18px);
     margin-bottom: clamp(40px,3.125vw,60px);
     h3{
-        font-size: clamp(16px,2.042vw,28px);
+        font-size: clamp(18px,2.042vw,28px);
         color: #ffd34b;
         font-weight: 400;
         line-height: 1.2em;
@@ -100,6 +100,12 @@
     span {
         font-weight: 400;
         color: var(--main-gold);
+        font-size: 20px;
+    }
+}
+
+.button {
+    @media screen and (max-width: 480px) {
         font-size: 20px;
     }
 }

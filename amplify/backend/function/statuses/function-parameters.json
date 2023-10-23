@@ -2,10 +2,21 @@
   "lambdaLayers": [],
   "permissions": {
     "storage": {
+      "events": [
+        "create",
+        "read",
+        "update"
+      ],
       "orders": [
         "read",
         "update"
       ]
     }
-  }
+  },
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "googleSheetsKey",
+      "environmentVariableName": "GOOGLE_SHEETS_KEY"
+    }
+  ]
 }

@@ -95,6 +95,15 @@
             "StreamArn"
           ],
           "category": "storage",
+          "resourceName": "events"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
           "resourceName": "orders"
         }
       ],
@@ -160,6 +169,14 @@
       ]
     },
     "AMPLIFY_function_statuses_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_googleSheetsKey": {
       "usedBy": [
         {
           "category": "function",
