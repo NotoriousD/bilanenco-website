@@ -7,6 +7,7 @@
   "dependencies": {
     "aws-sdk": "^2.1478.0",
     "aws-serverless-express": "^3.3.5",
+    "axios": "^1.5.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "googleapis": "^128.0.0"

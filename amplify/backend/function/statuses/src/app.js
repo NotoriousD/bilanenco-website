@@ -30,6 +30,7 @@ const awsServerlessExpressMiddleware = require('aws-serverless-express/middlewar
 const bodyParser = require('body-parser')
 const express = require('express')
 const { google } = require('googleapis')
+const { spCallback } =  require('./sendPulse')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
 
 const EVENTS_TABLE_NAME = `events-${process.env.ENV}`
@@ -148,6 +149,9 @@ const updateCoursePackage = async (req, res, next) => {
 app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
   const { details } = req;
   if(req.body.status === 'success') {
+    if(details.tContact_id) {
+      await spCallback(order.Item.tContact_id);
+    }
     const auth = new google.auth.GoogleAuth({
       keyFile: `keys-${process.env.ENV}.json`, //the key file
       scopes: ["https://www.googleapis.com/auth/spreadsheets"], 

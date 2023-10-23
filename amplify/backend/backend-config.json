@@ -168,6 +168,22 @@
         }
       ]
     },
+    "AMPLIFY_function_statuses_clientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_clientSecret": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
     "AMPLIFY_function_statuses_deploymentBucketName": {
       "usedBy": [
         {
@@ -185,6 +201,14 @@
       ]
     },
     "AMPLIFY_function_statuses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_sendPulseUrl": {
       "usedBy": [
         {
           "category": "function",

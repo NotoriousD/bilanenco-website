@@ -114,6 +114,7 @@ const createOrder = async (req, res, next) => {
       id: uuid.v4(),
       package_id: body.package_id || null,
       product_id: req.body.id,
+      tContact_id: req.body.contact_id,
       total_amount,
       invoice_id: null,
       order_status: statuses.pending,

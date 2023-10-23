@@ -17,20 +17,21 @@ import { Portal } from "shared/ui/Portal";
 import css from './registration.module.scss';
 
 export interface Package {
-  id: string;
-  name: string;
-  price: number;
-  benefits: string[];
-  available_places: number;
-  policy: boolean;
-  subscribe: boolean;
+  id: string
+  name: string
+  price: number
+  benefits: string[]
+  available_places: number
+  policy: boolean
+  subscribe: boolean
 }
 
 interface Props {
-  packages?: Package[];
-  packageId: string;
-  productId?: string;
-  onClose: () => void;
+  packages?: Package[]
+  packageId: string
+  productId?: string
+  contactId?: string | null
+  onClose: () => void
 }
 
 export const schema = yup.object().shape({
@@ -41,7 +42,7 @@ export const schema = yup.object().shape({
   subscribe: yup.bool()
 });
 
-export const Registration: React.FC<Props> = ({ packageId, packages = [], productId, onClose }) => {
+export const Registration: React.FC<Props> = ({ packageId, packages = [], contactId = null, productId, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const { handleSubmit, formState: { errors }, control, register } = useForm({
@@ -63,6 +64,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], produc
           currency: 'uah',
           id: productId,
           created_date: new Date(),
+          contact_id: contactId,
           ...data,
         }
       });

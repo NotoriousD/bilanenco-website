@@ -42,6 +42,15 @@
     },
     "googleSheetsKey": {
       "Type": "String"
+    },
+    "clientId": {
+      "Type": "String"
+    },
+    "clientSecret": {
+      "Type": "String"
+    },
+    "sendPulseUrl": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -117,6 +126,15 @@
             },
             "GOOGLE_SHEETS_KEY": {
               "Ref": "googleSheetsKey"
+            },
+            "CLIENT_ID": {
+              "Ref": "clientId"
+            },
+            "CLIENT_SECRET": {
+              "Ref": "clientSecret"
+            },
+            "SEND_PULSE_URL": {
+              "Ref": "sendPulseUrl"
             }
           }
         },
