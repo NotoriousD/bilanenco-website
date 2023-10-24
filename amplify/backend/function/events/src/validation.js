@@ -7,4 +7,5 @@ exports.validation = Joi.object({
   date: Joi.string().required(),
   description: Joi.string().required(),
   currency: Joi.string(),
+  id: Joi.string().required()
 });

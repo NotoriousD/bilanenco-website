@@ -50,22 +50,23 @@ app.get('/events', async (req, res) => {
       res.status(404).json(err)
       return
     }
-    res.status(200).json(data)
+    res.status(200).json({ data: data.Items })
   })
 });
 
 app.get('/events/:id', async (req, res) => {
+  console.log(req.params);
   await docClient.get({
     TableName: EVENTS_TABLE_NAME,
     Key: {
       id: req.params.id,
-    }
+    },
   }, (err, data) => {
     if(err) {
       res.status(404).send({ message: 'Event was not found' })
       return
     }
-    res.status(200).json(data)
+    res.status(200).json({ data: data.Item })
   })
 });
 
@@ -83,7 +84,6 @@ app.post('/events', function(req, res) {
   }
 
   const newEvent = {
-    id: uuid.v4(),
     ...req.body
   }
 

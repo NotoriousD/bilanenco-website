@@ -8,6 +8,7 @@
         "update"
       ],
       "orders": [
+        "create",
         "read",
         "update"
       ]
