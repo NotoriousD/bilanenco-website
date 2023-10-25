@@ -1,5 +1,19 @@
 {
   "api": {
+    "emails": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "email"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "events": {
       "dependsOn": [
         {
@@ -44,6 +58,11 @@
     }
   },
   "function": {
+    "email": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "events": {
       "build": true,
       "dependsOn": [
@@ -118,6 +137,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_email_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "email"
+        }
+      ]
+    },
+    "AMPLIFY_function_email_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "email"
+        }
+      ]
+    },
     "AMPLIFY_function_events_deploymentBucketName": {
       "usedBy": [
         {

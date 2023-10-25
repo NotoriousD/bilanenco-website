@@ -16,10 +16,6 @@
   },
   "environmentVariableList": [
     {
-      "cloudFormationParameterName": "googleSheetsKey",
-      "environmentVariableName": "GOOGLE_SHEETS_KEY"
-    },
-    {
       "cloudFormationParameterName": "clientId",
       "environmentVariableName": "CLIENT_ID"
     },
@@ -30,6 +26,10 @@
     {
       "cloudFormationParameterName": "sendPulseUrl",
       "environmentVariableName": "SEND_PULSE_URL"
+    },
+    {
+      "cloudFormationParameterName": "googleSheetsKey",
+      "environmentVariableName": "GOOGLE_SHEETS_KEY"
     }
   ]
 }

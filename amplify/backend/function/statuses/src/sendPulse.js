@@ -12,8 +12,6 @@ exports.spCallback = async (contactId) => {
             client_secret: process.env.CLIENT_SECRET
         });
 
-        console.log("TOKEN", data);
-
         if (data.access_token) {
             await httpClient.post('/telegram/flows/run', {
                 contact_id: contactId,

@@ -1,0 +1,10 @@
+[
+  {
+    "Action": [
+      "ses:SendEmail",
+      "ses:SendRawEmail",
+      "ses:CreateTemplate"
+    ],
+    "Resource": ["*"]
+  }
+]

@@ -10,5 +10,5 @@ exports.validation = Joi.object({
   subscribe: Joi.boolean().required(),
   currency: Joi.string().required(),
   created_date: Joi.string().required(),
-  contact_id: Joi.string(),
+  contact_id: Joi.string().allow(null),
 });

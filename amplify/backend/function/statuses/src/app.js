@@ -41,6 +41,7 @@ const express = require('express')
 const { google } = require('googleapis')
 const { spCallback } =  require('./sendPulse')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
+const sesClient = new AWS.SES({ apiVersion: '2010-12-01' })
 
 const EVENTS_TABLE_NAME = `events-${process.env.ENV}`
 const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`
@@ -159,8 +160,23 @@ app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
   const { details } = req;
   if(req.body.status === 'success') {
     if(details.tContact_id) {
-      await spCallback(order.Item.tContact_id);
+      await spCallback(details.tContact_id);
     }
+    const params = {
+      Destination: {
+        ToAddresses: [ details.email ],
+      },
+      Source: 'olexandra.bilanenko@gmail.com',
+      Template: 'test',
+      TemplateData: JSON.stringify({}),
+    }
+    await sesClient.sendTemplatedEmail(params, (err, data) => {
+      if(err) {
+        res.status(404).json(err)
+        console.log(err);
+      }
+      res.status(200).json(data)
+    })
     const auth = new google.auth.GoogleAuth({
       keyFile: `keys-${process.env.ENV}.json`, //the key file
       scopes: ["https://www.googleapis.com/auth/spreadsheets"], 

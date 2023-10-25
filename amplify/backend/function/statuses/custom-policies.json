@@ -1,6 +1,8 @@
 [
   {
-    "Action": [],
-    "Resource": []
+    "Action": [
+      "ses:SendTemplatedEmail"
+    ],
+    "Resource": ["*"]
   }
 ]

@@ -10,18 +10,23 @@ import { Banner } from "features/Banner"
 import { BannerType } from "entities/Carousel"
 
 const Home: NextPage = () => {
-    const fetchPackages = useCallback(async () => {
-        try {
-            const response = await API.get('events', '/events', {});
-            console.log(response)
-        } catch (e) {
-            console.log(e);
-        }
-    }, []);
+    // const fetchPackages = useCallback(async () => {
+    //     try {
+    //         const response = await API.post('emails', '/send', {
+    //             body: {
+    //                 name: 'test',
+    //                 address: 'dkruhlikov@gmail.com'
+    //             }
+    //         });
+    //         console.log(response)
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
+    // }, []);
 
-    useEffect(() => {
-        fetchPackages();
-    }, [fetchPackages]);
+    // useEffect(() => {
+    //     fetchPackages();
+    // }, [fetchPackages]);
 
     return (
         <>

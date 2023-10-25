@@ -16,41 +16,21 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageordersName": {
+    "apiemailApiName": {
       "Type": "String",
-      "Default": "storageordersName"
+      "Default": "apiemailApiName"
     },
-    "storageordersArn": {
+    "apiemailApiId": {
       "Type": "String",
-      "Default": "storageordersArn"
+      "Default": "apiemailApiId"
     },
-    "storageordersStreamArn": {
+    "apiemailsApiName": {
       "Type": "String",
-      "Default": "storageordersStreamArn"
+      "Default": "apiemailsApiName"
     },
-    "storageeventsName": {
+    "apiemailsApiId": {
       "Type": "String",
-      "Default": "storageeventsName"
-    },
-    "storageeventsArn": {
-      "Type": "String",
-      "Default": "storageeventsArn"
-    },
-    "storageeventsStreamArn": {
-      "Type": "String",
-      "Default": "storageeventsStreamArn"
-    },
-    "clientId": {
-      "Type": "String"
-    },
-    "clientSecret": {
-      "Type": "String"
-    },
-    "sendPulseUrl": {
-      "Type": "String"
-    },
-    "googleSheetsKey": {
-      "Type": "String"
+      "Default": "apiemailsApiId"
     }
   },
   "Conditions": {
@@ -83,12 +63,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "statuses",
+            "email",
             {
               "Fn::Join": [
                 "",
                 [
-                  "statuses",
+                  "email",
                   "-",
                   {
                     "Ref": "env"
@@ -106,35 +86,17 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_ORDERS_NAME": {
-              "Ref": "storageordersName"
+            "API_EMAIL_APINAME": {
+              "Ref": "apiemailApiName"
             },
-            "STORAGE_ORDERS_ARN": {
-              "Ref": "storageordersArn"
+            "API_EMAIL_APIID": {
+              "Ref": "apiemailApiId"
             },
-            "STORAGE_ORDERS_STREAMARN": {
-              "Ref": "storageordersStreamArn"
+            "API_EMAILS_APINAME": {
+              "Ref": "apiemailsApiName"
             },
-            "STORAGE_EVENTS_NAME": {
-              "Ref": "storageeventsName"
-            },
-            "STORAGE_EVENTS_ARN": {
-              "Ref": "storageeventsArn"
-            },
-            "STORAGE_EVENTS_STREAMARN": {
-              "Ref": "storageeventsStreamArn"
-            },
-            "CLIENT_ID": {
-              "Ref": "clientId"
-            },
-            "CLIENT_SECRET": {
-              "Ref": "clientSecret"
-            },
-            "SEND_PULSE_URL": {
-              "Ref": "sendPulseUrl"
-            },
-            "GOOGLE_SHEETS_KEY": {
-              "Ref": "googleSheetsKey"
+            "API_EMAILS_APIID": {
+              "Ref": "apiemailsApiId"
             }
           }
         },
@@ -155,12 +117,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "bilanencowebsiteLambdaRolec5b2f66b",
+            "bilanencowebsiteLambdaRolecdcc6267",
             {
               "Fn::Join": [
                 "",
                 [
-                  "bilanencowebsiteLambdaRolec5b2f66b",
+                  "bilanencowebsiteLambdaRolecdcc6267",
                   "-",
                   {
                     "Ref": "env"
@@ -249,68 +211,28 @@
             {
               "Effect": "Allow",
               "Action": [
-                "dynamodb:Put*",
-                "dynamodb:Create*",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PartiQLInsert",
-                "dynamodb:Get*",
-                "dynamodb:BatchGetItem",
-                "dynamodb:List*",
-                "dynamodb:Describe*",
-                "dynamodb:Scan",
-                "dynamodb:Query",
-                "dynamodb:PartiQLSelect",
-                "dynamodb:Update*",
-                "dynamodb:RestoreTable*",
-                "dynamodb:PartiQLUpdate"
+                "apigateway:POST",
+                "apigateway:PUT",
+                "apigateway:GET",
+                "apigateway:HEAD",
+                "apigateway:OPTIONS",
+                "apigateway:PATCH",
+                "apigateway:DELETE"
               ],
               "Resource": [
                 {
-                  "Ref": "storageeventsArn"
-                },
-                {
                   "Fn::Join": [
-                    "/",
+                    "",
                     [
+                      "arn:aws:apigateway:",
                       {
-                        "Ref": "storageeventsArn"
+                        "Ref": "AWS::Region"
                       },
-                      "index/*"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:Put*",
-                "dynamodb:Create*",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PartiQLInsert",
-                "dynamodb:Get*",
-                "dynamodb:BatchGetItem",
-                "dynamodb:List*",
-                "dynamodb:Describe*",
-                "dynamodb:Scan",
-                "dynamodb:Query",
-                "dynamodb:PartiQLSelect",
-                "dynamodb:Update*",
-                "dynamodb:RestoreTable*",
-                "dynamodb:PartiQLUpdate"
-              ],
-              "Resource": [
-                {
-                  "Ref": "storageordersArn"
-                },
-                {
-                  "Fn::Join": [
-                    "/",
-                    [
+                      "::/restapis/",
                       {
-                        "Ref": "storageordersArn"
+                        "Ref": "apiemailsApiName"
                       },
-                      "index/*"
+                      "/*"
                     ]
                   ]
                 }
@@ -329,7 +251,9 @@
           "Statement": [
             {
               "Action": [
-                "ses:SendTemplatedEmail"
+                "ses:SendEmail",
+                "ses:SendRawEmail",
+                "ses:CreateTemplate"
               ],
               "Resource": [
                 "*"
