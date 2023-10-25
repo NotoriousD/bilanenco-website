@@ -1,10 +1,5 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "emails": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
     "events": {
       "ApiId": "string",
       "ApiName": "string",
@@ -22,13 +17,6 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "email": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
     "events": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -49,18 +37,6 @@ export type AmplifyDependentResourcesAttributes = {
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
-    }
-  },
-  "hosting": {
-    "S3AndCloudFront": {
-      "CloudFrontDistributionID": "string",
-      "CloudFrontDomainName": "string",
-      "CloudFrontOriginAccessIdentity": "string",
-      "CloudFrontSecureURL": "string",
-      "HostingBucketName": "string",
-      "Region": "string",
-      "S3BucketSecureURL": "string",
-      "WebsiteURL": "string"
     }
   },
   "storage": {

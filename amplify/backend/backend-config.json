@@ -137,22 +137,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_email_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "email"
-        }
-      ]
-    },
-    "AMPLIFY_function_email_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "email"
-        }
-      ]
-    },
     "AMPLIFY_function_events_deploymentBucketName": {
       "usedBy": [
         {

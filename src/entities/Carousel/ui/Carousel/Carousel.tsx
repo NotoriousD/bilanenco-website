@@ -84,7 +84,7 @@ export const Carousel: FC<Props> = ({ items, type, handlerOpenModal }) => {
                                         </ul>
                                     </div>
                                 </div>
-                                <Button className={css.button} onClick={handlerOpenModal}>Придбати за 799 грн</Button>
+                                <Button className={css.button} onClick={handlerOpenModal}>Придбати за 899 грн</Button>
                             </div>
                         </Container>
                     </div>

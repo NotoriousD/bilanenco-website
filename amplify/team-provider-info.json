@@ -18,23 +18,24 @@
       "function": {
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/orders-354a376635574d584e7a-build.zip",
+          "s3Key": "amplify-builds/orders-496e62344b6d3131556a-build.zip",
           "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://m3ofhl2wsh.execute-api.eu-west-1.amazonaws.com/dev"
         },
         "events": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/events-63502b57376c65582b59-build.zip"
+          "s3Key": "amplify-builds/events-6442572f43396d44544b-build.zip"
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/statuses-307538456e6e30524d55-build.zip",
+          "s3Key": "amplify-builds/statuses-614c366c2b44735a7275-build.zip",
           "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com"
-        }
+        },
+        "email": {}
       },
       "api": {
         "events": {},

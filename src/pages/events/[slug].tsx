@@ -46,8 +46,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
     const event = await API.get('events', `/events`, {})
 
-    console.log(event);
-
     if (!event.data) {
         return {
             notFound: true,
