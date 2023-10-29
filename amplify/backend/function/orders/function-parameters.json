@@ -12,6 +12,10 @@
         "read",
         "update",
         "delete"
+      ],
+      "courses": [
+        "read",
+        "update"
       ]
     }
   },

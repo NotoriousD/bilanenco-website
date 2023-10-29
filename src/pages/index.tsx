@@ -33,7 +33,7 @@ const Home: NextPage = () => {
             <Head>
                 <title>Home</title>
             </Head>
-            <Banner type={BannerType.Carousel} />
+            <Banner handlerOpenModal={() => { }} type={BannerType.Carousel} />
             <ProductList title="Івенти" list={mockProducts} />
             <ProductList title="Послуги" list={mockProducts} />
             <ProductList title="Курси" list={mockProducts} />

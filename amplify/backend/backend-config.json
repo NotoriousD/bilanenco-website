@@ -1,5 +1,19 @@
 {
   "api": {
+    "courses": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "courses"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "emails": {
       "dependsOn": [
         {
@@ -58,6 +72,22 @@
     }
   },
   "function": {
+    "courses": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "courses"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "email": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -99,6 +129,15 @@
           ],
           "category": "storage",
           "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "courses"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -124,6 +163,15 @@
           ],
           "category": "storage",
           "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "courses"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -137,6 +185,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_courses_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "courses"
+        }
+      ]
+    },
+    "AMPLIFY_function_courses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "courses"
+        }
+      ]
+    },
     "AMPLIFY_function_email_deploymentBucketName": {
       "usedBy": [
         {
@@ -259,11 +323,19 @@
     }
   },
   "storage": {
+    "courses": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
     "events": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
     "orders": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "presales": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }

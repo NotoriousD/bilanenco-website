@@ -1,0 +1,10 @@
+{
+  "resourceName": "presales",
+  "tableName": "presales",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

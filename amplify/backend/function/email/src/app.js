@@ -33,6 +33,35 @@ app.use(function(req, res, next) {
 });
 
 app.post('/emails', function(req, res) {
+  const { name, emails } = req.body
+  const { error } = validationSend.validate(req.body)
+
+  if(error) {
+    res.status(404).json(error)
+    return;
+  }
+
+  const params = {
+    Destinations: [{
+      Destination: {
+        ToAddresses: emails,
+      }
+    }],
+    Source: 'olexandra.bilanenko@gmail.com',
+    Template: name,
+    DefaultTemplateData: JSON.stringify({}),
+  }
+
+  sesClient.sendBulkTemplatedEmail(params, (err, data) => {
+    if(err) {
+      res.status(404).json(err)
+      return
+    }
+    res.status(200).json(data)
+  })
+});
+
+app.get('/emails', function(req, res) {
   const { name, subject } = req.body
   const { error } = validationCreate.validate(req.body)
 
@@ -877,32 +906,6 @@ app.post('/emails', function(req, res) {
   }
 
   sesClient.createTemplate(params, (err, data) => {
-    if(err) {
-      res.status(404).json(err)
-      return
-    }
-    res.status(200).json(data)
-  })
-});
-
-app.post('/send', function(req, res) {
-  const { name, address } = req.body
-  const { error } = validationSend.validate(req.body)
-
-  if(error) {
-    res.status(404).json(error)
-    return;
-  }
-
-  const params = {
-    Destination: {
-      ToAddresses: [ address ],
-    },
-    Source: 'bilanenko.olexandra@gmail.com',
-    Template: name,
-  }
-
-  sesClient.sendEmail(params, (err, data) => {
     if(err) {
       res.status(404).json(err)
       return

@@ -1,5 +1,10 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
+    "courses": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
     "emails": {
       "ApiId": "string",
       "ApiName": "string",
@@ -22,6 +27,13 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "courses": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "email": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -64,6 +76,14 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
+    "courses": {
+      "Arn": "string",
+      "Name": "string",
+      "PartitionKeyName": "string",
+      "PartitionKeyType": "string",
+      "Region": "string",
+      "StreamArn": "string"
+    },
     "events": {
       "Arn": "string",
       "Name": "string",

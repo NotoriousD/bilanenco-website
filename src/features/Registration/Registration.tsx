@@ -1,55 +1,65 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Checkbox, FormControlLabel, FormLabel } from "@mui/material";
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
-import { API } from 'aws-amplify';
-import React, { useMemo, useEffect, useState } from "react";
-import { useForm, Controller } from 'react-hook-form';
-import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Checkbox, FormControlLabel, FormLabel } from "@mui/material"
+import FormControl from '@mui/material/FormControl'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import TextField from '@mui/material/TextField'
+import { API } from 'aws-amplify'
+import React, { useMemo, useEffect, useState } from "react"
+import { useForm, Controller } from 'react-hook-form'
+import * as yup from 'yup'
 
-import { ErrorMessage } from "shared/ui/ErrorMessage";
-import { Loader } from "shared/ui/Loader";
-import { Portal } from "shared/ui/Portal";
+import { Package } from 'entities/Courses'
 
-import css from './registration.module.scss';
+import { Currencies } from 'shared/ui/Currencies'
+import { ErrorMessage } from "shared/ui/ErrorMessage"
+import { Loader } from "shared/ui/Loader"
+import { Portal } from "shared/ui/Portal"
 
-export interface Package {
-  id: string
-  name: string
-  price: number
-  benefits: string[]
-  available_places: number
-  policy: boolean
-  subscribe: boolean
-}
+import css from './registration.module.scss'
 
 interface Props {
   packages?: Package[]
-  packageId: string
+  packageId?: string | null
   productId?: string
   contactId?: string | null
+  productType: 'events' | 'courses'
+  currency: Currencies
+  funnel?: string | null
   onClose: () => void
 }
 
 export const schema = yup.object().shape({
+  product_type: yup.string().required(),
   fullName: yup.string().required("Введіть ваше ПІБ"),
   email: yup.string().email('Email не валідний').required("Введіть email"),
   phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер (38099999999)'),
-  // course_id: yup.string().required('Виберіть тариф'),
+  package_id: yup.string().nullable().when('product_type', ([product_type]) => {
+    return product_type === 'events' ? yup.string().nullable() : yup.string().required('Виберіть тариф')
+  }),
   subscribe: yup.bool()
 });
 
-export const Registration: React.FC<Props> = ({ packageId, packages = [], contactId = null, productId, onClose }) => {
+export const Registration: React.FC<Props> = ({
+  packageId = null,
+  packages = [],
+  productType,
+  contactId = null,
+  productId,
+  currency,
+  funnel = null,
+  onClose
+}) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const { handleSubmit, formState: { errors }, control, register } = useForm({
     defaultValues: {
+      product_type: productType,
       fullName: '',
       phone: '',
       email: '',
+      package_id: packageId,
       subscribe: true
     },
     resolver: yupResolver(schema),
@@ -60,11 +70,12 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], contac
     try {
       const response = await API.post('orders', '/orders', {
         body: {
-          product_type: 'events',
-          currency: 'uah',
+          product_type: productType,
+          currency,
           id: productId,
           created_date: new Date(),
           contact_id: contactId,
+          funnel,
           ...data,
         }
       });
@@ -94,7 +105,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], contac
     }
   }, []);
 
-  console.log(errors);
+  console.log(packageId);
 
   return <Portal>
     <div className={css.root}>
@@ -165,15 +176,16 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], contac
                 />
               )}
             </div>
-            {/* {packages.length && <div className={css.row}>
+            {packages.length && productType === 'courses' && <div className={css.row}>
               <FormControl className={css.selectWrapper}>
                 <InputLabel className={css.selectLabel}>
                   Тариф
                 </InputLabel>
                 <Select
-                  {...register('course_id')}
+                  {...register('package_id')}
                   className={css.select}
                   label="Тариф"
+                  defaultValue={packageId}
                   disabled={isSubmitting}
                 >
                   {getEnumOptions.map(({ label, value }) => (
@@ -181,13 +193,13 @@ export const Registration: React.FC<Props> = ({ packageId, packages = [], contac
                   ))}
                 </Select>
               </FormControl>
-              {errors?.course_id && (
+              {errors?.package_id && (
                 <ErrorMessage
-                  message={String(errors?.course_id.message)}
+                  message={String(errors?.package_id.message)}
                 />
               )}
             </div>
-            } */}
+            }
             <div className={css.row}>
               <Controller
                 name="subscribe"

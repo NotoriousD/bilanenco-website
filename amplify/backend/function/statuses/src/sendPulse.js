@@ -21,6 +21,7 @@ exports.spCallback = async (contactId) => {
                     'Authorization': `Bearer ${data.access_token}` 
                 }
             })
+            console.log('sended');
         }
     } catch(err) {
         console.log(err);

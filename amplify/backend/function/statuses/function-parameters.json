@@ -11,6 +11,10 @@
         "create",
         "read",
         "update"
+      ],
+      "courses": [
+        "read",
+        "update"
       ]
     }
   },

@@ -1,4 +1,16 @@
-/*
+/* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_COURSES_ARN
+	STORAGE_COURSES_NAME
+	STORAGE_COURSES_STREAMARN
+	STORAGE_EVENTS_ARN
+	STORAGE_EVENTS_NAME
+	STORAGE_EVENTS_STREAMARN
+	STORAGE_ORDERS_ARN
+	STORAGE_ORDERS_NAME
+	STORAGE_ORDERS_STREAMARN
+Amplify Params - DO NOT EDIT *//*
 Use the following code to retrieve configured secrets from SSM:
 
 const aws = require('aws-sdk');
@@ -107,7 +119,7 @@ const createOrder = async (req, res, next) => {
   }
 
   try {
-    let total_amount = getProductPriceByCurrency(body.currency, req.price);
+    let total_amount = getProductPriceByCurrency(body.currency, req.price, body.funnel, body.product_type);
 
     const newOrder = {
       ...req.body,

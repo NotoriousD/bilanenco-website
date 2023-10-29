@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/courses": {
+      "name": "/courses",
+      "lambdaFunction": "courses",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
