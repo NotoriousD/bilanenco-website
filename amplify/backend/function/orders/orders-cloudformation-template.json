@@ -63,6 +63,18 @@
       "Type": "String",
       "Default": "storagecoursesStreamArn"
     },
+    "storagepresalesName": {
+      "Type": "String",
+      "Default": "storagepresalesName"
+    },
+    "storagepresalesArn": {
+      "Type": "String",
+      "Default": "storagepresalesArn"
+    },
+    "storagepresalesStreamArn": {
+      "Type": "String",
+      "Default": "storagepresalesStreamArn"
+    },
     "paymentUrl": {
       "Type": "String"
     },
@@ -177,6 +189,15 @@
             },
             "STORAGE_COURSES_STREAMARN": {
               "Ref": "storagecoursesStreamArn"
+            },
+            "STORAGE_PRESALES_NAME": {
+              "Ref": "storagepresalesName"
+            },
+            "STORAGE_PRESALES_ARN": {
+              "Ref": "storagepresalesArn"
+            },
+            "STORAGE_PRESALES_STREAMARN": {
+              "Ref": "storagepresalesStreamArn"
             },
             "PAYMENT_URL": {
               "Ref": "paymentUrl"
@@ -443,6 +464,43 @@
                     [
                       {
                         "Ref": "storagecoursesArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate",
+                "dynamodb:Delete*",
+                "dynamodb:PartiQLDelete"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagepresalesArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storagepresalesArn"
                       },
                       "index/*"
                     ]

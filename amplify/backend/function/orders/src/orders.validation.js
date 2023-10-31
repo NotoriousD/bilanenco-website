@@ -9,7 +9,6 @@ exports.validation = Joi.object({
   phone: Joi.string().required(),
   subscribe: Joi.boolean().required(),
   currency: Joi.string().required(),
-  created_date: Joi.string().required(),
   contact_id: Joi.string().allow(null),
   funnel: Joi.string().allow(null),
 });

@@ -73,7 +73,6 @@ export const Registration: React.FC<Props> = ({
           product_type: productType,
           currency,
           id: productId,
-          created_date: new Date(),
           contact_id: contactId,
           funnel,
           ...data,

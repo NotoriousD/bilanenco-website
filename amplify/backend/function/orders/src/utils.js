@@ -12,6 +12,11 @@ exports.productTypes = {
     others: 'others'
 }
 
+exports.orderTypes = {
+    full: 'FULL',
+    presale: 'PRESALE'
+}
+
 exports.productNames = {
     [this.productTypes.course]: 'Курс',
     [this.productTypes.event]: 'Івент',

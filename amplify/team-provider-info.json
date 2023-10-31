@@ -67,7 +67,7 @@
         },
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/orders-6e794b6b736974673969-build.zip",
+          "s3Key": "amplify-builds/orders-724b5172565441443066-build.zip",
           "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://ensayco35g.execute-api.eu-west-1.amazonaws.com/stage"
@@ -99,7 +99,8 @@
       "storage": {
         "events": {},
         "orders": {},
-        "courses": {}
+        "courses": {},
+        "presales": {}
       },
       "hosting": {
         "S3AndCloudFront": {}

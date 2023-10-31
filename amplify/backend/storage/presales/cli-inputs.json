@@ -6,5 +6,7 @@
     "fieldType": "string"
   },
   "gsi": [],
-  "triggerFunctions": []
+  "triggerFunctions": [
+    "orders"
+  ]
 }
