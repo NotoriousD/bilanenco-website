@@ -5,7 +5,7 @@ import { SingleCarousel } from "features/SingleCarousel";
 import { IntensiveCard, IntensiveCardProps } from "entities/IntensiveCard";
 import { Container } from 'shared/ui/Container'
 
-import css from './intensive.module.scss'
+import css from './Intensive.module.scss'
 interface Props {
     list: IntensiveCardProps[]
 }
