@@ -23,3 +23,24 @@
     display: inline-block;
   }
 }
+
+.single-swiper{
+  .swiper-pagination.swiper-pagination-bullets{
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    height: auto;
+    line-height: 1em;
+  }
+  .swiper-pagination-bullet{
+    background-color: var(--main-text-white);
+    opacity: 1;
+    width: 16px;
+    height: 16px;
+    margin: 0 8px!important;
+  }
+  .swiper-pagination-bullet-active{
+    background-color: var(--main-gold);
+  }
+}
