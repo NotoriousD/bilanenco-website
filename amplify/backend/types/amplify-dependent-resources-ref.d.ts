@@ -1,46 +1,5 @@
 export type AmplifyDependentResourcesAttributes = {
-  "api": {
-    "courses": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
-    "emails": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
-    "events": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
-    "orders": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
-    "status": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    }
-  },
   "function": {
-    "courses": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "email": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
     "events": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

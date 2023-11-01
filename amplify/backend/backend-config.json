@@ -208,38 +208,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_courses_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "courses"
-        }
-      ]
-    },
-    "AMPLIFY_function_courses_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "courses"
-        }
-      ]
-    },
-    "AMPLIFY_function_email_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "email"
-        }
-      ]
-    },
-    "AMPLIFY_function_email_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "email"
-        }
-      ]
-    },
     "AMPLIFY_function_events_deploymentBucketName": {
       "usedBy": [
         {
@@ -293,22 +261,6 @@
         {
           "category": "function",
           "resourceName": "orders"
-        }
-      ]
-    },
-    "AMPLIFY_function_returnPresalePlaces_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "returnPresalePlaces"
-        }
-      ]
-    },
-    "AMPLIFY_function_returnPresalePlaces_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "returnPresalePlaces"
         }
       ]
     },
