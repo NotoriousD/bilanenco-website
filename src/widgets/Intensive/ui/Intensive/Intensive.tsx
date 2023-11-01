@@ -14,7 +14,7 @@ export const Intensive: FC<Props> = ({ list }) => {
     return (
         <div className={css.root}>
             <Container>
-                <SingleCarousel items={list} renderItem={(item: IntensiveCardProps) => <IntensiveCard {...item}/>} />
+                <SingleCarousel items={list} renderItem={(item: IntensiveCardProps) => <IntensiveCard {...item} />} />
             </Container>
         </div>
     )
