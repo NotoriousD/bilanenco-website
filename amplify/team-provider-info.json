@@ -63,5 +63,54 @@
         "presales": {}
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bilanencowebsite-prod-234734-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-prod-234734-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-prod-234734-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
+      "UnauthRoleName": "amplify-bilanencowebsite-prod-234734-unauthRole",
+      "StackName": "amplify-bilanencowebsite-prod-234734",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-prod-234734/a74350d0-7908-11ee-bdd0-0a6bcc6dd84f",
+      "AmplifyAppId": "d2gkohmkzhk22d"
+    },
+    "categories": {
+      "function": {
+        "courses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/courses-55594539434c537a6650-build.zip"
+        },
+        "email": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/email-58514f796f6c62627370-build.zip"
+        },
+        "events": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/events-6442572f43396d44544b-build.zip"
+        },
+        "orders": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/orders-6f4b2f4f4e4834747245-build.zip",
+          "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
+          "paymentUrl": "https://api.monobank.ua",
+          "callbackUrl": "https://m3ofhl2wsh.execute-api.eu-west-1.amazonaws.com/dev"
+        },
+        "returnPresalePlaces": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/returnPresalePlaces-323274536d6145646573-build.zip"
+        },
+        "statuses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/statuses-726935345337686b4c34-build.zip",
+          "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
+          "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
+          "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
+          "sendPulseUrl": "https://api.sendpulse.com"
+        },
+        "presales": {}
+      }
+    }
   }
 }
