@@ -27,7 +27,7 @@ exports.productNames = {
 const funnels = {
     ['master_class']: {
         type: this.productTypes.course,
-        discount: 20,
+        discount: 15,
     }
 }
 
@@ -39,7 +39,8 @@ const currencies = {
 exports.getProductPriceByCurrency = (currency, price, funnel = null, productType) => {
     let total = price;
     if(funnel && productType === funnels[funnel]?.type) {
-        total -= funnels[funnel]?.discount;
+        const rate = price * (funnels[funnel]?.discount / 100)
+        total -= rate;
     }
     if(currency === currencies.uah) return total * 100
     if(currency === currencies.usd) return Math.floor(total * 37.4406) * 100

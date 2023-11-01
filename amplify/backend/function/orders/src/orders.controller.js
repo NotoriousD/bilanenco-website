@@ -1,15 +1,30 @@
 const AWS = require('aws-sdk')
-const uuid = require('uuid');
-const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
-const { monobankCreateInvoice } = require('./monobank.service')
-const { validation } = require('./orders.validation')
-const { statuses, getTableNameByProductType, productTypes, getProductPriceByCurrency, productNames, orderTypes } = require('./utils')
+const uuid = require('uuid')
+const docClient = new AWS.DynamoDB.DocumentClient({
+    apiVersion: "2012-08-10"
+})
+const {
+    monobankCreateInvoice
+} = require('./monobank.service')
+const {
+    validation
+} = require('./orders.validation')
+const {
+    statuses,
+    getTableNameByProductType,
+    productTypes,
+    getProductPriceByCurrency,
+    productNames,
+    orderTypes
+} = require('./utils')
 
 const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`
 const PRESALE_TABLE_NAME = `presales-${process.env.ENV}`
 
 exports.getIsPresaleOrder = async (req, res, next) => {
-    const { id } = req.body
+    const {
+        id
+    } = req.body
     req.presale = {
         isPresale: false
     }
@@ -21,9 +36,14 @@ exports.getIsPresaleOrder = async (req, res, next) => {
         }
     };
 
-    const { Item: presale } = await docClient.get(params, (err, data) => {
+    const {
+        Item: presale
+    } = await docClient.get(params, (err, data) => {
         if (err) {
-            res.status(404).json({ message: 'Something went wrong', body: err });
+            res.status(404).json({
+                message: 'Something went wrong',
+                body: err
+            });
             return;
         }
     }).promise()
@@ -47,7 +67,11 @@ exports.getIsPresaleOrder = async (req, res, next) => {
 }
 
 exports.getPackageById = async (req, res, next) => {
-    const { product_type, id, package_id } = req.body
+    const {
+        product_type,
+        id,
+        package_id
+    } = req.body
     let price = 0
     const params = {
         TableName: getTableNameByProductType(product_type, process.env.ENV),
@@ -58,27 +82,38 @@ exports.getPackageById = async (req, res, next) => {
 
     const product = await docClient.get(params, (err, data) => {
         if (err) {
-            res.status(404).json({ message: 'Something went wrong', body: err });
+            res.status(404).json({
+                message: 'Something went wrong',
+                body: err
+            });
             return;
         }
     }).promise()
 
     if (Object.keys(product).length === 0) {
-        res.status(404).send({ message: `Product not found by course id` });
+        res.status(404).send({
+            message: `Product not found by course id`
+        });
         return;
     }
 
     if (product_type !== productTypes.course) {
         price = product.Item.price
     } else {
-        const choosenPackage = product.Item.packages.find(({ id }) => id === package_id);
+        const choosenPackage = product.Item.packages.find(({
+            id
+        }) => id === package_id);
 
         if (!choosenPackage) {
-            res.status(404).json({ message: 'This package was not found' })
+            res.status(404).json({
+                message: 'This package was not found'
+            })
         }
 
         if (choosenPackage.available_places === 0) {
-            res.status(404).json({ message: 'There are no available places in this package' })
+            res.status(404).json({
+                message: 'There are no available places in this package'
+            })
             return;
         }
 
@@ -91,7 +126,10 @@ exports.getPackageById = async (req, res, next) => {
 }
 
 exports.getOrderType = async (req, res, next) => {
-    const { body, presale } = req
+    const {
+        body,
+        presale
+    } = req
     req.hasPaiedPresale = false
     req.orderType = orderTypes.full
 
@@ -112,36 +150,48 @@ exports.getOrderType = async (req, res, next) => {
         },
     }
 
-    const { Items: order } = await docClient.query(orderParams, (err, data) => { }).promise()
+    const {
+        Items: order
+    } = await docClient.query(orderParams, (err, data) => {}).promise()
 
     if (!order.length && presale.isPresale) {
         req.orderType = orderTypes.presale
     }
 
-    if (!!order.length) {
-        const fullTypeOrderPayment = order.find((item) => item.order_type === orderTypes.full)
-        const presaleTypeOrderPayment = order.find((item) => item.order_type === orderTypes.presale)
+    const fullTypeOrderPayment = order.find((item) => item.order_type === orderTypes.full && item.order_status === 'success')
+    const presaleTypeOrderPayment = order.find((item) => item.order_type === orderTypes.presale && item.order_status === 'success')
 
-        if (fullTypeOrderPayment) {
-            res.status(404).json({ message: 'This email already bought this course' })
-            return
-        }
-
-        if (presaleTypeOrderPayment && !fullTypeOrderPayment) {
-            req.hasPaiedPresale = true
-            req.orderType = orderTypes.full
-        }
+    if (fullTypeOrderPayment) {
+        res.status(404).json({
+            message: 'This email already bought this course'
+        })
+        return
     }
 
-    console.log(req.orderType);
+    if (presaleTypeOrderPayment && !fullTypeOrderPayment) {
+        req.hasPaiedPresale = true
+        req.orderType = orderTypes.full
+    }
+
+    if(!fullTypeOrderPayment && !presaleTypeOrderPayment && presale.isPresale) {
+        req.orderType = orderTypes.presale
+    }
+
+    if(!fullTypeOrderPayment && !presaleTypeOrderPayment && !presale.isPresale) {
+        req.orderType = orderTypes.full
+    }
 
     next()
 }
 
 exports.createOrder = async (req, res, next) => {
-    const { body } = req
+    const {
+        body
+    } = req
 
-    const { error } = validation.validate(req.body)
+    const {
+        error
+    } = validation.validate(req.body)
 
     if (error) {
         res.status(404).json(error);
@@ -171,7 +221,9 @@ exports.createOrder = async (req, res, next) => {
         Item: newOrder,
     }, (err, data) => {
         if (err) {
-            res.status(404).send({ message: 'Order not created' });
+            res.status(404).send({
+                message: 'Order not created'
+            });
         } else {
             req.order = {
                 ...newOrder,
@@ -184,7 +236,13 @@ exports.createOrder = async (req, res, next) => {
 };
 
 exports.updageAvailablePlaces = async (req, res, next) => {
-    const { product, body: { product_type, package_id } } = req
+    const {
+        product,
+        body: {
+            product_type,
+            package_id
+        }
+    } = req
     if (product_type !== productTypes.course) {
         next()
     } else {
@@ -208,7 +266,10 @@ exports.updageAvailablePlaces = async (req, res, next) => {
             }
         }, (err, data) => {
             if (err) {
-                res.status(404).json({ message: 'Cant decrease available places', body: err });
+                res.status(404).json({
+                    message: 'Cant decrease available places',
+                    body: err
+                });
             } else {
                 next();
             }
@@ -217,23 +278,32 @@ exports.updageAvailablePlaces = async (req, res, next) => {
 }
 
 exports.createInvoice = async (req, res, next) => {
-    const { product, order, body, presale, hasPaiedPresale } = req
-    const { Parameters } = await (new AWS.SSM())
-        .getParameters({
+    const {
+        product,
+        order,
+        body,
+        presale,
+        hasPaiedPresale
+    } = req
+    const {
+        Parameters
+    } = await (new AWS.SSM())
+    .getParameters({
             Names: ["PAYMENT_TOKEN"].map(secretName => process.env[secretName]),
             WithDecryption: true,
         })
         .promise();
 
     const PAYMENT_TOKEN = Parameters.pop().Value;
+    const isPresaleInvoice = presale.isPresale && order.order_type === orderTypes.presale
 
     let amount = req.order.total_amount
 
-    if (presale.isPresale && order.orderType === orderTypes.presale) {
+    if (isPresaleInvoice) {
         amount = presale.amount * 100
     }
 
-    if (order.orderType === orderTypes.full && hasPaiedPresale) {
+    if (order.order_type === orderTypes.full && hasPaiedPresale) {
         amount -= presale.amount * 100
     }
 
@@ -245,16 +315,123 @@ exports.createInvoice = async (req, res, next) => {
             name: `${product.subType} "${order.name}"`,
             redirectUrl: `https://${process.env.ENV === 'dev' ? 'dev' : ''}.bilanenco.com/thank-you`,
             webHookUrl: `${process.env.CALLBACK_URL}/status`,
-            destination: `Оплата ${order.name}`,
+            destination: `Оплата ${isPresaleInvoice ? '(Передзапис)': ''} ${order.name}`,
             token: PAYMENT_TOKEN,
         })
-
-        console.log(invoice);
 
         req.invoice = invoice
         next()
 
     } catch (err) {
-        res.status(404).json({ message: 'Invoice havent been created', err })
+        res.status(404).json({
+            message: 'Invoice havent been created',
+            err
+        })
     }
+}
+
+exports.getIsAlreadyDonePresale = async (req, res, next) => {
+    const { email, package_id, id, product_type } = req.body
+
+    const params = {
+        TableName: getTableNameByProductType(product_type, process.env.ENV),
+        Key: {
+            id: id,
+        }
+    }
+
+    const { Item: product } = await docClient.get(params, (err, data) => {
+        if (err) {
+            res.status(404).json({
+                message: 'Something went wrong',
+                body: err
+            });
+            return;
+        }
+    }).promise()
+
+    if(product) {
+        req.product = product
+    }
+
+    const purchaseKey = `${package_id ? `#${package_id}` : ''}#${id}`
+
+    const orderParams = {
+        TableName: ORDERS_TABLE_NAME,
+        IndexName: 'user_purchases',
+        KeyConditions: {
+            'email': {
+                ComparisonOperator: "EQ",
+                AttributeValueList: [email]
+            },
+            'purchase': {
+                ComparisonOperator: "BEGINS_WITH",
+                AttributeValueList: [purchaseKey]
+            }
+        },
+    }
+
+    const {
+        Items: orders
+    } = await docClient.query(orderParams, (err, data) => {}).promise()
+
+    if(!orders.length) {
+        res.status(404).json({ message: 'Людина з таким імейлом не робила передзапис на вибраний пакет' })
+        return
+    }
+
+    const fullTypeOrderPayment = orders.find((item) => item.order_type === orderTypes.full && item.order_status === 'success')
+    const presaleTypeOrderPayment = orders.find((item) => item.order_type === orderTypes.presale && item.order_status === 'success')
+
+    if(fullTypeOrderPayment || !presaleTypeOrderPayment) {
+        res.status(404).json({ message: 'Людина з таким імейлом не робила передзапис на вибраний пакет' })
+        return
+    }
+
+    if(presaleTypeOrderPayment && !fullTypeOrderPayment) {
+        req.order = presaleTypeOrderPayment
+        console.log(req.order);
+        req.hasPaiedPresale = true
+    }
+
+    next()
+}
+
+exports.createFullOrder = async (req, res, next) => {
+    const {
+        body,
+        order,
+        product
+    } = req
+
+    const currentDate = new Date().toISOString()
+
+    const newOrder = {
+        ...order,
+        id: uuid.v4(),
+        invoice_id: null,
+        order_status: statuses.pending,
+        created_date: currentDate,
+        paied_date: null,
+        order_type: "FULL",
+        purchase: `${body.package_id ? `#${body.package_id}` : ''}#${body.id}#FULL`
+    }
+
+    await docClient.put({
+        TableName: ORDERS_TABLE_NAME,
+        Item: newOrder,
+    }, (err, data) => {
+        if (err) {
+            res.status(404).send({
+                message: 'Order not created'
+            });
+        } else {
+            req.order = {
+                ...newOrder,
+                name: product.title
+            };
+
+            next();
+        }
+    })
 }

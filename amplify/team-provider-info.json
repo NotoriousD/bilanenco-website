@@ -67,7 +67,7 @@
         },
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/orders-724b5172565441443066-build.zip",
+          "s3Key": "amplify-builds/orders-344259367a6e70795873-build.zip",
           "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://ensayco35g.execute-api.eu-west-1.amazonaws.com/stage"
@@ -82,11 +82,15 @@
         },
         "email": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/email-4a755a3061762b4a6379-build.zip"
+          "s3Key": "amplify-builds/email-67354233785476363348-build.zip"
         },
         "courses": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/courses-7a336e65336357637168-build.zip"
+          "s3Key": "amplify-builds/courses-65365772357a30325463-build.zip"
+        },
+        "returnPresalePlaces": {
+          "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+          "s3Key": "amplify-builds/returnPresalePlaces-53475155524462704b51-build.zip"
         }
       },
       "api": {

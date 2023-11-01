@@ -25,58 +25,46 @@ interface Props {
   productId?: string
   contactId?: string | null
   productType: 'events' | 'courses'
-  currency: Currencies
-  funnel?: string | null
   onClose: () => void
-  onClick?: () => void
 }
 
 export const schema = yup.object().shape({
   product_type: yup.string().required(),
-  fullName: yup.string().required("Введіть ваше ПІБ"),
   email: yup.string().email('Email не валідний').required("Введіть email"),
-  phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер (38099999999)'),
   package_id: yup.string().nullable().when('product_type', ([product_type]) => {
     return product_type === 'events' ? yup.string().nullable() : yup.string().required('Виберіть тариф')
   }),
-  subscribe: yup.bool()
 });
 
-export const Registration: React.FC<Props> = ({
+export const RegistrationPresale: React.FC<Props> = ({
   packageId = null,
   packages = [],
   productType,
   contactId = null,
   productId,
-  currency,
-  funnel = null,
-  onClose,
-  onClick
+  onClose
 }) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null)
 
   const { handleSubmit, formState: { errors }, control, register } = useForm({
     defaultValues: {
       product_type: productType,
-      fullName: '',
-      phone: '',
       email: '',
       package_id: packageId,
-      subscribe: true
     },
     resolver: yupResolver(schema),
   });
 
   const handleSubmitForm = async (data: any) => {
     setIsSubmitting(true);
+    setError(null)
     try {
-      const response = await API.post('orders', '/orders', {
+      const response = await API.post('orders', '/presale', {
         body: {
           product_type: productType,
-          currency,
           id: productId,
           contact_id: contactId,
-          funnel,
           ...data,
         }
       });
@@ -85,9 +73,9 @@ export const Registration: React.FC<Props> = ({
         setIsSubmitting(false);
         window.location.href = response.pageUrl;
       }
-    } catch (e) {
+    } catch (e: any) {
       setIsSubmitting(false);
-      console.log(e);
+      setError(e.response.data.message)
     }
   };
 
@@ -116,28 +104,10 @@ export const Registration: React.FC<Props> = ({
             </div>
           )}
           <button className={css.close} onClick={onClose}>+</button>
-          <div className={css.title}>Реєстрація</div>
-          <div className={css.presaleButton} onClick={onClick}>За передзаписом</div>
+          <div className={css.title}>За передзаписом</div>
+
+          {error && <div className={css.generalError}><ErrorMessage message={error} /></div>}
           <form className={css.form} onSubmit={handleSubmit(handleSubmitForm)}>
-            <div className={css.row}>
-              <Controller
-                name="fullName"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    label="Ваше ПІБ"
-                    className={css.textField}
-                    disabled={isSubmitting}
-                  />
-                )}
-              />
-              {errors?.fullName && (
-                <ErrorMessage
-                  message={String(errors?.fullName.message)}
-                />
-              )}
-            </div>
             <div className={css.row}>
               <Controller
                 name="email"
@@ -154,25 +124,6 @@ export const Registration: React.FC<Props> = ({
               {errors?.email && (
                 <ErrorMessage
                   message={String(errors?.email.message)}
-                />
-              )}
-            </div>
-            <div className={css.row}>
-              <Controller
-                name="phone"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    label="Телефон"
-                    className={css.textField}
-                    disabled={isSubmitting}
-                  />
-                )}
-              />
-              {errors?.phone && (
-                <ErrorMessage
-                  message={String(errors?.phone.message)}
                 />
               )}
             </div>
@@ -200,34 +151,6 @@ export const Registration: React.FC<Props> = ({
               )}
             </div>
             }
-            <div className={css.row}>
-              <Controller
-                name="subscribe"
-                control={control}
-                render={({ field }) => (
-                  <FormControl>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          {...field}
-                          checked={field.value}
-                        />
-                      }
-                      label="Я хочу отримувати повідомлення про новинки, акції та події"
-                      className={css.checkboxLabel}
-                    />
-                    {errors?.subscribe && (
-                      <ErrorMessage
-                        message={String(errors?.subscribe.message)}
-                      />
-                    )}
-                  </FormControl>
-                )}
-              />
-            </div>
-            <div className={css.text}>
-              Натискаючи на &quot;Перейти до оплати&quot; я погоджуюсь на обробку персональних даних
-            </div>
             <div className={css.btnWrapper}>
               <button className={css.button} type="submit">Перейти до оплати</button>
             </div>

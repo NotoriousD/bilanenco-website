@@ -4,6 +4,9 @@
 	STORAGE_COURSES_ARN
 	STORAGE_COURSES_NAME
 	STORAGE_COURSES_STREAMARN
+	STORAGE_PRESALES_ARN
+	STORAGE_PRESALES_NAME
+	STORAGE_PRESALES_STREAMARN
 Amplify Params - DO NOT EDIT */
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -19,10 +22,15 @@ const AWS = require('aws-sdk')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const bodyParser = require('body-parser')
 const express = require('express')
-const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
-const { validation } = require('./validation')
+const docClient = new AWS.DynamoDB.DocumentClient({
+  apiVersion: "2012-08-10"
+})
+const {
+  validation
+} = require('./validation')
 
 const COURSES_TABLE_NAME = `courses-${process.env.ENV}`
+const PRESALE_TABLE_NAME = `presales-${process.env.ENV}`
 
 // declare a new express app
 const app = express()
@@ -30,7 +38,7 @@ app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "*")
   next()
@@ -45,39 +53,79 @@ app.get('/courses', async (req, res) => {
   await docClient.scan({
     TableName: COURSES_TABLE_NAME,
   }, (err, data) => {
-    if(err) {
+    if (err) {
       res.status(404).json(err)
       return
     }
-    res.status(200).json({ data: data.Items })
+    res.status(200).json({
+      data: data.Items
+    })
   })
 });
 
 app.get('/courses/:id', async (req, res) => {
-  console.log(req.params);
-  await docClient.get({
+  const {
+    Item: course
+  } = await docClient.get({
     TableName: COURSES_TABLE_NAME,
     Key: {
       id: req.params.id,
     },
   }, (err, data) => {
-    if(err) {
-      res.status(404).send({ message: 'Event was not found' })
+    if (err) {
+      res.status(404).send({
+        message: 'Event was not found'
+      })
       return
     }
-    res.status(200).json({ data: data.Item })
-  })
+  }).promise()
+
+  if (course) {
+    let isPresale = false
+    const params = {
+      TableName: PRESALE_TABLE_NAME,
+      Key: {
+        id: req.params.id,
+      }
+    };
+
+    const {
+      Item: presale
+    } = await docClient.get(params, (err, data) => {
+      if (err) {
+        res.status(404).json({
+          message: 'Something went wrong',
+          body: err
+        });
+        return;
+      }
+    }).promise()
+
+    if (presale) {
+      const today = new Date().getTime()
+      const endDate = new Date(presale.end_date).getTime()
+      const startDate = new Date(presale.start_date).getTime()
+
+      if (today >= startDate && today <= endDate) {
+        isPresale = true
+      }
+    }
+
+    res.status(200).json({ data: { ...course, isPresale } })
+  }
 });
 
 /****************************
-* Example post method *
-****************************/
+ * Example post method *
+ ****************************/
 
-app.post('/courses', function(req, res) {
+app.post('/courses', function (req, res) {
 
-  const { error } = validation.validate(req.body)
+  const {
+    error
+  } = validation.validate(req.body)
 
-  if(error) {
+  if (error) {
     res.status(404).json(error)
     return
   }
@@ -86,18 +134,21 @@ app.post('/courses', function(req, res) {
     TableName: COURSES_TABLE_NAME,
     Item: req.body
   }, (err, data) => {
-    if(err) {
+    if (err) {
       console.log(err)
       res.status(404).json(err)
       return
     }
-    res.status(200).json({ message: 'Course was created', data })
+    res.status(200).json({
+      message: 'Course was created',
+      data
+    })
   })
 
 });
 
-app.listen(3000, function() {
-    console.log("App started")
+app.listen(3000, function () {
+  console.log("App started")
 });
 
 // Export the app object. When executing the application local this does nothing. However,

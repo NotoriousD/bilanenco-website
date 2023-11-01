@@ -3,7 +3,7 @@ export enum Funnels {
 }
 
 export const funnelsDiscount = {
-    [Funnels.MasterClass]: 20
+    [Funnels.MasterClass]: 15
 }
 
 export const getPriceByFunnelDiscount = (price: number, funnel: string | null = null) => {
@@ -12,8 +12,9 @@ export const getPriceByFunnelDiscount = (price: number, funnel: string | null = 
         discountPrice: price
     }
     if(funnel && funnel in funnelsDiscount) {
+        const rate = price * (funnelsDiscount[funnel as Funnels] / 100)
         obj.isDiscounted = true
-        obj.discountPrice = price - funnelsDiscount[funnel as Funnels]
+        obj.discountPrice = Math.round(price - rate)
         return obj
     }
     return obj

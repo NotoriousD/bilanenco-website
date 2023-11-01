@@ -20,6 +20,7 @@ interface Props extends ICourse {
 export const Course: React.FC<Props> = ({
     funnel = null,
     packages,
+    isPresale,
     handleOpenModal,
 }) => {
     const packagesRef = useRef<HTMLElement>(null)
@@ -37,7 +38,7 @@ export const Course: React.FC<Props> = ({
                     <div className={css.container}>
                         <div className={css.headerTitle}>WORK<span className={css.accent}>ЖОП</span></div>
                         <div className={css.headerText}> Тижневий онлайн воркшоп з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за 5 днів. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
-                        <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>Записатися</button></div>
+                        <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>{isPresale ? 'Передзапис' : 'Записатися'}</button></div>
                     </div>
                 </div>
             </div>
@@ -113,7 +114,7 @@ export const Course: React.FC<Props> = ({
                                         </div>
                                         <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? available_places : 'немає'}</div>
                                         <div className={css.benefits} dangerouslySetInnerHTML={{ __html: description }} />
-                                        <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>Придбати</button>
+                                        <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>{isPresale ? "Передзапис" : "Придбати"}</button>
                                     </div>
                                 )
                             })}

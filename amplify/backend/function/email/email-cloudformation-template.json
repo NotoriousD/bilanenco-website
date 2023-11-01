@@ -252,7 +252,8 @@
             {
               "Action": [
                 "ses:CreateTemplate",
-                "ses:SendBulkTemplatedEmail"
+                "ses:SendBulkTemplatedEmail",
+                "ses:DeleteTemplate"
               ],
               "Resource": [
                 "*"

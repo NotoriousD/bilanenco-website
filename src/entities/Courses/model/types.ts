@@ -14,4 +14,5 @@ export interface ICourse {
     currency: Currencies
     date: string
     packages: Package[]
+    isPresale: boolean
 }

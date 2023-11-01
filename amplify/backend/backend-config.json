@@ -83,6 +83,15 @@
           ],
           "category": "storage",
           "resourceName": "courses"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "presales"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -149,6 +158,11 @@
           "resourceName": "presales"
         }
       ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "returnPresalePlaces": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -279,6 +293,22 @@
         {
           "category": "function",
           "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_returnPresalePlaces_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "returnPresalePlaces"
+        }
+      ]
+    },
+    "AMPLIFY_function_returnPresalePlaces_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "returnPresalePlaces"
         }
       ]
     },

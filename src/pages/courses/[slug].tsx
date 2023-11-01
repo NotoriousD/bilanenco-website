@@ -8,6 +8,7 @@ import React, { useCallback, useState } from 'react'
 import { Course } from 'widgets/Course'
 
 import { Registration } from 'features/Registration'
+import { RegistrationPresale } from 'features/RegistrationPresale'
 
 import { ICourse } from 'entities/Courses'
 
@@ -17,6 +18,8 @@ interface Props {
 
 export default function SingleCoursesPage({ course }: Props) {
     const [packageId, setPackageId] = useState<string | null>(null)
+    const [openModal, setOpenModal] = useState<boolean>(false)
+    const [openPresaleModal, setOpenPresaleModal] = useState<boolean>(false)
     const router = useRouter()
     const searchParams = useSearchParams()
     const slug = router.query.slug
@@ -24,16 +27,20 @@ export default function SingleCoursesPage({ course }: Props) {
     const contactId = searchParams?.get('contact_id')
     const funnel = searchParams?.get('funnel')
 
-    const [openModal, setOpenModal] = useState<boolean>(false);
 
     const handleOpenModal = useCallback((packageId: string) => {
         setPackageId(packageId)
         setOpenModal(!openModal)
     }, [openModal])
 
+    const handleOpenPresaleModal = useCallback(() => {
+        setOpenModal(false);
+        setOpenPresaleModal(true)
+    }, [])
+
     const handleCloseModal = () => {
         setOpenModal(!openModal)
-    };
+    }
 
     return (
         <>
@@ -47,6 +54,18 @@ export default function SingleCoursesPage({ course }: Props) {
                     contactId={contactId}
                     productType='courses'
                     currency={course.currency}
+                    productId={slug as string}
+                    packages={course.packages}
+                    onClose={handleCloseModal}
+                    funnel={funnel}
+                    onClick={handleOpenPresaleModal}
+                />
+            )}
+            {openPresaleModal && packageId && (
+                <RegistrationPresale
+                    packageId={packageId}
+                    contactId={contactId}
+                    productType='courses'
                     productId={slug as string}
                     packages={course.packages}
                     onClose={handleCloseModal}

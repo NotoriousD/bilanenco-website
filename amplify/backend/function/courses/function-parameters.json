@@ -5,6 +5,9 @@
       "courses": [
         "create",
         "read"
+      ],
+      "presales": [
+        "read"
       ]
     }
   }
