@@ -1,0 +1,12 @@
+{
+  "resourceName": "orders",
+  "tableName": "orders",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "orders"
+  ]
+}

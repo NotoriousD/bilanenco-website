@@ -1,0 +1,12 @@
+{
+  "resourceName": "events",
+  "tableName": "events",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "events"
+  ]
+}

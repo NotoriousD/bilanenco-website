@@ -1,0 +1,255 @@
+{
+  "api": {
+    "emails": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "email"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "events": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "events"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "orders": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "status": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "email": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "events": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "orders": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "orders"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "statuses": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "orders"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_events_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "events"
+        }
+      ]
+    },
+    "AMPLIFY_function_events_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "events"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_callbackUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_paymentUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_clientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_clientSecret": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_googleSheetsKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_sendPulseUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "events": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "orders": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

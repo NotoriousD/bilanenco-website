@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.7.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.4.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -16,21 +16,25 @@
     "s3Key": {
       "Type": "String"
     },
-    "apiemailApiName": {
+    "storageeventsName": {
       "Type": "String",
-      "Default": "apiemailApiName"
+      "Default": "storageeventsName"
     },
-    "apiemailApiId": {
+    "storageeventsArn": {
       "Type": "String",
-      "Default": "apiemailApiId"
+      "Default": "storageeventsArn"
     },
-    "apiemailsApiName": {
+    "storageeventsStreamArn": {
       "Type": "String",
-      "Default": "apiemailsApiName"
+      "Default": "storageeventsStreamArn"
     },
-    "apiemailsApiId": {
+    "apieventsApiName": {
       "Type": "String",
-      "Default": "apiemailsApiId"
+      "Default": "apieventsApiName"
+    },
+    "apieventsApiId": {
+      "Type": "String",
+      "Default": "apieventsApiId"
     }
   },
   "Conditions": {
@@ -63,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "email",
+            "events",
             {
               "Fn::Join": [
                 "",
                 [
-                  "email",
+                  "events",
                   "-",
                   {
                     "Ref": "env"
@@ -86,17 +90,20 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "API_EMAIL_APINAME": {
-              "Ref": "apiemailApiName"
+            "API_EVENTS_APINAME": {
+              "Ref": "apieventsApiName"
             },
-            "API_EMAIL_APIID": {
-              "Ref": "apiemailApiId"
+            "API_EVENTS_APIID": {
+              "Ref": "apieventsApiId"
             },
-            "API_EMAILS_APINAME": {
-              "Ref": "apiemailsApiName"
+            "STORAGE_EVENTS_NAME": {
+              "Ref": "storageeventsName"
             },
-            "API_EMAILS_APIID": {
-              "Ref": "apiemailsApiId"
+            "STORAGE_EVENTS_ARN": {
+              "Ref": "storageeventsArn"
+            },
+            "STORAGE_EVENTS_STREAMARN": {
+              "Ref": "storageeventsStreamArn"
             }
           }
         },
@@ -117,12 +124,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "bilanencowebsiteLambdaRolecdcc6267",
+            "bilanencowebsiteLambdaRolef668ef79",
             {
               "Fn::Join": [
                 "",
                 [
-                  "bilanencowebsiteLambdaRolecdcc6267",
+                  "bilanencowebsiteLambdaRolef668ef79",
                   "-",
                   {
                     "Ref": "env"
@@ -193,6 +200,59 @@
         }
       }
     },
+    "eventsTriggerPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "lambda-trigger-policy-events",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:DescribeStream",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:ListStreams"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageeventsStreamArn"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "eventsTrigger": {
+      "Type": "AWS::Lambda::EventSourceMapping",
+      "DependsOn": [
+        "eventsTriggerPolicy"
+      ],
+      "Properties": {
+        "BatchSize": 100,
+        "Enabled": true,
+        "EventSourceArn": {
+          "Ref": "storageeventsStreamArn"
+        },
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        },
+        "StartingPosition": "LATEST"
+      }
+    },
     "AmplifyResourcesPolicy": {
       "DependsOn": [
         "LambdaExecutionRole"
@@ -211,28 +271,33 @@
             {
               "Effect": "Allow",
               "Action": [
-                "apigateway:POST",
-                "apigateway:PUT",
-                "apigateway:GET",
-                "apigateway:HEAD",
-                "apigateway:OPTIONS",
-                "apigateway:PATCH",
-                "apigateway:DELETE"
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate"
               ],
               "Resource": [
                 {
+                  "Ref": "storageeventsArn"
+                },
+                {
                   "Fn::Join": [
-                    "",
+                    "/",
                     [
-                      "arn:aws:apigateway:",
                       {
-                        "Ref": "AWS::Region"
+                        "Ref": "storageeventsArn"
                       },
-                      "::/restapis/",
-                      {
-                        "Ref": "apiemailsApiName"
-                      },
-                      "/*"
+                      "index/*"
                     ]
                   ]
                 }
@@ -241,34 +306,6 @@
           ]
         }
       }
-    },
-    "CustomLambdaExecutionPolicy": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "custom-lambda-execution-policy",
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ses:CreateTemplate",
-                "ses:SendBulkTemplatedEmail",
-                "ses:DeleteTemplate"
-              ],
-              "Resource": [
-                "*"
-              ],
-              "Effect": "Allow"
-            }
-          ]
-        },
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ]
-      },
-      "DependsOn": "LambdaExecutionRole"
     }
   },
   "Outputs": {
