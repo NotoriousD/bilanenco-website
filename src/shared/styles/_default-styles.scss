@@ -1,3 +1,17 @@
+.big-title{
+  font-size: clamp(48px,5vw,96px);
+  line-height: 1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 0;
+  letter-spacing: 4.8px;
+  span{
+    color: var(--main-gold);
+    display: inline-block;
+  }
+}
+
+
 .h1-title{
   font-size: clamp(40px,3.333vw,64px);
   line-height: 1.2;
@@ -43,4 +57,10 @@
   .swiper-pagination-bullet-active{
     background-color: var(--main-gold);
   }
+}
+
+.full-height{
+  height: 100vh;
+  min-height: 500px;
+  max-height: 1024px;
 }

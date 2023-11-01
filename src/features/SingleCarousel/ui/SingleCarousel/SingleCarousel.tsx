@@ -20,7 +20,7 @@ export const SingleCarousel: FC<Props> = ({ items, renderItem}) => {
     return (
         <Swiper
             modules={[Pagination]}
-            spaceBetween={0}
+            spaceBetween={5}
             slidesPerView={1}
             navigation
             speed={1200}

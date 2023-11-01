@@ -23,7 +23,7 @@ export const ServicesBlock: FC<Props> = ({ list, title }) => {
                 <h2 className={cn("h2-title", css.title)}>{title}</h2>
                 <ServicesList list={list} />
                 <div className={css.moreLink}>
-                <Link href={`/services/}`} >Дивитись бiльше</Link>
+                <Link href={`/services/`} >Дивитись бiльше</Link>
                 </div>
             </Container>
         </div>

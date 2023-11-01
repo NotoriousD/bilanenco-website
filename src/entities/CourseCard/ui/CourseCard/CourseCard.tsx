@@ -13,17 +13,19 @@ export const CourseCard: FC<CourseCardProps> = ({
     id,
     title,
     subtitle,
-    text
+    description
 }) => {
     return (
         <div className={css.root}>
             <div className={css.description}>
-                <div className={cn("h2-title",css.title)}>{title}</div>
-                <div className={css.subtitle}>{subtitle}</div>
-                <div className={css.text} dangerouslySetInnerHTML={{__html:text}} />
+                <div className={css.head}>
+                    <div className={cn("h2-title",css.title)}>Майстер клас</div>
+                    {title && <div className={css.subtitle}>{title}</div>}
+                </div>
+                {description && <div className={css.text} dangerouslySetInnerHTML={{__html:description}} />}
             </div>
             <div className={css.action}>
-                <Button as={"a"} href={"/services/"} >Детальніше</Button>
+                <Button as={"a"} href={`/services/${id}`}>Детальніше</Button>
             </div>
         </div>
     )

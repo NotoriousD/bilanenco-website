@@ -13,8 +13,11 @@ padding-bottom: 76px;
   font-weight: 400;
   color: var(--main-gold);
   text-transform: uppercase;
-  margin-bottom: 60px;
   line-height: 1em;
+}
+
+.head{
+  margin-bottom: clamp(30px,3.125vw,60px);
 }
 
 .description{
@@ -26,8 +29,34 @@ padding-bottom: 76px;
   font-weight: 700;
   color: var(--main-text-white);
   line-height: 125%;
-  b{
+  h3{
     color: var(--main-gold);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  ul{
+    padding: 0;
+    margin: 0;
+    margin-left: 0.7em;
+    padding-left: 0.7em;
+    list-style-type: none;
+    text-align: left;
+    margin-bottom: 30px;
+    li{
+      margin-bottom: 5px;
+      position: relative;
+      font-weight: 700;
+      &:before{
+        content: "✓";
+        left: -10px;
+        top: 2px;
+        position: absolute;
+        transform: translateX(-100%);
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -35,4 +64,7 @@ padding-bottom: 76px;
   display: flex;
   justify-content: center;
   margin-top: 60px;
+  a{
+    text-decoration: none;
+  }
 }

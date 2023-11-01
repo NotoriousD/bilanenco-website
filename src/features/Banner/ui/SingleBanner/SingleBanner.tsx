@@ -11,7 +11,7 @@ import { getPriceByCurrency } from 'shared/ui/Currencies'
 import css from './singleBanner.module.scss'
 
 interface Props extends ISingleEvent {
-    handleOpenModal: () => void
+    handleOpenModal?: () => void
 }
 
 export const SingleBanner: React.FC<Props> = ({

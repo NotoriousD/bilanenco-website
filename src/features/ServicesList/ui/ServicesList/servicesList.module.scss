@@ -1,6 +1,20 @@
 .root {
     display: grid;
-    grid-template-columns: repeat(3, minmax(300px, 440px));
+    grid-template-columns: repeat(3, clamp(300px,22.917vw,440px));
     justify-content: center;
     grid-gap: 30px;
+}
+
+@media(max-width: 1024px){
+    .root{
+        grid-template-columns: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media(max-width: 768px){
+    
 }
