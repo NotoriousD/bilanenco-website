@@ -37,8 +37,6 @@ const Home: NextPage = ({events}:any) => {
     //     fetchPackages();
     // }, [fetchPackages]);
 
-    console.log(events);
-
     return (
         <>
             <Head>

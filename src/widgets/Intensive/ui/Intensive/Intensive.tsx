@@ -6,7 +6,6 @@ import { IntensiveCard, IntensiveCardProps } from "entities/IntensiveCard";
 import { Container } from 'shared/ui/Container'
 
 import css from './intensive.module.scss'
-
 interface Props {
     list: IntensiveCardProps[]
 }
