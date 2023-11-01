@@ -35,16 +35,26 @@
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com"
         },
-        "email": {}
+        "courses": {},
+        "email": {},
+        "returnPresalePlaces": {},
+        "presales": {}
       },
       "api": {
         "events": {},
         "orders": {},
-        "status": {}
+        "status": {},
+        "emails": {},
+        "courses": {}
       },
       "storage": {
         "events": {},
-        "orders": {}
+        "orders": {},
+        "courses": {},
+        "presales": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   },
@@ -68,14 +78,14 @@
         },
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/orders-496e62344b6d3131556a-build.zip",
+          "s3Key": "amplify-builds/orders-344259367a6e70795873-build.zip",
           "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://ensayco35g.execute-api.eu-west-1.amazonaws.com/stage"
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/statuses-614c366c2b44735a7275-build.zip",
+          "s3Key": "amplify-builds/statuses-726935345337686b4c34-build.zip",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com",
@@ -83,18 +93,29 @@
         },
         "email": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/email-657334696152514f6547-build.zip"
+          "s3Key": "amplify-builds/email-58514f796f6c62627370-build.zip"
+        },
+        "courses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+          "s3Key": "amplify-builds/courses-65365772357a30325463-build.zip"
+        },
+        "returnPresalePlaces": {
+          "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
+          "s3Key": "amplify-builds/returnPresalePlaces-53475155524462704b51-build.zip"
         }
       },
       "api": {
         "events": {},
         "orders": {},
         "status": {},
-        "emails": {}
+        "emails": {},
+        "courses": {}
       },
       "storage": {
         "events": {},
-        "orders": {}
+        "orders": {},
+        "courses": {},
+        "presales": {}
       },
       "hosting": {
         "S3AndCloudFront": {}

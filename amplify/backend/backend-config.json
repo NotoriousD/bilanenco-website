@@ -1,5 +1,19 @@
 {
   "api": {
+    "courses": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "courses"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "emails": {
       "dependsOn": [
         {
@@ -58,6 +72,31 @@
     }
   },
   "function": {
+    "courses": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "courses"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "presales"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "email": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -99,8 +138,31 @@
           ],
           "category": "storage",
           "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "courses"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "presales"
         }
       ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "returnPresalePlaces": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -124,6 +186,15 @@
           ],
           "category": "storage",
           "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "courses"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -243,11 +314,19 @@
     }
   },
   "storage": {
+    "courses": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
     "events": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
     "orders": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "presales": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }

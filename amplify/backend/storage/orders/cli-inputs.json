@@ -5,7 +5,19 @@
     "fieldName": "id",
     "fieldType": "string"
   },
-  "gsi": [],
+  "gsi": [
+    {
+      "name": "user_purchases",
+      "partitionKey": {
+        "fieldName": "email",
+        "fieldType": "string"
+      },
+      "sortKey": {
+        "fieldName": "purchase",
+        "fieldType": "string"
+      }
+    }
+  ],
   "triggerFunctions": [
     "orders"
   ]

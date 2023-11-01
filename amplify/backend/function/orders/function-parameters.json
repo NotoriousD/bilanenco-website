@@ -12,6 +12,16 @@
         "read",
         "update",
         "delete"
+      ],
+      "courses": [
+        "read",
+        "update"
+      ],
+      "presales": [
+        "create",
+        "read",
+        "update",
+        "delete"
       ]
     }
   },

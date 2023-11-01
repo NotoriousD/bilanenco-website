@@ -7,5 +7,5 @@ exports.validationCreate = Joi.object({
 
 exports.validationSend = Joi.object({
     name: Joi.string().required(),
-    address: Joi.string().required(),
+    emails: Joi.array().items(Joi.string()).required(),
 });

@@ -17,6 +17,15 @@ $text: #353535;
     z-index: 100;
 }
 
+.presaleButton {
+    text-align: center;
+    color: $text;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .drop {
     width: 100vw;
     height: 100vh;

@@ -6,12 +6,13 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 import { Banner } from 'features/Banner'
+import { ISingleEvent } from 'features/Banner/model/types'
 import { Registration } from 'features/Registration'
 
 import { BannerType } from 'entities/Carousel'
 
 interface Props {
-    event: any
+    event: ISingleEvent
 }
 
 export default function SingleEventPage({ event }: Props) {
@@ -36,15 +37,23 @@ export default function SingleEventPage({ event }: Props) {
             <Head>
                 <title>Події</title>
             </Head>
-            <Banner handlerOpenModal={handleOpenModal} type={BannerType.Banner} />
-            {openModal && <Registration packageId={"1"} contactId={contactId} productId={slug as string} onClose={handleCloseModal} />}
+            <Banner data={event} handlerOpenModal={handleOpenModal} type={BannerType.Banner} />
+            {openModal && (
+                <Registration
+                    contactId={contactId}
+                    productId={slug as string}
+                    productType='events'
+                    currency={event.currency}
+                    onClose={handleCloseModal}
+                />
+            )}
         </>
     )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
-    const event = await API.get('events', `/events`, {})
+    const event = await API.get('events', `/events/${slug}`, {})
 
     if (!event.data) {
         return {

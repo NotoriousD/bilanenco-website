@@ -3,14 +3,13 @@ import React from 'react'
 
 import { Banner } from 'features/Banner'
 
-
-export default function Events() {
+export default function EventsPage() {
   return (
     <>
       <Head>
         <title>Події</title>
       </Head>
-      <Banner /> 
+      <Banner handlerOpenModal={() => { }} />
     </>
   )
 }

@@ -7,6 +7,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/presale": {
+      "name": "/presale",
+      "lambdaFunction": "orders",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

@@ -1,0 +1,1 @@
+export { IntensiveCard, type IntensiveCardProps } from './ui/IntensiveCard'

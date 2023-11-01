@@ -40,6 +40,18 @@
       "Type": "String",
       "Default": "storageeventsStreamArn"
     },
+    "storagecoursesName": {
+      "Type": "String",
+      "Default": "storagecoursesName"
+    },
+    "storagecoursesArn": {
+      "Type": "String",
+      "Default": "storagecoursesArn"
+    },
+    "storagecoursesStreamArn": {
+      "Type": "String",
+      "Default": "storagecoursesStreamArn"
+    },
     "clientId": {
       "Type": "String"
     },
@@ -123,6 +135,15 @@
             },
             "STORAGE_EVENTS_STREAMARN": {
               "Ref": "storageeventsStreamArn"
+            },
+            "STORAGE_COURSES_NAME": {
+              "Ref": "storagecoursesName"
+            },
+            "STORAGE_COURSES_ARN": {
+              "Ref": "storagecoursesArn"
+            },
+            "STORAGE_COURSES_STREAMARN": {
+              "Ref": "storagecoursesStreamArn"
             },
             "CLIENT_ID": {
               "Ref": "clientId"
@@ -309,6 +330,37 @@
                     [
                       {
                         "Ref": "storageordersArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagecoursesArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storagecoursesArn"
                       },
                       "index/*"
                     ]

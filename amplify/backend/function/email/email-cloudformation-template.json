@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.4.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.7.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -251,9 +251,9 @@
           "Statement": [
             {
               "Action": [
-                "ses:SendEmail",
-                "ses:SendRawEmail",
-                "ses:CreateTemplate"
+                "ses:CreateTemplate",
+                "ses:SendBulkTemplatedEmail",
+                "ses:DeleteTemplate"
               ],
               "Resource": [
                 "*"
