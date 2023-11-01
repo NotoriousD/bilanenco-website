@@ -1,56 +1,4 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-bilanencowebsite-dev-105536-authRole",
-      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-105536-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-105536-authRole",
-      "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-      "UnauthRoleName": "amplify-bilanencowebsite-dev-105536-unauthRole",
-      "StackName": "amplify-bilanencowebsite-dev-105536",
-      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-105536/250023e0-514a-11ee-ae01-0ae4f8e3c267",
-      "AmplifyAppId": "d24x07cx8pvyyw"
-    },
-    "categories": {
-      "auth": {
-        "bilanencowebsite99fa1af9": {}
-      },
-      "function": {
-        "orders": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/orders-57435455795543685661-build.zip",
-          "secretsPathAmplifyAppId": "d24x07cx8pvyyw",
-          "paymentUrl": "https://api.monobank.ua",
-          "callbackUrl": "https://m3ofhl2wsh.execute-api.eu-west-1.amazonaws.com/dev"
-        },
-        "events": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/events-6442572f43396d44544b-build.zip"
-        },
-        "statuses": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/statuses-4946353971535362484b-build.zip",
-          "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
-          "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
-          "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
-          "sendPulseUrl": "https://api.sendpulse.com"
-        },
-        "courses": {},
-        "email": {},
-        "returnPresalePlaces": {},
-        "presales": {}
-      },
-      "api": {
-        "events": {},
-        "orders": {},
-        "status": {}
-      },
-      "storage": {
-        "events": {},
-        "orders": {}
-      }
-    }
-  },
   "stage": {
     "awscloudformation": {
       "AuthRoleName": "amplify-bilanencowebsite-stage-11906-authRole",
@@ -112,6 +60,46 @@
       },
       "hosting": {
         "S3AndCloudFront": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bilanencowebsite-dev-231613-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-231613-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-bilanencowebsite-dev-231613-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-bilanencowebsite-dev-231613-deployment",
+      "UnauthRoleName": "amplify-bilanencowebsite-dev-231613-unauthRole",
+      "StackName": "amplify-bilanencowebsite-dev-231613",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-231613/46269db0-7904-11ee-92af-0a31a7c06c21",
+      "AmplifyAppId": "d1rr0wgc3jheys"
+    },
+    "categories": {
+      "function": {
+        "courses": {},
+        "email": {},
+        "events": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/events-6442572f43396d44544b-build.zip"
+        },
+        "orders": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/orders-57435455795543685661-build.zip",
+          "secretsPathAmplifyAppId": "d1rr0wgc3jheys",
+          "paymentUrl": "https://api.monobank.ua",
+          "callbackUrl": "https://m3ofhl2wsh.execute-api.eu-west-1.amazonaws.com/dev"
+        },
+        "returnPresalePlaces": {},
+        "statuses": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
+          "s3Key": "amplify-builds/statuses-4946353971535362484b-build.zip",
+          "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
+          "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
+          "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
+          "sendPulseUrl": "https://api.sendpulse.com"
+        },
+        "presales": {}
       }
     }
   }
