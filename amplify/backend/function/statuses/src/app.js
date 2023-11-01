@@ -52,7 +52,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 // const { google } = require('googleapis')
 const { spCallback } =  require('./sendPulse')
-const { getTableNameByProductType } = require('./utils')
+const { getTableNameByProductType, getEmailTemplateName } = require('./utils')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
 const sesClient = new AWS.SES({ apiVersion: '2010-12-01' })
 
@@ -188,23 +188,28 @@ app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
       await spCallback(details.tContact_id)
     }
 
+    const templateName = getEmailTemplateName(details.product_type, details.order_type)
+
+    console.log(details, templateName);
+
     const params = {
       Destination: {
         ToAddresses: [ details.email ],
       },
       Source: 'olexandra.bilanenko@gmail.com',
-      Template: 'test',
+      Template: templateName,
       TemplateData: JSON.stringify({}),
     }
 
-    sesClient.sendTemplatedEmail(params, (err, data) => {
+    const email = await sesClient.sendTemplatedEmail(params, (err, data) => {
       if(err) {
         res.status(404).json(err)
         console.log(err);
+        return 
       }
-      console.log('email sended');
-      res.status(200).json(data)
     })
+
+    console.log(email);
 
   //   const auth = new google.auth.GoogleAuth({
   //     keyFile: `keys-${process.env.ENV}.json`, //the key file

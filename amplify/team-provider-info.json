@@ -74,7 +74,7 @@
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/statuses-436a62394d6d5434364d-build.zip",
+          "s3Key": "amplify-builds/statuses-726935345337686b4c34-build.zip",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com",
@@ -82,7 +82,7 @@
         },
         "email": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/email-67354233785476363348-build.zip"
+          "s3Key": "amplify-builds/email-58514f796f6c62627370-build.zip"
         },
         "courses": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
