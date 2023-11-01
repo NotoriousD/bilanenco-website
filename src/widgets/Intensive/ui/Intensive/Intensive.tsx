@@ -7,10 +7,6 @@ import { Container } from 'shared/ui/Container'
 
 import css from './intensive.module.scss'
 
-
-
-
-
 interface Props {
     list: IntensiveCardProps[]
 }
