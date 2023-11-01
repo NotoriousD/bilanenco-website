@@ -25,7 +25,7 @@
         },
         "events": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
-          "s3Key": "amplify-builds/events-63502b57376c65582b59-build.zip"
+          "s3Key": "amplify-builds/events-6442572f43396d44544b-build.zip"
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-105536-deployment",
@@ -34,7 +34,11 @@
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com"
-        }
+        },
+        "courses": {},
+        "email": {},
+        "returnPresalePlaces": {},
+        "presales": {}
       },
       "api": {
         "events": {},
