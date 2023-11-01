@@ -9,3 +9,17 @@
     display: inline-block;
   }
 }
+
+.h2-title{
+  font-size: clamp(40px,3.333vw,64px);
+  font-weight: 400;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: var(--main-text-white);
+  margin-bottom: 30px;
+  text-align: center;
+  span{
+    color: var(--main-gold);
+    display: inline-block;
+  }
+}

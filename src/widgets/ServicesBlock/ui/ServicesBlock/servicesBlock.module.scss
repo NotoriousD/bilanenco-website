@@ -1,0 +1,14 @@
+.root{
+  padding: clamp(30px,3.125vw,60px) 0;
+}
+
+.moreLink{
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(30px,3.125vw,60px);
+  a{
+    color: var(--main-gold);
+    font-size: 28px;
+    font-weight: 700;
+  }
+}

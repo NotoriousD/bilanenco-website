@@ -1,8 +1,9 @@
 import cx from 'classnames'
-
+import Link from 'next/link';
 import React, { PropsWithChildren, ReactNode, ElementType, ComponentProps, memo } from "react"
 
 import css from './button.module.scss';
+
 
 export enum ButtonVariants {
     Outlined = 'outlined',
@@ -36,14 +37,16 @@ export const Button = memo(<E extends React.ElementType = ButtonDefaultAsType>({
     variant = ButtonVariants.Primary,
     icon,
     className,
+    href,
     ...otherProps
 }: ButtonProps<E>) => {
-    const Component = as || ButtonDefaultType
+    const Component = as === "a" ? Link : ButtonDefaultType
     return (
         <Component
             className={cx(css.root, variants[variant], {
                 [css.between]: Boolean(icon),
             }, className)}
+            href={href}
             {...otherProps}
         >
             {children}

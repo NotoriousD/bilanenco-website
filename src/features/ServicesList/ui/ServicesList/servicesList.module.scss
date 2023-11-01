@@ -1,0 +1,6 @@
+.root {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 440px));
+    justify-content: center;
+    grid-gap: 30px;
+}
