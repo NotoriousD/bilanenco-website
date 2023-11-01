@@ -97,11 +97,11 @@
         },
         "courses": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/courses-65365772357a30325463-build.zip"
+          "s3Key": "amplify-builds/courses-55594539434c537a6650-build.zip"
         },
         "returnPresalePlaces": {
           "deploymentBucketName": "amplify-bilanencowebsite-stage-11906-deployment",
-          "s3Key": "amplify-builds/returnPresalePlaces-53475155524462704b51-build.zip"
+          "s3Key": "amplify-builds/returnPresalePlaces-323274536d6145646573-build.zip"
         }
       },
       "api": {
