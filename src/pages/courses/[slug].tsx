@@ -60,8 +60,9 @@ export default function SingleCoursesPage({ course }: Props) {
                     currency={course.currency}
                     productId={slug as string}
                     packages={course.packages}
-                    onClose={handleCloseModal}
                     funnel={funnel}
+                    isPresale={course?.isPresale}
+                    onClose={handleCloseModal}
                     onClick={handleOpenPresaleModal}
                 />
             )}
