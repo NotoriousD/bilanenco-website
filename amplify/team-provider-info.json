@@ -30,7 +30,7 @@
           "s3Key": "amplify-builds/orders-6f4b2f4f4e4834747245-build.zip",
           "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "paymentUrl": "https://api.monobank.ua",
-          "callbackUrl": "https://m3ofhl2wsh.execute-api.eu-west-1.amazonaws.com/dev"
+          "callbackUrl": "https://8jpg6jlz69.execute-api.eu-west-1.amazonaws.com/dev"
         },
         "returnPresalePlaces": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
