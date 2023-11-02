@@ -42,6 +42,10 @@ export default function SingleCoursesPage({ course }: Props) {
         setOpenModal(!openModal)
     }
 
+    const handleClosePresaleModal = useCallback(() => {
+        setOpenPresaleModal(false)
+    }, [])
+
     return (
         <>
             <Head>
@@ -68,7 +72,7 @@ export default function SingleCoursesPage({ course }: Props) {
                     productType='courses'
                     productId={slug as string}
                     packages={course.packages}
-                    onClose={handleCloseModal}
+                    onClose={handleClosePresaleModal}
                 />
             )}
         </>
