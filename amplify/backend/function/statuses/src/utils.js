@@ -2,7 +2,7 @@ exports.getTableNameByProductType = (type, env) => `${type}-${env}`
 
 exports.getEmailTemplateName = (productType, orderType) => {
     if(productType === 'events') {
-        return 'test'
+        return 'MasterClassInstabook'
     }
     if(productType === 'courses') {
         if(orderType === 'PRESALE') {
