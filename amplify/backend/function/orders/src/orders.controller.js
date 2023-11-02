@@ -313,7 +313,7 @@ exports.createInvoice = async (req, res, next) => {
             amount: amount,
             productId: productNames[body.product_type],
             name: `${product.subType} "${order.name}"`,
-            redirectUrl: `https://${process.env.ENV === 'dev' ? 'dev' : ''}.bilanenco.com/thank-you`,
+            redirectUrl: `https://${process.env.ENV === 'dev' ? 'dev.' : ''}bilanenco.com/thank-you`,
             webHookUrl: `${process.env.CALLBACK_URL}/status`,
             destination: `Оплата ${isPresaleInvoice ? '(Передзапис)': ''} ${order.name}`,
             token: PAYMENT_TOKEN,
