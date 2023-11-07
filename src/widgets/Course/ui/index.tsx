@@ -112,7 +112,7 @@ export const Course: React.FC<Props> = ({
                                                 <span className={css.originalPrice}>${price}</span>
                                             )}
                                         </div>
-                                        {/* <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? available_places : 'немає'}</div> */}
+                                        <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? getAvailablePlaces(name, available_places) : 'немає'}</div>
                                         <div className={css.benefits} dangerouslySetInnerHTML={{ __html: description }} />
                                         <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>{isPresale ? "Передзапис" : "Придбати"}</button>
                                     </div>
