@@ -97,10 +97,6 @@
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://l0ell54uxg.execute-api.eu-west-1.amazonaws.com/prod"
         },
-        "returnPresalePlaces": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/returnPresalePlaces-323274536d6145646573-build.zip"
-        },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
           "s3Key": "amplify-builds/statuses-726935345337686b4c34-build.zip",
