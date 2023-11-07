@@ -13,18 +13,18 @@ import 'swiper/css/pagination';
 
 export type Props = {
     items: any[]
-    renderItem: (item:any) => React.ReactNode
+    renderItem: (item: any) => React.ReactNode
 }
 
-export const SingleCarousel: FC<Props> = ({ items, renderItem}) => {
+export const SingleCarousel: FC<Props> = ({ items, renderItem }) => {
     return (
         <Swiper
             modules={[Pagination]}
             spaceBetween={5}
             slidesPerView={1}
             navigation
-            speed={1200}
-            pagination={{ 
+            speed={1000}
+            pagination={{
                 clickable: true,
             }}
             // scrollbar={{ draggable: true }}
