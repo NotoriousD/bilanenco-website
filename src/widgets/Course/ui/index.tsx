@@ -21,6 +21,7 @@ export const Course: React.FC<Props> = ({
     funnel = null,
     packages,
     isPresale,
+    isSale,
     handleOpenModal,
 }) => {
     const packagesRef = useRef<HTMLElement>(null)
@@ -28,6 +29,8 @@ export const Course: React.FC<Props> = ({
     const scrollToPackages = () => {
         packagesRef?.current?.scrollIntoView({ behavior: 'smooth' })
     }
+
+    console.log(packages, isSale);
 
     return (
         <div className={css.root}>
