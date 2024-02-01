@@ -112,8 +112,8 @@ app.get('/courses/:id', async (req, res) => {
       }
     }
 
-    const endSaleDate = new Date(presale.end_sale_date).getTime()
-    const startSaleDate = new Date(presale.start_sale_date).getTime()
+    const endSaleDate = new Date(course.end_sale_date).getTime()
+    const startSaleDate = new Date(course.start_sale_date).getTime()
 
     const isSale = today >= startSaleDate && today <= endSaleDate
 
