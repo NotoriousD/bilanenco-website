@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from 'react'
 
 import css from './section.module.scss'
 
-interface Props {
+export interface Props {
     title: string
     classNames?: string
 }

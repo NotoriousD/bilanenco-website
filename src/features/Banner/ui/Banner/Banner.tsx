@@ -28,7 +28,7 @@ const mocks: TCarouselItem[] = [
     }
 ]
 
-interface IBanner {
+export interface IBanner {
     type?: BannerType
     data?: ISingleEvent
     handlerOpenModal: () => void

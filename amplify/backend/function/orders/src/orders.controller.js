@@ -184,6 +184,22 @@ exports.getOrderType = async (req, res, next) => {
     next()
 }
 
+const getCurrentProductPrice = (product, package_id) => {
+    const today = new Date().getTime()
+    const startSaleDate = new Date(product.start_sale_date).getTime()
+    const endSaleDate = new Date(product.end_sale_date).getTime()
+
+    const isSaleDate = today >= startSaleDate && today <= endSaleDate
+
+    const packageItem = product.find(({ id }) => id === package_id)
+
+    if(isSaleDate) {
+        return packageItem?.sale_price
+    } else {
+        return packageItem?.price
+    }
+}
+
 exports.createOrder = async (req, res, next) => {
     const {
         body
@@ -198,7 +214,11 @@ exports.createOrder = async (req, res, next) => {
         return;
     }
 
-    let total_amount = getProductPriceByCurrency(body.currency, req.price, body.funnel, body.product_type)
+    const productPrice = getCurrentProductPrice(req.product, req.package_id)
+
+    console.log('productPrice =', productPrice);
+
+    let total_amount = getProductPriceByCurrency(body.currency, productPrice, body.funnel, body.product_type)
     const currentDate = new Date().toISOString()
 
     const newOrder = {
