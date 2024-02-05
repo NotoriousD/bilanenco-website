@@ -3,12 +3,13 @@ import React, { useRef } from 'react'
 
 import { Funnels, getPriceByFunnelDiscount } from 'constants/funnels'
 
+import { BannerType, Carousel } from 'entities/Carousel'
 import { ICourse } from 'entities/Courses'
 
 import footerBanner from 'shared/assets/footer.jpg'
 import mainBanner from 'shared/assets/main.jpg'
 
-import { getAvailablePlaces } from '../model'
+import { getAvailablePlaces, resultCarouselItems } from '../model'
 
 import css from './styles.module.scss'
 
@@ -29,8 +30,6 @@ export const Course: React.FC<Props> = ({
     const scrollToPackages = () => {
         packagesRef?.current?.scrollIntoView({ behavior: 'smooth' })
     }
-
-    console.log(packages, isSale);
 
     return (
         <div className={css.root}>
@@ -72,46 +71,73 @@ export const Course: React.FC<Props> = ({
                                 <div className={css.contentItemText}>Наглядно ділюсь своєю методологією розробки візуальної концепції з референсів та логікою створення годного віжуалу. Віжуал інстайти, виключення з «правил», робота з кольором та його вижимка, віжуал без кольору, прийоми в візуалі, повітря. Практичне завдання- розробка власного віжуалу з рефів за прикладом з уроку.</div>
                             </div>
                         </div>
+                        <div className={css.contentRow}>
+                            <div className={cn(css.contentItem, css.mobile, css.right, css.rightNumPosition)}>
+                                <div className={css.contentItemNum}>4</div>
+                                <div className={cn(css.contentItemTitle)}>Реалізація віжуалу</div>
+                                <div className={cn(css.contentItemText)}>Секрет реалізації задуманого віжуалу за одну зйомку, рекомендації щодо зйомки: освітленність, чистота, візуальний шум, налаштування, фішки селф-зйомки, додаткові пристрої. Практичне завдання- зйомка.</div>
+                            </div>
+                            <div className={css.contentItem}></div>
+                        </div>
+                        <div className={css.contentRow}>
+                            <div className={css.contentItem}></div>
+                            <div className={cn(css.contentItem, css.mobile, css.left, css.leftNumPosition)}>
+                                <div className={css.contentItemNum}>5</div>
+                                <div className={cn(css.contentItemTitle)}>Готовий віжуал</div>
+                                <div className={cn(css.contentItemText)}>Расказиваю і паказиваю як з сирих кадрів реалізовую референс та витягую омріяний віжуал, чим і як користуюсь. Обкладинки рілс, інтеграція контенту в моменті. Конспект з топовими додатками по обробці. Практичне завдання- перевтілення сирих кадрів та складення віжуалу відповідно задуманого віжуалу з рефів.</div>
+                            </div>
+                        </div>
+                        <div className={css.contentRow}>
+                            <div className={cn(css.contentItem, css.mobile, css.right, css.rightNumPosition)}>
+                                <div className={css.contentItemNum}>6</div>
+                                <div className={cn(css.contentItemTitle)}>Відеозйомка та монтажу</div>
+                                <div className={cn(css.contentItemText)}>Ми розглянемо різні формати лайстайл та експертних відео і на основі вашого розпакування ви зрозумієте, що і як потрібно знімати саме вам!
+                                    На цьому уроці я поділюсь секретами власних відео: налаштування, світло, плани, ракурси, а також покажу, як я роблю свої ролики такими атмосферними: додатки для монтажу, кольорова корекція, кінематеграфічні ефекти.
+                                    І це не все! Я поділюся додатками для субтритрів, титрів, чистки звуку аби ваші відео були неперевершеними, а головне- створювалися легко, швидко і в задоволення!</div>
+                            </div>
+                            <div className={cn(css.contentItem, css.noBorder)}></div>
+                        </div>
                     </div>
                 </div>
+            </section>
+            <section className={css.carousel}>
+                <Carousel
+                    type={BannerType.Carousel}
+                    items={resultCarouselItems}
+                    slidesPerView={4}
+                    breakpoints={{
+                        900: {
+                            slidesPerView: 4
+                        },
+                        550: {
+                            slidesPerView: 2
+                        },
+                        320: {
+                            slidesPerView: 1
+                        }
+                    }}
+                    renderContent={(item) => <></>}
+                />
             </section>
             <section className={css.commonBg} style={{
                 backgroundImage: `url(${footerBanner.src})`,
             }}>
-                <div className={css.nextContent}>
-                    <div className={css.container}>
-                        <div className={css.contentList}>
-                            <div className={css.contentRow}>
-                                <div className={cn(css.contentItem, css.mobile, css.right, css.rightNumPosition)}>
-                                    <div className={css.contentItemNum}>4</div>
-                                    <div className={cn(css.contentItemTitle, css.accent)}>Реалізація віжуалу</div>
-                                    <div className={cn(css.contentItemText, css.accent)}>Секрет реалізації задуманого віжуалу за одну зйомку, рекомендації щодо зйомки: освітленність, чистота, візуальний шум, налаштування, фішки селф-зйомки, додаткові пристрої. Практичне завдання- зйомка.</div>
-                                </div>
-                                <div className={css.contentItem}></div>
-                            </div>
-                            <div className={css.contentRow}>
-                                <div className={css.contentItem}></div>
-                                <div className={cn(css.contentItem, css.mobile, css.noBorder, css.left, css.leftNumPosition)}>
-                                    <div className={css.contentItemNum}>5</div>
-                                    <div className={cn(css.contentItemTitle, css.accent)}>Готовий віжуал</div>
-                                    <div className={cn(css.contentItemText, css.accent)}>Расказиваю і паказиваю як з сирих кадрів реалізовую референс та витягую омріяний віжуал, чим і як користуюсь. Обкладинки рілс, інтеграція контенту в моменті. Конспект з топовими додатками по обробці. Практичне завдання- перевтілення сирих кадрів та складення віжуалу відповідно задуманого віжуалу з рефів.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className={css.header}>
+                    <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>20.02.2024</span></h3>
                 </div>
                 <section className={css.packages} ref={packagesRef}>
                     <div className={css.container}>
                         <div className={css.packagesList}>
-                            {Boolean(packages.length) && packages.map(({ id, name, description, price, available_places }) => {
+                            {Boolean(packages.length) && packages.map(({ id, name, description, price, sale_price, available_places }) => {
                                 const isDisabled = available_places === 0
-                                const { isDiscounted, discountPrice } = getPriceByFunnelDiscount(price, funnel)
+                                const salePrice = isSale ? sale_price : price
+                                const { isDiscounted, discountPrice } = getPriceByFunnelDiscount(salePrice, funnel)
                                 return (
                                     <div className={css.packagesItem} key={id}>
                                         <div className={css.packagesTitle}>{name}</div>
                                         <div className={css.packagesPrice}>
                                             Ціна: ${discountPrice}
-                                            {isDiscounted && (
+                                            {isDiscounted || isSale && (
                                                 <span className={css.originalPrice}>${price}</span>
                                             )}
                                         </div>

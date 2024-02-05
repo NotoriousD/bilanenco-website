@@ -6,6 +6,7 @@ export interface Package {
     price: number
     description: string
     available_places: number
+    sale_price: number
 }
 
 export interface ICourse {

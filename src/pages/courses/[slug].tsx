@@ -27,7 +27,6 @@ export default function SingleCoursesPage({ course }: Props) {
     const contactId = searchParams?.get('contact_id')
     const funnel = searchParams?.get('funnel')
 
-
     const handleOpenModal = useCallback((packageId: string) => {
         setPackageId(packageId)
         setOpenModal(!openModal)
@@ -45,6 +44,8 @@ export default function SingleCoursesPage({ course }: Props) {
     const handleClosePresaleModal = useCallback(() => {
         setOpenPresaleModal(false)
     }, [])
+
+    console.log(course);
 
     return (
         <>

@@ -88,7 +88,7 @@ $accent: #FFD34B;
 }
 
 .content {
-    padding-top: 60px;
+    padding: 60px 0;
 }
 
 .contentRow {
@@ -261,6 +261,21 @@ $accent: #FFD34B;
 
 .nextContent {
     padding-bottom: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+    font-size: 24px;
+}
+
+.sectionTitle {
+    text-align: center;
+
+    span {
+        text-decoration: underline;
+    }
 }
 
 @media screen and (max-width: 1200px) {
