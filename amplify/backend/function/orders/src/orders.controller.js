@@ -216,7 +216,7 @@ exports.createOrder = async (req, res, next) => {
         return;
     }
 
-    const productPrice = getCurrentProductPrice(req.product, req.package_id)
+    const productPrice = getCurrentProductPrice(req.product, body.package_id)
 
     console.log('productPrice =', productPrice);
 
