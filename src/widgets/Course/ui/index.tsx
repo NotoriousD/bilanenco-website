@@ -116,7 +116,7 @@ export const Course: React.FC<Props> = ({
                 backgroundImage: `url(${footerBanner.src})`,
             }}>
                 <div className={css.sectionHeader}>
-                    <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>20.02.2024</span></h3>
+                    <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3>
                 </div>
                 <section className={css.packages} ref={packagesRef}>
                     <div className={css.container}>
@@ -134,7 +134,7 @@ export const Course: React.FC<Props> = ({
                                                 <span className={css.originalPrice}>${price}</span>
                                             )}
                                         </div>
-                                        <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? getAvailablePlaces(name, available_places) : 'немає'}</div>
+                                        {/* <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? getAvailablePlaces(name, available_places) : 'немає'}</div> */}
                                         <div className={css.benefits} dangerouslySetInnerHTML={{ __html: description }} />
                                         <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>{isPresale ? "Передзапис" : "Придбати"}</button>
                                     </div>
