@@ -28,8 +28,8 @@ export const SingleCarousel: FC<Props> = ({ items, renderItem }) => {
                 clickable: true,
             }}
             // scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log()}
+            onSlideChange={() => console.log()}
             className={cn("single-swiper", css.root)}
         >
             {items && items.map((item) => (

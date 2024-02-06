@@ -45,8 +45,6 @@ export default function SingleCoursesPage({ course }: Props) {
         setOpenPresaleModal(false)
     }, [])
 
-    console.log(course);
-
     return (
         <>
             <Head>

@@ -31,8 +31,8 @@ export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, 
                     navigation
                     // pagination={{ clickable: true }}
                     // scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log()}
+                    onSlideChange={() => console.log()}
                 >
                     {items && items.map((item: E) => (
                         <SwiperSlide key={item.id}>

@@ -20,8 +20,6 @@ export default function SingleEventPage({ event }: Props) {
     const searchParams = useSearchParams()
     const slug = router.query.slug
 
-    console.log(event);
-
     const contactId = searchParams?.get('contact_id')
 
     const [openModal, setOpenModal] = useState<boolean>(false);

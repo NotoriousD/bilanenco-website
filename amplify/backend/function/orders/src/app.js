@@ -78,7 +78,6 @@ app.use(function (req, res, next) {
 
 app.post('/orders', getIsPresaleOrder, getPackageById, getOrderType, createOrder, updageAvailablePlaces, createInvoice, async function (req, res) {
   const { order, invoice } = req
-  console.log(req);
   await docClient.update({
     TableName: ORDERS_TABLE_NAME,
     Key: {
