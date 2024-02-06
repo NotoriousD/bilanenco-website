@@ -341,6 +341,8 @@ exports.createInvoice = async (req, res, next) => {
             token: PAYMENT_TOKEN,
         })
 
+        console.log(PAYMENT_TOKEN, invoice);
+
         req.invoice = invoice
         next()
 
