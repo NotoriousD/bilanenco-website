@@ -193,6 +193,8 @@ const getCurrentProductPrice = (product, package_id) => {
 
     const packageItem = product.packages.find(({ id }) => id === package_id)
 
+    console.log(product, package_id, packageItem);
+
     if(isSaleDate) {
         return packageItem?.sale_price
     } else {
