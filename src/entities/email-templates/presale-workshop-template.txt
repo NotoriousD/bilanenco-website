@@ -616,11 +616,8 @@
                                                                                                             внесли
                                                                                                             передплату
                                                                                                             за навчання
-                                                                                                            на 5-ти
-                                                                                                            дневному
-                                                                                                            курсі з
-                                                                                                            віжуалу
-                                                                                                            «ВОРКЖОП»!</strong>
+                                                                                                            на тижневий курс
+                                                                                                            «ВІЖУАЛ»!</strong>
                                                                                                     </p>
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
                                                                                                         align="left">За
@@ -631,7 +628,7 @@
                                                                                                         вартістю, внести
                                                                                                         решту оплати
                                                                                                         можна до
-                                                                                                        07/11/2023</p>
+                                                                                                        20.02.2024</p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">
                                                                                                     </div>
@@ -714,7 +711,7 @@
                                                                                                                                     <td align="center"
                                                                                                                                         style="border-collapse:collapse; border-color:transparent; border:0; padding:0; line-height:1">
                                                                                                                                         <a style="text-decoration:none; color:#FFF; display:block; padding:12px 18px; font-family:Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-family-short:arial; font-size:16px; font-weight:bold"
-                                                                                                                                            href="https://">Перейти
+                                                                                                                                            href="https://www.bilanenco.com/courses/visual">Перейти
                                                                                                                                             до
                                                                                                                                             оплати</a>
                                                                                                                                     </td>
