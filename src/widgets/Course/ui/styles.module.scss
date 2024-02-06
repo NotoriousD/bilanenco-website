@@ -263,7 +263,7 @@ $accent: #FFD34B;
     padding-bottom: 30px;
 }
 
-.header {
+.sectionHeader {
     display: flex;
     justify-content: center;
     margin: 24px 0;
@@ -276,6 +276,31 @@ $accent: #FFD34B;
     span {
         text-decoration: underline;
     }
+}
+
+.carousel {
+    background-color: #252322;
+    padding: 25px 0;
+}
+
+.carouselHeader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.startDate {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.saleDate {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 12px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -366,6 +391,14 @@ $accent: #FFD34B;
 }
 
 @media screen and (max-width: 500px) {
+    .startDate {
+        text-align: center;
+    }
+
+    .saleDate {
+        text-align: center;
+    }
+
     .headerTitle { 
         font-size: 64px;
         text-align: center;

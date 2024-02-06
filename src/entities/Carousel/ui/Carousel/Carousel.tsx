@@ -17,9 +17,10 @@ interface Props<E> extends SwiperProps {
     items: E[]
     type: BannerType
     renderContent: (item: E) => React.ReactElement
+    withBorderRadius?: boolean
 }
 
-export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, ...rest }: Props<E>) => {
+export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, withBorderRadius = false, ...rest }: Props<E>) => {
 
     switch (type) {
         case (BannerType.Carousel):
@@ -36,7 +37,9 @@ export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, 
                         <SwiperSlide key={item.id}>
                             {
                                 item?.imgSource &&
-                                <Image src={item?.imgSource} className={css.image} alt='' />
+                                <Image src={item?.imgSource} className={cn(css.image, {
+                                    [css.borderRadius]: withBorderRadius
+                                })} alt='' />
                             }
                             {renderContent(item)}
                         </SwiperSlide>

@@ -17,4 +17,6 @@ export interface ICourse {
     packages: Package[]
     isPresale: boolean
     isSale: boolean
+    start_sale_date: string
+    end_sale_date: string
 }

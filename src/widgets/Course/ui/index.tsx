@@ -1,16 +1,17 @@
 import cn from 'classnames'
 import React, { useRef } from 'react'
 
-import { Funnels, getPriceByFunnelDiscount } from 'constants/funnels'
+import { getPriceByFunnelDiscount } from 'constants/funnels'
 
-import { BannerType, Carousel } from 'entities/Carousel'
 import { ICourse } from 'entities/Courses'
 
 import footerBanner from 'shared/assets/footer.jpg'
 import mainBanner from 'shared/assets/main.jpg'
+import { getDateFromISO } from 'shared/libs/dates'
 
-import { getAvailablePlaces, resultCarouselItems } from '../model'
+import { getAvailablePlaces } from '../model'
 
+import { ResultsCarousel } from './ResultsCarousel'
 import css from './styles.module.scss'
 
 interface Props extends ICourse {
@@ -23,6 +24,9 @@ export const Course: React.FC<Props> = ({
     packages,
     isPresale,
     isSale,
+    end_sale_date: endSaleDate,
+    date,
+    title,
     handleOpenModal,
 }) => {
     const packagesRef = useRef<HTMLElement>(null)
@@ -38,8 +42,10 @@ export const Course: React.FC<Props> = ({
             }}>
                 <div className={css.headerContent}>
                     <div className={css.container}>
-                        <div className={css.headerTitle}>WORK<span className={css.accent}>ЖОП</span></div>
-                        <div className={css.headerText}> Тижневий онлайн воркшоп з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за 5 днів. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
+                        <div className={css.headerTitle}>{title}</div>
+                        <div className={cn(css.startDate, css.accent)}>Дата початку: {date}</div>
+                        <div className={css.saleDate}>До {getDateFromISO(endSaleDate)} у вас є змога зробити передзапис на курс (сума передплати: 999 грн)</div>
+                        <div className={css.headerText}>Тижневий онлайн курс з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за 5 днів. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
                         <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>{isPresale ? 'Передзапис' : 'Записатися'}</button></div>
                     </div>
                 </div>
@@ -90,7 +96,7 @@ export const Course: React.FC<Props> = ({
                         <div className={css.contentRow}>
                             <div className={cn(css.contentItem, css.mobile, css.right, css.rightNumPosition)}>
                                 <div className={css.contentItemNum}>6</div>
-                                <div className={cn(css.contentItemTitle)}>Відеозйомка та монтажу</div>
+                                <div className={cn(css.contentItemTitle)}>Відеозйомка та монтаж</div>
                                 <div className={cn(css.contentItemText)}>Ми розглянемо різні формати лайстайл та експертних відео і на основі вашого розпакування ви зрозумієте, що і як потрібно знімати саме вам!
                                     На цьому уроці я поділюсь секретами власних відео: налаштування, світло, плани, ракурси, а також покажу, як я роблю свої ролики такими атмосферними: додатки для монтажу, кольорова корекція, кінематеграфічні ефекти.
                                     І це не все! Я поділюся додатками для субтритрів, титрів, чистки звуку аби ваші відео були неперевершеними, а головне- створювалися легко, швидко і в задоволення!</div>
@@ -101,28 +107,15 @@ export const Course: React.FC<Props> = ({
                 </div>
             </section>
             <section className={css.carousel}>
-                <Carousel
-                    type={BannerType.Carousel}
-                    items={resultCarouselItems}
-                    slidesPerView={4}
-                    breakpoints={{
-                        900: {
-                            slidesPerView: 4
-                        },
-                        550: {
-                            slidesPerView: 2
-                        },
-                        320: {
-                            slidesPerView: 1
-                        }
-                    }}
-                    renderContent={(item) => <></>}
-                />
+                <div className={css.carouselHeader}>
+                    <h3 className={cn(css.sectionTitle, css.accent)}>Роботи учнів</h3>
+                </div>
+                <ResultsCarousel />
             </section>
             <section className={css.commonBg} style={{
                 backgroundImage: `url(${footerBanner.src})`,
             }}>
-                <div className={css.header}>
+                <div className={css.sectionHeader}>
                     <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>20.02.2024</span></h3>
                 </div>
                 <section className={css.packages} ref={packagesRef}>

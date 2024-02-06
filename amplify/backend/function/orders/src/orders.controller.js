@@ -191,7 +191,7 @@ const getCurrentProductPrice = (product, package_id) => {
 
     const isSaleDate = today >= startSaleDate && today <= endSaleDate
 
-    const packageItem = product.find(({ id }) => id === package_id)
+    const packageItem = product.packages.find(({ id }) => id === package_id)
 
     if(isSaleDate) {
         return packageItem?.sale_price

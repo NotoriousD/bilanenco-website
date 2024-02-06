@@ -16,9 +16,9 @@ Amplify.configure({ ...awsExports, ssr: true })
 export default function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <Component {...pageProps} />
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
