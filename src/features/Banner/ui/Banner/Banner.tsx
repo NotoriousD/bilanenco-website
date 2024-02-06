@@ -47,7 +47,12 @@ export const Banner: React.FC<IBanner> = ({ type = BannerType.Banner, data, hand
     if (type === BannerType.Carousel) {
         return (
             <div className={css.root}>
-                <Carousel handlerOpenModal={handlerOpenModal} type={type} items={mocks} />
+                <Carousel
+                    handleOpenModal={handlerOpenModal}
+                    type={type}
+                    items={mocks}
+                    renderContent={(item) => <></>}
+                />
             </div>
         )
     }

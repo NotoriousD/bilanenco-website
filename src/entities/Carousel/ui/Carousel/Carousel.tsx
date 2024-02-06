@@ -17,6 +17,7 @@ interface Props<E> extends SwiperProps {
     items: E[]
     type: BannerType
     renderContent: (item: E) => React.ReactElement
+    handleOpenModal?: () => void
     withBorderRadius?: boolean
 }
 
