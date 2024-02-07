@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import dynamic from 'next/dynamic'
 import React, { useRef } from 'react'
 
 import { getPriceByFunnelDiscount } from 'constants/funnels'
@@ -9,8 +10,9 @@ import footerBanner from 'shared/assets/footer.jpg'
 import mainBanner from 'shared/assets/main.jpg'
 import { getDateFromISO } from 'shared/libs/dates'
 
-import { ResultsCarousel } from './ResultsCarousel'
 import css from './styles.module.scss'
+
+const ResultCarousel = dynamic(() => import('./ResultsCarousel').then(module => module.ResultsCarousel), { ssr: false })
 
 interface Props extends ICourse {
     funnel?: string | null
@@ -108,7 +110,7 @@ export const Course: React.FC<Props> = ({
                 <div className={css.carouselHeader}>
                     <h3 className={cn(css.sectionTitle, css.accent)}>Роботи учнів</h3>
                 </div>
-                <ResultsCarousel />
+                <ResultCarousel />
             </section>
             <section className={css.commonBg} style={{
                 backgroundImage: `url(${footerBanner.src})`,
