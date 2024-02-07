@@ -1,11 +1,8 @@
 import cn from "classnames";
 import Image from 'next/image'
-import React, { FC, useState } from 'react'
-import { EffectFade } from 'swiper/modules'
+import React from 'react'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 
-import { Button } from 'shared/ui/Button'
-import { Container } from 'shared/ui/Container';
 import css from './carousel.module.scss'
 
 import 'swiper/css'

@@ -110,7 +110,7 @@ export const Course: React.FC<Props> = ({
                 <div className={css.carouselHeader}>
                     <h3 className={cn(css.sectionTitle, css.accent)}>Роботи учнів</h3>
                 </div>
-                <ResultsCarousel />
+                {/* <ResultsCarousel /> */}
             </section>
             <section className={css.commonBg} style={{
                 backgroundImage: `url(${footerBanner.src})`,
