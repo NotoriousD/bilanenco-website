@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
-import { SingleCarousel } from "features/SingleCarousel";
-import { IntensiveCard, IntensiveCardProps } from "entities/IntensiveCard";
+import { SingleCarousel } from "features/SingleCarousel"
+import { IntensiveCard, IntensiveCardProps } from "entities/IntensiveCard"
 import { Container } from 'shared/ui/Container'
 
 import css from './Intensive.module.scss'

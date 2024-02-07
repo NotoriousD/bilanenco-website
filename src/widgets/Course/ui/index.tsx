@@ -9,8 +9,6 @@ import footerBanner from 'shared/assets/footer.jpg'
 import mainBanner from 'shared/assets/main.jpg'
 import { getDateFromISO } from 'shared/libs/dates'
 
-import { getAvailablePlaces } from '../model'
-
 import { ResultsCarousel } from './ResultsCarousel'
 import css from './styles.module.scss'
 
@@ -110,7 +108,7 @@ export const Course: React.FC<Props> = ({
                 <div className={css.carouselHeader}>
                     <h3 className={cn(css.sectionTitle, css.accent)}>Роботи учнів</h3>
                 </div>
-                {/* <ResultsCarousel /> */}
+                <ResultsCarousel />
             </section>
             <section className={css.commonBg} style={{
                 backgroundImage: `url(${footerBanner.src})`,

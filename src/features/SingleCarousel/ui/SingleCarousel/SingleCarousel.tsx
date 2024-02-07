@@ -1,7 +1,6 @@
-import cn from "classnames";
-import Image from 'next/image'
-import React, { FC, useState } from 'react'
-import { Pagination } from 'swiper/modules';
+import cn from "classnames"
+import React, { FC } from 'react'
+import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import css from './singleCarousel.module.scss';

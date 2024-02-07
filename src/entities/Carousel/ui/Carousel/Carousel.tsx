@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classnames"
 import Image from 'next/image'
 import React from 'react'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
