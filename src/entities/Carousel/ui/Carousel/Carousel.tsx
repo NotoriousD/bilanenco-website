@@ -34,7 +34,7 @@ export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, 
                                     [css.borderRadius]: withBorderRadius
                                 })} alt='' />
                             }
-                            {renderContent && renderContent(item)}
+                            {/* {renderContent && renderContent(item)} */}
                         </SwiperSlide>
                     ))}
                 </Swiper>
