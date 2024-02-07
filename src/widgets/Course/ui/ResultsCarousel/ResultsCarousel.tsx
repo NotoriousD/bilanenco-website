@@ -23,7 +23,6 @@ export const ResultsCarousel = () => {
                     slidesPerView: 1
                 }
             }}
-            renderContent={(item) => <></>}
         />
     )
 }

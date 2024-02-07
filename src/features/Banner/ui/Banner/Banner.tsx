@@ -51,7 +51,6 @@ export const Banner: React.FC<IBanner> = ({ type = BannerType.Banner, data, hand
                     handleOpenModal={handlerOpenModal}
                     type={type}
                     items={mocks}
-                    renderContent={(item) => <></>}
                 />
             </div>
         )

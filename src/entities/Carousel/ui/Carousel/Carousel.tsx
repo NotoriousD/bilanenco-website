@@ -13,7 +13,7 @@ import { TCarouselItem, BannerType } from './types'
 interface Props<E> extends SwiperProps {
     items: E[]
     type: BannerType
-    renderContent: (item: E) => React.ReactElement
+    renderContent?: (item: E) => React.ReactElement
     handleOpenModal?: () => void
     withBorderRadius?: boolean
 }
@@ -25,11 +25,6 @@ export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, 
             return (
                 <Swiper
                     {...rest}
-                    navigation
-                    // pagination={{ clickable: true }}
-                    // scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log()}
-                    onSlideChange={() => console.log()}
                 >
                     {items && items.map((item: E) => (
                         <SwiperSlide key={item.id}>
@@ -39,7 +34,7 @@ export const Carousel = <E extends TCarouselItem>({ items, type, renderContent, 
                                     [css.borderRadius]: withBorderRadius
                                 })} alt='' />
                             }
-                            {renderContent(item)}
+                            {renderContent && renderContent(item)}
                         </SwiperSlide>
                     ))}
                 </Swiper>
