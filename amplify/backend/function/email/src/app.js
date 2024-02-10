@@ -644,595 +644,280 @@ app.post('/create', function (req, res) {
         <tbody>
             <tr style="border-color:transparent">
                 <td align="center" style="border-collapse:collapse; border-color:transparent">
-                    <table cellpadding="0" cellspacing="0" width="600px" id="bodyTable" border="0" bgcolor="#fff9f2"
-                        style="border-collapse:collapse; font-size:18px; line-height:1.5">
-                        <tbody>
-                            <tr style="border-color:transparent">
-                                <td border="0" cellpadding="0" cellspacing="0"
-                                    style="border-collapse:collapse; border-color:transparent">
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                        border="0" width="100%">
-                                        <tbody>
-                                            <tr style="border-color:transparent">
-                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
-                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                                        border="0" width="100%">
-                                                        <tbody>
-                                                            <tr style="border-color:transparent">
-                                                                <th width="600"
-                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                                                    cellpadding="0" cellspacing="0"
-                                                                    class="tc responsive " align="left" valign="top">
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        id="wout_block_out_block_14"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; text-color:black; background-color:transparent; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; font-family-short:georgia; font-weight:normal; color:#694d4d; margin:0; overflow:hidden">
-                                                                                        <tbody>
-                                                                                            <tr class="content-row"
-                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
-                                                                                                <td class="content-cell"
-                                                                                                    width="520"
-                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:40px; padding-right:40px; padding-top:15px; padding-bottom:15px"
-                                                                                                    valign="top">
-                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
-                                                                                                        align="left">
-                                                                                                        <strong>Вітаю,
-                                                                                                            ви успішно
-                                                                                                            внесли
-                                                                                                            передплату
-                                                                                                            за навчання
-                                                                                                            на тижневий курс
-                                                                                                            «ВІЖУАЛ»!</strong>
-                                                                                                    </p>
-                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
-                                                                                                        align="left">За
-                                                                                                        вами було
-                                                                                                        заброньоване
-                                                                                                        місце на курсі
-                                                                                                        за найвигіднішою
-                                                                                                        вартістю, внести
-                                                                                                        решту оплати
-                                                                                                        можна до
-                                                                                                        20.02.2024</p>
-                                                                                                    <div
-                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
-                                                                                                    </div>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                        border="0" width="100%">
-                                        <tbody>
-                                            <tr style="border-color:transparent">
-                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
-                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                                        border="0" width="100%">
-                                                        <tbody>
-                                                            <tr style="border-color:transparent">
-                                                                <th width="600"
-                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                                                    cellpadding="0" cellspacing="0"
-                                                                    class="tc responsive " align="left" valign="top">
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; overflow:hidden">
-                                                                                        <tbody>
-                                                                                            <tr class="content-row"
-                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
-                                                                                                <td class="content-cell"
-                                                                                                    width="570"
-                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:15px; padding-right:15px; padding-top:15px; padding-bottom:15px"
-                                                                                                    valign="top">
-                                                                                                    <center>
-                                                                                                        <table
-                                                                                                            cellpadding="0"
-                                                                                                            border="0"
-                                                                                                            cellspacing="0"
-                                                                                                            class="sp-button flat auto-width"
-                                                                                                            style="border-collapse:collapse; font-size:18px; line-height:1.5; border:0; margin-left:auto; margin-right:auto; width:auto !important; border-radius:5px; box-shadow:none; background:#e1ad90"
-                                                                                                            width="auto !important">
-                                                                                                            <tbody>
-                                                                                                                <tr
-                                                                                                                    style="border-color:transparent">
-                                                                                                                    <td class="sp-button-text"
-                                                                                                                        style="border-collapse:collapse; border-color:transparent; border-width:0; border-style:none; border:0; padding:0; align:center; border-radius:5px; width:auto; height:40px; vertical-align:middle; text-align:center"
-                                                                                                                        width="auto"
-                                                                                                                        height="40"
-                                                                                                                        valign="middle"
-                                                                                                                        align="center">
-                                                                                                                        <table
-                                                                                                                            cellpadding="0"
-                                                                                                                            border="0"
-                                                                                                                            cellspacing="0"
-                                                                                                                            width="100%"
-                                                                                                                            style="border-collapse:collapse; font-size:18px; line-height:1.5; border:0">
-                                                                                                                            <tbody>
-                                                                                                                                <tr
-                                                                                                                                    style="border-color:transparent">
-                                                                                                                                    <td align="center"
-                                                                                                                                        style="border-collapse:collapse; border-color:transparent; border:0; padding:0; line-height:1">
-                                                                                                                                        <a style="text-decoration:none; color:#FFF; display:block; padding:12px 18px; font-family:Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-family-short:arial; font-size:16px; font-weight:bold"
-                                                                                                                                            href="https://www.bilanenco.com/courses/visual">Перейти
-                                                                                                                                            до
-                                                                                                                                            оплати</a>
-                                                                                                                                    </td>
-                                                                                                                                </tr>
-                                                                                                                            </tbody>
-                                                                                                                        </table>
-                                                                                                                    </td>
-                                                                                                                </tr>
-                                                                                                            </tbody>
-                                                                                                        </table>
-                                                                                                    </center>
-                                                                                                    <div
-                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
-                                                                                                    </div>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                        border="0" width="100%">
-                                        <tbody>
-                                            <tr style="border-color:transparent">
-                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
-                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                                        border="0" width="100%">
-                                                        <tbody>
-                                                            <tr style="border-color:transparent">
-                                                                <th width="600"
-                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                                                    cellpadding="0" cellspacing="0"
-                                                                    class="tc responsive " align="left" valign="top">
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        id="wout_block_out_block_14"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; text-color:black; font-weight:normal; margin:0; overflow:hidden">
-                                                                                        <tbody>
-                                                                                            <tr class="content-row"
-                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
-                                                                                                <td class="content-cell padding-top-0 padding-bottom-0"
-                                                                                                    width="570"
-                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:15px; padding-right:15px; padding-top:0; padding-bottom:0"
-                                                                                                    valign="top">
-                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:inherit; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:center; font-weight:normal; padding:0"
-                                                                                                        align="center">
-                                                                                                        <span
-                                                                                                            style="font-size: 14px;">На
-                                                                                                            формі оплати
-                                                                                                            перейдіть до
-                                                                                                            вкладки "За
-                                                                                                            передзаписом"</span>
-                                                                                                    </p>
-                                                                                                    <div
-                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
-                                                                                                    </div>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                        border="0" width="100%">
-                                        <tbody>
-                                            <tr style="border-color:transparent">
-                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
-                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                                        border="0" width="100%">
-                                                        <tbody>
-                                                            <tr style="border-color:transparent">
-                                                                <th width="600"
-                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                                                    cellpadding="0" cellspacing="0"
-                                                                    class="tc responsive " align="left" valign="top">
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table class="separator"
-                                                                                        width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; background-color:#f9e2d2; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; height:10px"
-                                                                                        bgcolor="#f9e2d2" height="10">
-                                                                                        <tbody>
-                                                                                            <tr
-                                                                                                style="border-color:transparent">
-                                                                                                <td height="10"
-                                                                                                    style="border-collapse:collapse; border-color:transparent">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table class="separator"
-                                                                                        width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; background-color:#e1ad90; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; height:10px"
-                                                                                        bgcolor="#e1ad90" height="10">
-                                                                                        <tbody>
-                                                                                            <tr
-                                                                                                style="border-color:transparent">
-                                                                                                <td height="10"
-                                                                                                    style="border-collapse:collapse; border-color:transparent">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        id="wout_block_4_element_0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; overflow:hidden">
-                                                                                        <tbody>
-                                                                                            <tr class="content-row"
-                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
-                                                                                                <td class="content-cell padding-lr-0 padding-top-0 padding-bottom-0"
-                                                                                                    width="600"
-                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0"
-                                                                                                    valign="top">
-                                                                                                    <div id="wout_block_4_element_0"
-                                                                                                        style="font-size:18px; line-height:1.5; width:100%; height:190; display:block"
-                                                                                                        width="100%"
-                                                                                                        height="190">
-                                                                                                        <img border="0"
-                                                                                                            width="600"
-                                                                                                            height="auto"
-                                                                                                            class="desktop  sp-img "
-                                                                                                            align="left"
-                                                                                                            alt="IMG_9312"
-                                                                                                            src="https://s8234269.sendpul.se/files/emailservice/userfiles/a54ae1d13a922eed7095d710da79b67c8234269/IMG_9312.JPG"
-                                                                                                            iout_block_4_element_0=""
-                                                                                                            style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; margin:0; display:block; -ms-interpolation-mode:bicubic"><!--[if !mso]><!-->
-                                                                                                        <div
-                                                                                                            style="font-size:18px; line-height:1.5; mso-hide:all">
-                                                                                                            <img border="0"
-                                                                                                                width="100%"
-                                                                                                                height="auto"
-                                                                                                                class="mobile  sp-img "
-                                                                                                                align="left"
-                                                                                                                alt="IMG_9312"
-                                                                                                                src="https://s8234269.sendpul.se/files/emailservice/userfiles/a54ae1d13a922eed7095d710da79b67c8234269/IMG_9312.JPG"
-                                                                                                                iout_block_4_element_0=""
-                                                                                                                style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; -ms-interpolation-mode:bicubic; display:none; width:100%; max-width:100% !important">
-                                                                                                        </div>
-                                                                                                        <!--<![endif]-->
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
-                                                                                                    </div>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        id="wout_block_out_block_14"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; text-color:black; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; font-family-short:georgia; font-weight:normal; color:#694d4d; margin:0; overflow:hidden">
-                                                                                        <tbody>
-                                                                                            <tr class="content-row"
-                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
-                                                                                                <td class="content-cell padding-bottom-0"
-                                                                                                    width="520"
-                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:40px; padding-right:40px; padding-top:30px; padding-bottom:0"
-                                                                                                    valign="top">
-                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
-                                                                                                        align="left">
-                                                                                                        Якщо виникнуть
-                                                                                                        будь-які
-                                                                                                        питання,
-                                                                                                        звертайтеся до
-                                                                                                        мого діректу
-                                                                                                        @bilanenco, я
-                                                                                                        залюбки
-                                                                                                        відповім.</p>
-                                                                                                    <div
-                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
-                                                                                                    </div>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                        border="0" width="100%">
-                                        <tbody>
-                                            <tr style="border-color:transparent">
-                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
-                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                                        border="0" width="100%">
-                                                        <tbody>
-                                                            <tr style="border-color:transparent">
-                                                                <th width="600"
-                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                                                    cellpadding="0" cellspacing="0"
-                                                                    class="tc responsive " align="left" valign="top">
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table class="separator"
-                                                                                        width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; background-color:#f9e2d2; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; height:10px"
-                                                                                        bgcolor="#f9e2d2" height="10">
-                                                                                        <tbody>
-                                                                                            <tr
-                                                                                                style="border-color:transparent">
-                                                                                                <td height="10"
-                                                                                                    style="border-collapse:collapse; border-color:transparent">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table class="separator"
-                                                                                        width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; background-color:#e1ad90; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; height:10px"
-                                                                                        bgcolor="#e1ad90" height="10">
-                                                                                        <tbody>
-                                                                                            <tr
-                                                                                                style="border-color:transparent">
-                                                                                                <td height="10"
-                                                                                                    style="border-collapse:collapse; border-color:transparent">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                        border="0" width="100%">
-                                        <tbody>
-                                            <tr style="border-color:transparent">
-                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
-                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
-                                                        border="0" width="100%">
-                                                        <tbody>
-                                                            <tr style="border-color:transparent">
-                                                                <th width="600"
-                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
-                                                                    cellpadding="0" cellspacing="0"
-                                                                    class="tc responsive " align="left" valign="top">
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; size:32px; order:1; background-color:#fff0e5; text-align:center; overflow:hidden"
-                                                                                        bgcolor="#fff0e5"
-                                                                                        align="center">
-                                                                                        <tbody>
-                                                                                            <tr class="content-row"
-                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
-                                                                                                <td class="content-cell padding-top-0"
-                                                                                                    width="540"
-                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:30px; padding-right:30px; padding-top:0; padding-bottom:5px"
-                                                                                                    valign="top">
-                                                                                                    <table
-                                                                                                        class="social"
-                                                                                                        cellpadding="5"
-                                                                                                        border="0"
-                                                                                                        cellspacing="0"
-                                                                                                        style="border-collapse:collapse; font-size:18px; line-height:1; border-color:transparent; border-width:0; border-style:none; border:0; display:inline-block; border-spacing:0">
-                                                                                                        <tbody>
-                                                                                                            <tr
-                                                                                                                style="border-color:transparent">
-                                                                                                                <th class="social_element social_element_h_i"
-                                                                                                                    style="border-color:transparent; padding:2px 5px; font-size:13px; font-family:Arial, sans-serif; line-height:32px; font-weight:400; text-align:left; border-width:0; border-style:none; border:0"
-                                                                                                                    align="left">
-                                                                                                                    <a href="https://www.instagram.com/bilanenco/"
-                                                                                                                        style="text-decoration:none; color:#ff6f36"><img
-                                                                                                                            border="0"
-                                                                                                                            alt="Instagram"
-                                                                                                                            class="social small_img smallImg"
-                                                                                                                            style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; border-color:transparent; border-width:0; border-style:none; display:block; margin:5px"
-                                                                                                                            vspace="5"
-                                                                                                                            hspace="5"
-                                                                                                                            title="Instagram"
-                                                                                                                            width="32"
-                                                                                                                            height="auto"
-                                                                                                                            src="https://s8234269.sendpul.se/img/constructor/social/logos/instagram.png"></a>
-                                                                                                                </th>
-                                                                                                                <th class="social_element social_element_h_i"
-                                                                                                                    style="border-color:transparent; padding:2px 5px; font-size:13px; font-family:Arial, sans-serif; line-height:32px; font-weight:400; text-align:left; border-width:0; border-style:none; border:0"
-                                                                                                                    align="left">
-                                                                                                                    <a href="https://t.me/bilanenco"
-                                                                                                                        style="text-decoration:none; color:#ff6f36"><img
-                                                                                                                            border="0"
-                                                                                                                            alt="Telegram"
-                                                                                                                            class="social small_img smallImg"
-                                                                                                                            style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; border-color:transparent; border-width:0; border-style:none; display:block; margin:5px"
-                                                                                                                            vspace="5"
-                                                                                                                            hspace="5"
-                                                                                                                            title="Telegram"
-                                                                                                                            width="32"
-                                                                                                                            height="auto"
-                                                                                                                            src="https://s8234269.sendpul.se/img/constructor/social/logos/telegram.png"></a>
-                                                                                                                </th>
-                                                                                                            </tr>
-                                                                                                        </tbody>
-                                                                                                    </table>
-                                                                                                    <div
-                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
-                                                                                                    </div>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <table cellpadding="0" cellspacing="0" width="600px" border="0" bgcolor="#fff9f2" style="border-collapse:collapse;font-size:18px;line-height:1.5">
+                <tbody>
+                    <tr style="border-color:transparent">
+                        <td border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent">
+                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                <tbody>
+                                    <tr style="border-color:transparent">
+                                        <td style="border-collapse:collapse;border-color:transparent;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;vertical-align:top" border="0" cellpadding="0" cellspacing="0" valign="top">
+                                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                                <tbody>
+                                                    <tr style="border-color:transparent">
+                                                        <th width="600" style="border-color:transparent;font-weight:400;text-align:left;vertical-align:top" cellpadding="0" cellspacing="0" align="left" valign="top">
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" id="m_-1782385342913066587wout_block_out_block_14" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:transparent;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif;font-weight:normal;color:#694d4d;margin:0;overflow:hidden">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif">
+                                                                                        <td width="520" style="border-collapse:collapse;border-color:transparent;vertical-align:top;padding-left:40px;padding-right:40px;padding-top:15px;padding-bottom:15px" valign="top">
+                                                                                            <p style="line-height:inherit;margin:0 0 10px;font-size:inherit;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif;text-align:left;font-weight:normal;padding:0" align="left">
+                                                                                                <strong>Вітаю,
+                                                                                                    ви успішно
+                                                                                                    придбали
+                                                                                                    навчання на
+                                                                                                    тижневому
+                                                                                                    курсі
+                                                                                                    «ВІЖУАЛ»!</strong>
+                                                                                            </p>
+                                                                                            <p style="line-height:inherit;margin:0 0 10px;font-size:inherit;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif;text-align:center;font-weight:normal;padding:0" align="center">
+                                                                                                Початок курсу
+                                                                                                буде 15.03.2024
+                                                                                            </p>
+                                                                                            <p style="line-height:inherit;margin:0 0 10px;font-size:inherit;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif;text-align:center;font-weight:normal;padding:0" align="center">
+                                                                                                <em style="color:inherit"><span style="font-size:14px">Незабаром
+                                                                                                        вам буде
+                                                                                                        надіслано
+                                                                                                        запрошення
+                                                                                                        до
+                                                                                                        навчальної
+                                                                                                        платформи</span></em>
+                                                                                            </p>
+                                                                                            <div style="font-size:18px;line-height:1.5;clear:both">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                <tbody>
+                                    <tr style="border-color:transparent">
+                                        <td style="border-collapse:collapse;border-color:transparent;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;vertical-align:top" border="0" cellpadding="0" cellspacing="0" valign="top">
+                                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                                <tbody>
+                                                    <tr style="border-color:transparent">
+                                                        <th width="600" style="border-color:transparent;font-weight:400;text-align:left;vertical-align:top" cellpadding="0" cellspacing="0" align="left" valign="top">
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:#f9e2d2;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;height:10px" bgcolor="#f9e2d2" height="10">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent">
+                                                                                        <td height="10" style="border-collapse:collapse;border-color:transparent">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:#e1ad90;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;height:10px" bgcolor="#e1ad90" height="10">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent">
+                                                                                        <td height="10" style="border-collapse:collapse;border-color:transparent">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" id="m_-1782385342913066587wout_block_4_element_0" style="border-collapse:separate;font-size:18px;line-height:1.5;overflow:hidden">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif">
+                                                                                        <td width="600" style="border-collapse:collapse;border-color:transparent;vertical-align:top;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0" valign="top">
+                                                                                            <div id="m_-1782385342913066587wout_block_4_element_0" style="font-size:18px;line-height:1.5;width:100%;height:190;display:block" width="100%" height="190">
+                                                                                                <img border="0" width="600" height="auto" align="left" alt="IMG_9312" src="https://ci3.googleusercontent.com/meips/ADKq_NYKBARZiqSWYgkclxBsRL7WdgoWXoMhxxQy1nfF4lEtZie3ZPuCISNqSq7ixbv4-QoCzQjuJXu3R7aClurfJgF8TfZqWHOoGP3_u3zEm3BLKawMioHg0rWfml-Y2QNfg39qS1ZK3rymvQPANCgH76uT7gi_Lx4kiEVFc23ne-dHTppH=s0-d-e1-ft#https://s8234269.sendpul.se/files/emailservice/userfiles/a54ae1d13a922eed7095d710da79b67c8234269/IMG_9312.JPG" style="height:auto;line-height:100%;outline:0;text-decoration:none;border:0;margin:0;display:block" class="CToWUd a6T" data-bit="iit" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 1012px; top: 346px;"><span data-is-tooltip-wrapper="true" class="a5q" jsaction="JIbuQc:.CLIENT"><button class="VYBDae-JX-I VYBDae-JX-I-ql-ay5-ays CgzRE" jscontroller="PIVayb" jsaction="click:h5M12e;clickmod:h5M12e; pointerdown:FEiYhc; pointerup:mF5Elf; pointerenter:EX0mI; pointerleave:vpvbp; pointercancel:xyn4sd; contextmenu:xexox;focus:h06R8; blur:zjh6rb;mlnRJb:fLiPzd;" data-idom-class="CgzRE" jsname="hRZeKc" aria-label="Скачать файл " data-tooltip-enabled="true" data-tooltip-id="tt-c75" data-tooltip-classes="AZPksf" id="" jslog="91252; u014N:cOuCgd,Kr2w4b,xr6bB; 4:WyIjbXNnLWY6MTc5MDUxNTcyMjM5NjA2MTE0NSJd; 43:WyJpbWFnZS9qcGVnIl0."><span class="OiePBf-zPjgPe VYBDae-JX-UHGRz"></span><span class="bHC-Q" data-unbounded="false" jscontroller="LBaJxb" jsname="m9ZlFb" soy-skip="" ssk="6:RWVI5c"></span><span class="VYBDae-JX-ank-Rtc0Jf" jsname="S5tZuc" aria-hidden="true"><span class="bzc-ank" aria-hidden="true"><svg height="20" viewBox="0 -960 960 960" width="20" focusable="false" class=" aoH"><path d="M480-336 288-528l51-51 105 105v-342h72v342l105-105 51 51-192 192ZM263.717-192Q234-192 213-213.15T192-264v-72h72v72h432v-72h72v72q0 29.7-21.162 50.85Q725.676-192 695.96-192H263.717Z"></path></svg></span></span><div class="VYBDae-JX-ano"></div></button><div class="ne2Ple-oshW8e-J9" id="tt-c75" role="tooltip" aria-hidden="true">Скачать</div></span></div>
+                                                                                                <div style="font-size:18px;line-height:1.5">
+                                                                                                    <img border="0" width="100%" height="auto" align="left" alt="IMG_9312" src="https://ci3.googleusercontent.com/meips/ADKq_NYKBARZiqSWYgkclxBsRL7WdgoWXoMhxxQy1nfF4lEtZie3ZPuCISNqSq7ixbv4-QoCzQjuJXu3R7aClurfJgF8TfZqWHOoGP3_u3zEm3BLKawMioHg0rWfml-Y2QNfg39qS1ZK3rymvQPANCgH76uT7gi_Lx4kiEVFc23ne-dHTppH=s0-d-e1-ft#https://s8234269.sendpul.se/files/emailservice/userfiles/a54ae1d13a922eed7095d710da79b67c8234269/IMG_9312.JPG" style="height:auto;line-height:100%;outline:0;text-decoration:none;border:0;display:none;width:100%;max-width:100%!important" class="CToWUd" data-bit="iit">
+                                                                                                </div>
+                                                                                                
+                                                                                            </div>
+                                                                                            <div style="font-size:18px;line-height:1.5;clear:both">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" id="m_-1782385342913066587wout_block_out_block_14" style="border-collapse:separate;font-size:18px;line-height:1.5;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif;font-weight:normal;color:#694d4d;margin:0;overflow:hidden">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif">
+                                                                                        <td width="520" style="border-collapse:collapse;border-color:transparent;vertical-align:top;padding-left:40px;padding-right:40px;padding-top:30px;padding-bottom:0" valign="top">
+                                                                                            <p style="line-height:inherit;margin:0 0 10px;font-size:inherit;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif;text-align:left;font-weight:normal;padding:0" align="left">
+                                                                                                Якщо виникнуть
+                                                                                                будь-які
+                                                                                                питання,
+                                                                                                звертайтеся до
+                                                                                                мого діректу
+                                                                                                @bilanenco, я
+                                                                                                залюбки
+                                                                                                відповім.</p>
+                                                                                            <div style="font-size:18px;line-height:1.5;clear:both">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                <tbody>
+                                    <tr style="border-color:transparent">
+                                        <td style="border-collapse:collapse;border-color:transparent;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;vertical-align:top" border="0" cellpadding="0" cellspacing="0" valign="top">
+                                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                                <tbody>
+                                                    <tr style="border-color:transparent">
+                                                        <th width="600" style="border-color:transparent;font-weight:400;text-align:left;vertical-align:top" cellpadding="0" cellspacing="0" align="left" valign="top">
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:#f9e2d2;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;height:10px" bgcolor="#f9e2d2" height="10">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent">
+                                                                                        <td height="10" style="border-collapse:collapse;border-color:transparent">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:#e1ad90;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;height:10px" bgcolor="#e1ad90" height="10">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent">
+                                                                                        <td height="10" style="border-collapse:collapse;border-color:transparent">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:#fff0e5;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;height:35px" bgcolor="#fff0e5" height="35">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent">
+                                                                                        <td height="35" style="border-collapse:collapse;border-color:transparent">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                <tbody>
+                                    <tr style="border-color:transparent">
+                                        <td style="border-collapse:collapse;border-color:transparent;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;vertical-align:top" border="0" cellpadding="0" cellspacing="0" valign="top">
+                                            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;width:100%" border="0" width="100%">
+                                                <tbody>
+                                                    <tr style="border-color:transparent">
+                                                        <th width="600" style="border-color:transparent;font-weight:400;text-align:left;vertical-align:top" cellpadding="0" cellspacing="0" align="left" valign="top">
+                                                            <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1.5;border-top-right-radius:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+                                                                <tbody>
+                                                                    <tr style="border-color:transparent">
+                                                                        <td cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;vertical-align:top" valign="top">
+                                                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;font-size:18px;line-height:1.5;background-color:#fff0e5;text-align:center;overflow:hidden" bgcolor="#fff0e5" align="center">
+                                                                                <tbody>
+                                                                                    <tr style="border-color:transparent;color:#694d4d;font-family:Georgia,&quot;Times New Roman&quot;,Times,serif">
+                                                                                        <td width="540" style="border-collapse:collapse;border-color:transparent;vertical-align:top;padding-left:30px;padding-right:30px;padding-top:0;padding-bottom:5px" valign="top">
+                                                                                            <table cellpadding="5" border="0" cellspacing="0" style="border-collapse:collapse;font-size:18px;line-height:1;border-color:transparent;border-width:0;border-style:none;border:0;display:inline-block;border-spacing:0">
+                                                                                                <tbody>
+                                                                                                    <tr style="border-color:transparent">
+                                                                                                        <th style="border-color:transparent;padding:2px 5px;font-size:13px;font-family:Arial,sans-serif;line-height:32px;font-weight:400;text-align:left;border-width:0;border-style:none;border:0" align="left">
+                                                                                                            <a href="https://www.instagram.com/bilanenco/" style="text-decoration:none;color:#ff6f36" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.instagram.com/bilanenco/&amp;source=gmail&amp;ust=1707655259876000&amp;usg=AOvVaw3U3H-WvzQdjnBNIoZeZh3B"><img border="0" alt="Instagram" style="height:auto;line-height:100%;outline:0;text-decoration:none;border:0;border-color:transparent;border-width:0;border-style:none;display:block;margin:5px" vspace="5" hspace="5" title="Instagram" width="32" height="auto" src="https://ci3.googleusercontent.com/meips/ADKq_NardGZ5JndnKiO4Se5yYbhjiAo5RaDIEluWTkNLQUJ94CCAt_XZc_LmQDbgdNMmMWKmdmSrOuVpLMI0y5OZFyhqytXUAEWft7feqlXb3O1RfV9hkyr4o1VH4MER=s0-d-e1-ft#https://s8234269.sendpul.se/img/constructor/social/logos/instagram.png" class="CToWUd" data-bit="iit"></a>
+                                                                                                        </th>
+                                                                                                        <th style="border-color:transparent;padding:2px 5px;font-size:13px;font-family:Arial,sans-serif;line-height:32px;font-weight:400;text-align:left;border-width:0;border-style:none;border:0" align="left">
+                                                                                                            <a href="https://t.me/bilanenco" style="text-decoration:none;color:#ff6f36" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://t.me/bilanenco&amp;source=gmail&amp;ust=1707655259876000&amp;usg=AOvVaw3g4aqFwoRDb2PR0Bo73HSd"><img border="0" alt="Telegram" style="height:auto;line-height:100%;outline:0;text-decoration:none;border:0;border-color:transparent;border-width:0;border-style:none;display:block;margin:5px" vspace="5" hspace="5" title="Telegram" width="32" height="auto" src="https://ci3.googleusercontent.com/meips/ADKq_NZb0bx266P36RjuioqQzkrZev4La4Wwy2neACPhui2Kwy4IPj7YP3_R8IrrO2mxu_SbzCK-Tt_C3clrA5qgngQIovMwDlYYrIys0CNQeC9dLFTrS0qamvsaIy0=s0-d-e1-ft#https://s8234269.sendpul.se/img/constructor/social/logos/telegram.png" class="CToWUd" data-bit="iit"></a>
+                                                                                                        </th>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <div style="font-size:18px;line-height:1.5;clear:both">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
                 </td>
             </tr>
         </tbody>

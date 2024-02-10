@@ -131,6 +131,20 @@ $accent: #FFD34B;
     }
 }
 
+.contentRow {
+    &:last-child {
+        .contentItemNum {
+            box-shadow: 0px 0px 30px 5px rgba(255,211,75,1);
+        }
+    }
+}
+
+.newLesson {
+    color: $text;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .contentItemNum {
     display: block;
     position: absolute;
