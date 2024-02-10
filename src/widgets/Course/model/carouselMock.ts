@@ -7,8 +7,8 @@ import res6 from '../assets/6.png';
 
 export const resultCarouselItems = [
     {
-        id: "1",
-        imgSource: res1,
+        id: "4",
+        imgSource: res4,
     },
     {
         id: "2",
@@ -19,8 +19,8 @@ export const resultCarouselItems = [
         imgSource: res3,
     },
     {
-        id: "4",
-        imgSource: res4,
+        id: "1",
+        imgSource: res1,
     },
     { 
         id: "5",
