@@ -122,7 +122,7 @@ export const Registration: React.FC<Props> = ({
           {isPresale && (
             <>
               <div className={css.presaleAmount}>Сума передзапису: <strong>999 грн</strong></div>
-              <div className={css.presaleInfo}>За вами буде заброньоване місце на курсі за найвигіднішою вартістю, внести решту оплати можна до 07/11/2023</div>
+              <div className={css.presaleInfo}>За вами буде заброньоване місце на курсі за найвигіднішою вартістю, внести решту оплати можна до 05.03.2024</div>
             </>
           )}
           <div className={css.presaleButton} onClick={onClick}>За передзаписом</div>
