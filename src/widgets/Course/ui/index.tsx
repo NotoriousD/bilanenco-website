@@ -117,7 +117,7 @@ export const Course: React.FC<Props> = ({
                 backgroundImage: `url(${footerBanner.src})`,
             }}>
                 <div className={css.sectionHeader}>
-                    <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3>
+                    {/* <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3> */}
                 </div>
                 <section className={css.packages} ref={packagesRef}>
                     <div className={css.container}>
