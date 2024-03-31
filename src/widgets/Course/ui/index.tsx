@@ -44,7 +44,7 @@ export const Course: React.FC<Props> = ({
                     <div className={css.container}>
                         <div className={css.headerTitle}>{title}</div>
                         <div className={cn(css.startDate, css.accent)}>Дата початку: {date}</div>
-                        <div className={css.saleDate}>До {getDateFromISO(endSaleDate)} у вас є змога зробити передзапис на курс (сума передплати: 999 грн)</div>
+                        <div className={css.saleDate}>До 20.05.2024 у вас є змога зробити передзапис на курс (сума передплати: 999 грн)</div>
                         <div className={css.headerText}>Тижневий онлайн курс з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за тиждень. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
                         <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>{isPresale ? 'Передзапис' : 'Записатися'}</button></div>
                     </div>
