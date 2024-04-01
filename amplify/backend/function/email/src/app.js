@@ -704,7 +704,7 @@ app.post('/create', function (req, res) {
                                                                                                         вартістю, внести
                                                                                                         решту оплати
                                                                                                         можна до
-                                                                                                        20.05.2024</p>
+                                                                                                        05.06.2024</p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">
                                                                                                     </div>
