@@ -9,9 +9,13 @@ See the License for the specific language governing permissions and limitations 
 
 
 
+const AWS = require('aws-sdk')
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+const docClient = new AWS.DynamoDB.DocumentClient({
+  apiVersion: "2012-08-10"
+})
 
 // declare a new express app
 const app = express()
@@ -25,14 +29,32 @@ app.use(function(req, res, next) {
   next()
 });
 
+const PRODUCTS_TABLE_NAME = `products-${process.env.ENV}`
 
 /**********************
  * Example get method *
  **********************/
 
-app.get('/item', function(req, res) {
+app.get('/product', async (req, res) => {
   // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
+  console.log(req.params);
+
+  const {
+    Item: product
+  } = await docClient.get({
+    TableName: PRODUCTS_TABLE_NAME,
+    Key: {
+      id: req.params.id,
+    },
+  }, (err, data) => {
+    if (err) {
+      res.status(404).send({
+        message: 'Product was not found'
+      })
+      return
+    }
+  }).promise()
+  res.json({ data: { ...product } });
 });
 
 app.get('/item/*', function(req, res) {
