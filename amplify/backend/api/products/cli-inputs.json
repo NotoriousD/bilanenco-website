@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/product": {
+      "name": "/product",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "read"
+        ],
+        "guest": [
+          "read"
+        ]
+      }
+    }
+  }
+}

@@ -40,7 +40,8 @@
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com"
         },
-        "presales": {}
+        "presales": {},
+        "products": {}
       },
       "api": {
         "courses": {},
@@ -57,6 +58,9 @@
         "events": {},
         "orders": {},
         "presales": {}
+      },
+      "auth": {
+        "bilanencowebsite": {}
       }
     }
   },

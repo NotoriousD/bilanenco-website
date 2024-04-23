@@ -56,6 +56,20 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
+    "products": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "products"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "status": {
       "dependsOn": [
         {
@@ -69,6 +83,32 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "bilanencowebsite": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
     }
   },
   "function": {
@@ -158,6 +198,11 @@
           "resourceName": "presales"
         }
       ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "products": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -354,6 +399,10 @@
       "service": "DynamoDB"
     },
     "presales": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "products": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }
