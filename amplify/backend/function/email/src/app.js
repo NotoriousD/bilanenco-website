@@ -3,15 +3,13 @@
   API_EMAILS_APINAME
   ENV
   REGION
-Amplify Params - DO NOT EDIT *//*
+Amplify Params - DO NOT EDIT */ /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
     http://aws.amazon.com/apache2.0/
 or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
-
-
 
 const AWS = require('aws-sdk')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -27,10 +25,10 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "*")
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', '*')
   next()
-});
+})
 
 app.post('/emails', function (req, res) {
   const { name, emails } = req.body
@@ -38,18 +36,20 @@ app.post('/emails', function (req, res) {
 
   if (error) {
     res.status(404).json(error)
-    return;
+    return
   }
 
   const params = {
-    Destinations: [{
-      Destination: {
-        ToAddresses: emails,
+    Destinations: [
+      {
+        Destination: {
+          ToAddresses: emails
+        }
       }
-    }],
+    ],
     Source: 'olexandra.bilanenko@gmail.com',
     Template: name,
-    DefaultTemplateData: JSON.stringify({}),
+    DefaultTemplateData: JSON.stringify({})
   }
 
   sesClient.sendBulkTemplatedEmail(params, (err, data) => {
@@ -59,7 +59,7 @@ app.post('/emails', function (req, res) {
     }
     res.status(200).json(data)
   })
-});
+})
 
 app.post('/create', function (req, res) {
   const { name, subject } = req.body
@@ -67,7 +67,7 @@ app.post('/create', function (req, res) {
 
   if (error) {
     res.status(404).json(error)
-    return;
+    return
   }
 
   const params = {
@@ -689,30 +689,178 @@ app.post('/create', function (req, res) {
                                                                                                         align="left">
                                                                                                         <strong>Вітаю,
                                                                                                             ви успішно
-                                                                                                            придбали
-                                                                                                            навчання на
-                                                                                                            5-ти
-                                                                                                            дневному
-                                                                                                            курсі з
-                                                                                                            віжуалу
-                                                                                                            «ВОРКЖОП»!</strong>
+                                                                                                            внесли
+                                                                                                            передплату
+                                                                                                            за навчання
+                                                                                                            на тижневий курс
+                                                                                                            «ВІЖУАЛ»!</strong>
                                                                                                     </p>
-                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:center; font-weight:normal; padding:0"
+                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
+                                                                                                        align="left">За
+                                                                                                        вами було
+                                                                                                        заброньоване
+                                                                                                        місце на курсі
+                                                                                                        за найвигіднішою
+                                                                                                        вартістю, внести
+                                                                                                        решту оплати
+                                                                                                        можна до
+                                                                                                        05.06.2024</p>
+                                                                                                    <div
+                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </th>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table cellpadding="0" cellspacing="0"
+                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
+                                        border="0" width="100%">
+                                        <tbody>
+                                            <tr style="border-color:transparent">
+                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
+                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
+                                                    <table cellpadding="0" cellspacing="0"
+                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
+                                                        border="0" width="100%">
+                                                        <tbody>
+                                                            <tr style="border-color:transparent">
+                                                                <th width="600"
+                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
+                                                                    cellpadding="0" cellspacing="0"
+                                                                    class="tc responsive " align="left" valign="top">
+                                                                    <table border="0" width="100%" cellpadding="0"
+                                                                        cellspacing="0"
+                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
+                                                                        <tbody>
+                                                                            <tr style="border-color:transparent">
+                                                                                <td cellpadding="0" cellspacing="0"
+                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
+                                                                                    valign="top">
+                                                                                    <table width="100%" cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; overflow:hidden">
+                                                                                        <tbody>
+                                                                                            <tr class="content-row"
+                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
+                                                                                                <td class="content-cell"
+                                                                                                    width="570"
+                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:15px; padding-right:15px; padding-top:15px; padding-bottom:15px"
+                                                                                                    valign="top">
+                                                                                                    <center>
+                                                                                                        <table
+                                                                                                            cellpadding="0"
+                                                                                                            border="0"
+                                                                                                            cellspacing="0"
+                                                                                                            class="sp-button flat auto-width"
+                                                                                                            style="border-collapse:collapse; font-size:18px; line-height:1.5; border:0; margin-left:auto; margin-right:auto; width:auto !important; border-radius:5px; box-shadow:none; background:#e1ad90"
+                                                                                                            width="auto !important">
+                                                                                                            <tbody>
+                                                                                                                <tr
+                                                                                                                    style="border-color:transparent">
+                                                                                                                    <td class="sp-button-text"
+                                                                                                                        style="border-collapse:collapse; border-color:transparent; border-width:0; border-style:none; border:0; padding:0; align:center; border-radius:5px; width:auto; height:40px; vertical-align:middle; text-align:center"
+                                                                                                                        width="auto"
+                                                                                                                        height="40"
+                                                                                                                        valign="middle"
+                                                                                                                        align="center">
+                                                                                                                        <table
+                                                                                                                            cellpadding="0"
+                                                                                                                            border="0"
+                                                                                                                            cellspacing="0"
+                                                                                                                            width="100%"
+                                                                                                                            style="border-collapse:collapse; font-size:18px; line-height:1.5; border:0">
+                                                                                                                            <tbody>
+                                                                                                                                <tr
+                                                                                                                                    style="border-color:transparent">
+                                                                                                                                    <td align="center"
+                                                                                                                                        style="border-collapse:collapse; border-color:transparent; border:0; padding:0; line-height:1">
+                                                                                                                                        <a style="text-decoration:none; color:#FFF; display:block; padding:12px 18px; font-family:Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-family-short:arial; font-size:16px; font-weight:bold"
+                                                                                                                                            href="https://www.bilanenco.com/courses/visual">Перейти
+                                                                                                                                            до
+                                                                                                                                            оплати</a>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </center>
+                                                                                                    <div
+                                                                                                        style="font-size:18px; line-height:1.5; clear:both">
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </th>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table cellpadding="0" cellspacing="0"
+                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
+                                        border="0" width="100%">
+                                        <tbody>
+                                            <tr style="border-color:transparent">
+                                                <td style="border-collapse:collapse; border-color:transparent; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; vertical-align:top"
+                                                    border="0" cellpadding="0" cellspacing="0" valign="top">
+                                                    <table cellpadding="0" cellspacing="0"
+                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; width:100%"
+                                                        border="0" width="100%">
+                                                        <tbody>
+                                                            <tr style="border-color:transparent">
+                                                                <th width="600"
+                                                                    style="border-color:transparent; font-weight:400; text-align:left; vertical-align:top"
+                                                                    cellpadding="0" cellspacing="0"
+                                                                    class="tc responsive " align="left" valign="top">
+                                                                    <table border="0" width="100%" cellpadding="0"
+                                                                        cellspacing="0"
+                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
+                                                                        <tbody>
+                                                                            <tr style="border-color:transparent">
+                                                                                <td cellpadding="0" cellspacing="0"
+                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
+                                                                                    valign="top">
+                                                                                    <table width="100%" cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        id="wout_block_out_block_14"
+                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; text-color:black; font-weight:normal; margin:0; overflow:hidden">
+                                                                                        <tbody>
+                                                                                            <tr class="content-row"
+                                                                                                style="border-color:transparent; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif">
+                                                                                                <td class="content-cell padding-top-0 padding-bottom-0"
+                                                                                                    width="570"
+                                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top; padding-left:15px; padding-right:15px; padding-top:0; padding-bottom:0"
+                                                                                                    valign="top">
+                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:inherit; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:center; font-weight:normal; padding:0"
                                                                                                         align="center">
-                                                                                                        Початок курсу
-                                                                                                        буде 15.11.2023
-                                                                                                    </p>
-                                                                                                    <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:center; font-weight:normal; padding:0"
-                                                                                                        align="center">
-                                                                                                        <em
-                                                                                                            style="color:inherit"><span
-                                                                                                                style="font-size: 14px;">Незабаром
-                                                                                                                вам буде
-                                                                                                                надіслано
-                                                                                                                запрошення
-                                                                                                                до
-                                                                                                                навчальної
-                                                                                                                платформи</span></em>
+                                                                                                        <span
+                                                                                                            style="font-size: 14px;">На
+                                                                                                            формі оплати
+                                                                                                            перейдіть до
+                                                                                                            вкладки "За
+                                                                                                            передзаписом"</span>
                                                                                                     </p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">
@@ -974,32 +1122,6 @@ app.post('/create', function (req, res) {
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <table border="0" width="100%" cellpadding="0"
-                                                                        cellspacing="0"
-                                                                        style="border-collapse:collapse; font-size:18px; line-height:1.5; border-top-right-radius:0; border-top-left-radius:0; border-bottom-left-radius:0; border-bottom-right-radius:0">
-                                                                        <tbody>
-                                                                            <tr style="border-color:transparent">
-                                                                                <td cellpadding="0" cellspacing="0"
-                                                                                    style="border-collapse:collapse; border-color:transparent; vertical-align:top"
-                                                                                    valign="top">
-                                                                                    <table class="separator"
-                                                                                        width="100%" cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        style="border-collapse:separate; font-size:18px; line-height:1.5; background-color:#fff0e5; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; height:35px"
-                                                                                        bgcolor="#fff0e5" height="35">
-                                                                                        <tbody>
-                                                                                            <tr
-                                                                                                style="border-color:transparent">
-                                                                                                <td height="35"
-                                                                                                    style="border-collapse:collapse; border-color:transparent">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
                                                                 </th>
                                                             </tr>
                                                         </tbody>
@@ -1119,7 +1241,7 @@ app.post('/create', function (req, res) {
 
 </html>
       `,
-      SubjectPart: subject,
+      SubjectPart: subject
     }
   }
 
@@ -1130,25 +1252,25 @@ app.post('/create', function (req, res) {
     }
     res.status(200).json(data)
   })
-});
+})
 
 /****************************
-* Example put method *
-****************************/
+ * Example put method *
+ ****************************/
 
 app.put('/email', function (req, res) {
   // Add your code here
   res.json({ success: 'put call succeed!', url: req.url, body: req.body })
-});
+})
 
 app.put('/email/*', function (req, res) {
   // Add your code here
   res.json({ success: 'put call succeed!', url: req.url, body: req.body })
-});
+})
 
 /****************************
-* Example delete method *
-****************************/
+ * Example delete method *
+ ****************************/
 
 app.delete('/emails', function (req, res) {
   const { name } = req.body
@@ -1163,16 +1285,16 @@ app.delete('/emails', function (req, res) {
     }
     res.status(200).json(data)
   })
-});
+})
 
 app.delete('/email/*', function (req, res) {
   // Add your code here
-  res.json({ success: 'delete call succeed!', url: req.url });
-});
+  res.json({ success: 'delete call succeed!', url: req.url })
+})
 
 app.listen(3000, function () {
-  console.log("App started")
-});
+  console.log('App started')
+})
 
 // Export the app object. When executing the application local this does nothing. However,
 // to port it to AWS Lambda we will create a wrapper around that will load the app from

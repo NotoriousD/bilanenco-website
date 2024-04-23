@@ -27,7 +27,6 @@ export default function SingleCoursesPage({ course }: Props) {
     const contactId = searchParams?.get('contact_id')
     const funnel = searchParams?.get('funnel')
 
-
     const handleOpenModal = useCallback((packageId: string) => {
         setPackageId(packageId)
         setOpenModal(!openModal)
@@ -41,6 +40,10 @@ export default function SingleCoursesPage({ course }: Props) {
     const handleCloseModal = () => {
         setOpenModal(!openModal)
     }
+
+    const handleClosePresaleModal = useCallback(() => {
+        setOpenPresaleModal(false)
+    }, [])
 
     return (
         <>
@@ -56,8 +59,9 @@ export default function SingleCoursesPage({ course }: Props) {
                     currency={course.currency}
                     productId={slug as string}
                     packages={course.packages}
-                    onClose={handleCloseModal}
                     funnel={funnel}
+                    isPresale={course?.isPresale}
+                    onClose={handleCloseModal}
                     onClick={handleOpenPresaleModal}
                 />
             )}
@@ -68,7 +72,7 @@ export default function SingleCoursesPage({ course }: Props) {
                     productType='courses'
                     productId={slug as string}
                     packages={course.packages}
-                    onClose={handleCloseModal}
+                    onClose={handleClosePresaleModal}
                 />
             )}
         </>

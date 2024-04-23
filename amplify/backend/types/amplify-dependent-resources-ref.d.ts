@@ -1,4 +1,31 @@
 export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "courses": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "emails": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "events": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "orders": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "status": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    }
+  },
   "function": {
     "events": {
       "Arn": "string",
@@ -8,13 +35,6 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string"
     },
     "orders": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "returnPresalePlaces": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

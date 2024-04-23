@@ -184,6 +184,24 @@ exports.getOrderType = async (req, res, next) => {
     next()
 }
 
+const getCurrentProductPrice = (product, package_id) => {
+    const today = new Date().getTime()
+    const startSaleDate = new Date(product.start_sale_date).getTime()
+    const endSaleDate = new Date(product.end_sale_date).getTime()
+
+    const isSaleDate = today >= startSaleDate && today <= endSaleDate
+
+    const packageItem = product.packages.find(({ id }) => id === package_id)
+
+    console.log(product, package_id, packageItem);
+
+    if(isSaleDate) {
+        return packageItem?.sale_price
+    } else {
+        return packageItem?.price
+    }
+}
+
 exports.createOrder = async (req, res, next) => {
     const {
         body
@@ -198,7 +216,11 @@ exports.createOrder = async (req, res, next) => {
         return;
     }
 
-    let total_amount = getProductPriceByCurrency(body.currency, req.price, body.funnel, body.product_type)
+    const productPrice = getCurrentProductPrice(req.product, body.package_id)
+
+    console.log('productPrice =', productPrice);
+
+    let total_amount = getProductPriceByCurrency(body.currency, productPrice, body.funnel, body.product_type)
     const currentDate = new Date().toISOString()
 
     const newOrder = {
@@ -313,11 +335,13 @@ exports.createInvoice = async (req, res, next) => {
             amount: amount,
             productId: productNames[body.product_type],
             name: `${product.subType} "${order.name}"`,
-            redirectUrl: `https://${process.env.ENV === 'dev' ? 'dev' : ''}.bilanenco.com/thank-you`,
+            redirectUrl: `https://${process.env.ENV === 'dev' ? 'dev.' : ''}bilanenco.com/thank-you`,
             webHookUrl: `${process.env.CALLBACK_URL}/status`,
             destination: `Оплата ${isPresaleInvoice ? '(Передзапис)': ''} ${order.name}`,
             token: PAYMENT_TOKEN,
         })
+
+        console.log(PAYMENT_TOKEN, invoice);
 
         req.invoice = invoice
         next()

@@ -161,11 +161,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "returnPresalePlaces": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "statuses": {
       "build": true,
       "dependsOn": [
@@ -208,6 +203,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_courses_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "courses"
+        }
+      ]
+    },
+    "AMPLIFY_function_courses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "courses"
+        }
+      ]
+    },
+    "AMPLIFY_function_email_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "email"
+        }
+      ]
+    },
+    "AMPLIFY_function_email_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "email"
+        }
+      ]
+    },
     "AMPLIFY_function_events_deploymentBucketName": {
       "usedBy": [
         {

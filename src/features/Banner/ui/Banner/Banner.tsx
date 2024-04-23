@@ -28,7 +28,7 @@ const mocks: TCarouselItem[] = [
     }
 ]
 
-interface IBanner {
+export interface IBanner {
     type?: BannerType
     data?: ISingleEvent
     handlerOpenModal: () => void
@@ -47,7 +47,11 @@ export const Banner: React.FC<IBanner> = ({ type = BannerType.Banner, data, hand
     if (type === BannerType.Carousel) {
         return (
             <div className={css.root}>
-                <Carousel handlerOpenModal={handlerOpenModal} type={type} items={mocks} />
+                <Carousel
+                    handleOpenModal={handlerOpenModal}
+                    type={type}
+                    items={mocks}
+                />
             </div>
         )
     }

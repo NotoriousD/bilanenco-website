@@ -1,8 +1,8 @@
 
 const availablePlacesMock: Record<string, number> = {
-    'Селф': 12,
-    'З вчителем': 7,
-    'З Олександрою': 2,
+    'Селф': 19,
+    'З Вчителем': 7,
+    'З Олександрою': 3,
 }
 
 export const getAvailablePlaces = (name: string, places: number) => {

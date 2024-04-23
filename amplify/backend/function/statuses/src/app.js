@@ -207,7 +207,7 @@ app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
         console.log(err);
         return 
       }
-    })
+    }).promise()
 
     console.log(email);
 

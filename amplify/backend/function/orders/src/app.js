@@ -75,6 +75,7 @@ app.use(function (req, res, next) {
   next()
 });
 
+
 app.post('/orders', getIsPresaleOrder, getPackageById, getOrderType, createOrder, updageAvailablePlaces, createInvoice, async function (req, res) {
   const { order, invoice } = req
   await docClient.update({
