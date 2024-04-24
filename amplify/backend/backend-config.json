@@ -336,6 +336,22 @@
         }
       ]
     },
+    "AMPLIFY_function_products_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
     "AMPLIFY_function_statuses_clientId": {
       "usedBy": [
         {

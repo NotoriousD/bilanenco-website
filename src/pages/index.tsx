@@ -62,10 +62,6 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const events = await API.get('events', `/events`, {});
-    const products = await API.get('products', `/product/123`, {});
-
-    console.log(products);
-
 
     if (!events.data) {
         return {

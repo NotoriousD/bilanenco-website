@@ -81,25 +81,27 @@ export default function SingleCoursesPage({ course }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
-    const course = await API.get('products', `/products/${slug}`, {})
+    const product = await API.get('products', `/product/${slug}`, {})
 
-    if (!course.data) {
-        return {
-            notFound: true,
-        }
-    }
+    console.log(product);
 
-    if (course.data) {
-        return {
-            props: {
-                course: course.data
-            }
-        }
-    }
+    // if (!course.data) {
+    //     return {
+    //         notFound: true,
+    //     }
+    // }
+
+    // if (course.data) {
+    //     return {
+    //         props: {
+    //             course: course.data
+    //         }
+    //     }
+    // }
 
     return {
         props: {
-            course: null,
-        },
+            product,
+        }
     };
 };

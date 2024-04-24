@@ -9,17 +9,18 @@
       "UnauthRoleName": "amplify-bilanencowebsite-dev-232730-unauthRole",
       "StackName": "amplify-bilanencowebsite-dev-232730",
       "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-dev-232730/d96f9530-7905-11ee-a839-0a1edf2e8713",
-      "AmplifyAppId": "d2gkohmkzhk22d"
+      "AmplifyAppId": "d2gkohmkzhk22d",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-dev-232730-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "function": {
         "courses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/courses-55594539434c537a6650-build.zip"
+          "s3Key": "amplify-builds/courses-6967454b5441476e3358-build.zip"
         },
         "email": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/email-58514f796f6c62627370-build.zip"
+          "s3Key": "amplify-builds/email-2b5668706b7553627077-build.zip"
         },
         "events": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
@@ -27,28 +28,32 @@
         },
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/orders-6f4b2f4f4e4834747245-build.zip",
+          "s3Key": "amplify-builds/orders-6b686b54666b4d58646b-build.zip",
           "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://8jpg6jlz69.execute-api.eu-west-1.amazonaws.com/dev"
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/statuses-726935345337686b4c34-build.zip",
+          "s3Key": "amplify-builds/statuses-5367324f417977715568-build.zip",
           "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com"
         },
         "presales": {},
-        "products": {}
+        "products": {
+          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "s3Key": "amplify-builds/products-65387367564a4d375a51-build.zip"
+        }
       },
       "api": {
         "courses": {},
         "emails": {},
         "events": {},
         "orders": {},
-        "status": {}
+        "status": {},
+        "products": {}
       },
       "hosting": {
         "S3AndCloudFront": {}
@@ -57,7 +62,8 @@
         "courses": {},
         "events": {},
         "orders": {},
-        "presales": {}
+        "presales": {},
+        "products": {}
       },
       "auth": {
         "bilanencowebsite": {}
