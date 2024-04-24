@@ -1,0 +1,323 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.7.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+    "Parameters": {
+      "CloudWatchRule": {
+        "Type": "String",
+        "Default": "NONE",
+        "Description": " Schedule Expression"
+      },
+      "deploymentBucketName": {
+        "Type": "String"
+      },
+      "env": {
+        "Type": "String"
+      },
+      "s3Key": {
+        "Type": "String"
+      },
+      "storagecoursesName": {
+        "Type": "String",
+        "Default": "storagecoursesName"
+      },
+      "storagecoursesArn": {
+        "Type": "String",
+        "Default": "storagecoursesArn"
+      },
+      "storagecoursesStreamArn": {
+        "Type": "String",
+        "Default": "storagecoursesStreamArn"
+      },
+      "storagepresalesName": {
+        "Type": "String",
+        "Default": "storagepresalesName"
+      },
+      "storagepresalesArn": {
+        "Type": "String",
+        "Default": "storagepresalesArn"
+      },
+      "storagepresalesStreamArn": {
+        "Type": "String",
+        "Default": "storagepresalesStreamArn"
+      }
+    },
+    "Conditions": {
+      "ShouldNotCreateEnvResources": {
+        "Fn::Equals": [
+          {
+            "Ref": "env"
+          },
+          "NONE"
+        ]
+      }
+    },
+    "Resources": {
+      "LambdaFunction": {
+        "Type": "AWS::Lambda::Function",
+        "Metadata": {
+          "aws:asset:path": "./src",
+          "aws:asset:property": "Code"
+        },
+        "Properties": {
+          "Code": {
+            "S3Bucket": {
+              "Ref": "deploymentBucketName"
+            },
+            "S3Key": {
+              "Ref": "s3Key"
+            }
+          },
+          "Handler": "index.handler",
+          "FunctionName": {
+            "Fn::If": [
+              "ShouldNotCreateEnvResources",
+              "courses",
+              {
+                "Fn::Join": [
+                  "",
+                  [
+                    "courses",
+                    "-",
+                    {
+                      "Ref": "env"
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
+          "Environment": {
+            "Variables": {
+              "ENV": {
+                "Ref": "env"
+              },
+              "REGION": {
+                "Ref": "AWS::Region"
+              },
+              "STORAGE_COURSES_NAME": {
+                "Ref": "storagecoursesName"
+              },
+              "STORAGE_COURSES_ARN": {
+                "Ref": "storagecoursesArn"
+              },
+              "STORAGE_COURSES_STREAMARN": {
+                "Ref": "storagecoursesStreamArn"
+              },
+              "STORAGE_PRESALES_NAME": {
+                "Ref": "storagepresalesName"
+              },
+              "STORAGE_PRESALES_ARN": {
+                "Ref": "storagepresalesArn"
+              },
+              "STORAGE_PRESALES_STREAMARN": {
+                "Ref": "storagepresalesStreamArn"
+              }
+            }
+          },
+          "Role": {
+            "Fn::GetAtt": [
+              "LambdaExecutionRole",
+              "Arn"
+            ]
+          },
+          "Runtime": "nodejs18.x",
+          "Layers": [],
+          "Timeout": 25
+        }
+      },
+      "LambdaExecutionRole": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "RoleName": {
+            "Fn::If": [
+              "ShouldNotCreateEnvResources",
+              "bilanencowebsiteLambdaRole55189ed3",
+              {
+                "Fn::Join": [
+                  "",
+                  [
+                    "bilanencowebsiteLambdaRole55189ed3",
+                    "-",
+                    {
+                      "Ref": "env"
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
+          "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": [
+                    "lambda.amazonaws.com"
+                  ]
+                },
+                "Action": [
+                  "sts:AssumeRole"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "lambdaexecutionpolicy": {
+        "DependsOn": [
+          "LambdaExecutionRole"
+        ],
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyName": "lambda-execution-policy",
+          "Roles": [
+            {
+              "Ref": "LambdaExecutionRole"
+            }
+          ],
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Resource": {
+                  "Fn::Sub": [
+                    "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
+                    {
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "account": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "lambda": {
+                        "Ref": "LambdaFunction"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "AmplifyResourcesPolicy": {
+        "DependsOn": [
+          "LambdaExecutionRole"
+        ],
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyName": "amplify-lambda-execution-policy",
+          "Roles": [
+            {
+              "Ref": "LambdaExecutionRole"
+            }
+          ],
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:Put*",
+                  "dynamodb:Create*",
+                  "dynamodb:BatchWriteItem",
+                  "dynamodb:PartiQLInsert",
+                  "dynamodb:Get*",
+                  "dynamodb:BatchGetItem",
+                  "dynamodb:List*",
+                  "dynamodb:Describe*",
+                  "dynamodb:Scan",
+                  "dynamodb:Query",
+                  "dynamodb:PartiQLSelect"
+                ],
+                "Resource": [
+                  {
+                    "Ref": "storagecoursesArn"
+                  },
+                  {
+                    "Fn::Join": [
+                      "/",
+                      [
+                        {
+                          "Ref": "storagecoursesArn"
+                        },
+                        "index/*"
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:Get*",
+                  "dynamodb:BatchGetItem",
+                  "dynamodb:List*",
+                  "dynamodb:Describe*",
+                  "dynamodb:Scan",
+                  "dynamodb:Query",
+                  "dynamodb:PartiQLSelect"
+                ],
+                "Resource": [
+                  {
+                    "Ref": "storagepresalesArn"
+                  },
+                  {
+                    "Fn::Join": [
+                      "/",
+                      [
+                        {
+                          "Ref": "storagepresalesArn"
+                        },
+                        "index/*"
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "Outputs": {
+      "Name": {
+        "Value": {
+          "Ref": "LambdaFunction"
+        }
+      },
+      "Arn": {
+        "Value": {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        }
+      },
+      "Region": {
+        "Value": {
+          "Ref": "AWS::Region"
+        }
+      },
+      "LambdaExecutionRole": {
+        "Value": {
+          "Ref": "LambdaExecutionRole"
+        }
+      },
+      "LambdaExecutionRoleArn": {
+        "Value": {
+          "Fn::GetAtt": [
+            "LambdaExecutionRole",
+            "Arn"
+          ]
+        }
+      }
+    }
+  }
