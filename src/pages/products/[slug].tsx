@@ -50,8 +50,9 @@ export default function SingleCoursesPage({ course }: Props) {
             <Head>
                 <title>{course.title}</title>
             </Head>
-            <Course {...course} funnel={funnel} handleOpenModal={handleOpenModal} />
-            {openModal && packageId && (
+            asdasdas
+            {/* <Course {...course} funnel={funnel} handleOpenModal={handleOpenModal} /> */}
+            {/* {openModal && packageId && (
                 <Registration
                     packageId={packageId}
                     contactId={contactId}
@@ -74,7 +75,7 @@ export default function SingleCoursesPage({ course }: Props) {
                     packages={course.packages}
                     onClose={handleClosePresaleModal}
                 />
-            )}
+            )} */}
         </>
     )
 }
