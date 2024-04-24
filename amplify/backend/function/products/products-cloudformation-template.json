@@ -15,6 +15,18 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "storageproductsName": {
+      "Type": "String",
+      "Default": "storageproductsName"
+    },
+    "storageproductsArn": {
+      "Type": "String",
+      "Default": "storageproductsArn"
+    },
+    "storageproductsStreamArn": {
+      "Type": "String",
+      "Default": "storageproductsStreamArn"
     }
   },
   "Conditions": {
@@ -69,6 +81,15 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "STORAGE_PRODUCTS_NAME": {
+              "Ref": "storageproductsName"
+            },
+            "STORAGE_PRODUCTS_ARN": {
+              "Ref": "storageproductsArn"
+            },
+            "STORAGE_PRODUCTS_STREAMARN": {
+              "Ref": "storageproductsStreamArn"
             }
           }
         },
@@ -160,6 +181,62 @@
                   }
                 ]
               }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate",
+                "dynamodb:Delete*",
+                "dynamodb:PartiQLDelete"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageproductsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageproductsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }

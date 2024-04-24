@@ -203,6 +203,17 @@
     },
     "products": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "products"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
