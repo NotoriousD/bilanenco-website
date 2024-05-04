@@ -116,6 +116,10 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string",
       "StreamArn": "string"
     },
+    "files": {
+      "BucketName": "string",
+      "Region": "string"
+    },
     "orders": {
       "Arn": "string",
       "Name": "string",

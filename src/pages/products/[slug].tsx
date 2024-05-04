@@ -11,18 +11,21 @@ import { Registration } from 'features/Registration'
 import { RegistrationPresale } from 'features/RegistrationPresale'
 
 import { ICourse } from 'entities/Courses'
+import { Product } from 'views/Product'
 
 interface Props {
-    course: ICourse
+    product: any;
 }
 
-export default function SingleCoursesPage({ course }: Props) {
+export default function SingleCoursesPage({ product }: Props) {
     const [packageId, setPackageId] = useState<string | null>(null)
     const [openModal, setOpenModal] = useState<boolean>(false)
     const [openPresaleModal, setOpenPresaleModal] = useState<boolean>(false)
     const router = useRouter()
     const searchParams = useSearchParams()
     const slug = router.query.slug
+
+    console.log(product);
 
     const contactId = searchParams?.get('contact_id')
     const funnel = searchParams?.get('funnel')
@@ -48,9 +51,9 @@ export default function SingleCoursesPage({ course }: Props) {
     return (
         <>
             <Head>
-                <title>{course.title}</title>
+                <title>{product.title}</title>
             </Head>
-            asdasdas
+            <Product {...product} handleOpenModal={() => { }} />
             {/* <Course {...course} funnel={funnel} handleOpenModal={handleOpenModal} /> */}
             {/* {openModal && packageId && (
                 <Registration
@@ -65,8 +68,8 @@ export default function SingleCoursesPage({ course }: Props) {
                     onClose={handleCloseModal}
                     onClick={handleOpenPresaleModal}
                 />
-            )}
-            {openPresaleModal && packageId && (
+            )} */}
+            {/* {openPresaleModal && packageId && (
                 <RegistrationPresale
                     packageId={packageId}
                     contactId={contactId}
@@ -82,9 +85,7 @@ export default function SingleCoursesPage({ course }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
-    const product = await API.get('products', `/product/${slug}`, {})
-
-    console.log(product);
+    const { data } = await API.get('products', `/product/${slug}`, {})
 
     // if (!course.data) {
     //     return {
@@ -102,7 +103,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     return {
         props: {
-            product,
+            product: data,
         }
     };
 };

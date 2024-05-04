@@ -212,6 +212,13 @@
           ],
           "category": "storage",
           "resourceName": "products"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "files"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -347,6 +354,14 @@
         }
       ]
     },
+    "AMPLIFY_function_products_bucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
     "AMPLIFY_function_products_deploymentBucketName": {
       "usedBy": [
         {
@@ -420,6 +435,11 @@
     "events": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
+    },
+    "files": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     },
     "orders": {
       "providerPlugin": "awscloudformation",

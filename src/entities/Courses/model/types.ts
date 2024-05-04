@@ -20,3 +20,9 @@ export interface ICourse {
     start_sale_date: string
     end_sale_date: string
 }
+
+export interface _Product {
+    id: string
+    title: string
+    currency: Currencies
+}

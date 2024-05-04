@@ -1,0 +1,16 @@
+{
+  "resourceName": "files",
+  "policyUUID": "88e4546b",
+  "bucketName": "product-files",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

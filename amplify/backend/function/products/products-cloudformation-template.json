@@ -27,6 +27,13 @@
     "storageproductsStreamArn": {
       "Type": "String",
       "Default": "storageproductsStreamArn"
+    },
+    "storagefilesBucketName": {
+      "Type": "String",
+      "Default": "storagefilesBucketName"
+    },
+    "bucketName": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -90,6 +97,12 @@
             },
             "STORAGE_PRODUCTS_STREAMARN": {
               "Ref": "storageproductsStreamArn"
+            },
+            "STORAGE_FILES_BUCKETNAME": {
+              "Ref": "storagefilesBucketName"
+            },
+            "BUCKET_NAME": {
+              "Ref": "bucketName"
             }
           }
         },
@@ -237,10 +250,76 @@
                   ]
                 }
               ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagefilesBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagefilesBucketName"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }
       }
+    },
+    "CustomLambdaExecutionPolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "custom-lambda-execution-policy",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ses:SendTemplatedEmail",
+                "ses:SendRawEmail"
+              ],
+              "Resource": [
+                "*"
+              ],
+              "Effect": "Allow"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ]
+      },
+      "DependsOn": "LambdaExecutionRole"
     }
   },
   "Outputs": {

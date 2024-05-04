@@ -44,7 +44,8 @@
         "presales": {},
         "products": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/products-65387367564a4d375a51-build.zip"
+          "s3Key": "amplify-builds/products-4e416131645732536c37-build.zip",
+          "bucketName": "product-files"
         }
       },
       "api": {
@@ -63,7 +64,8 @@
         "events": {},
         "orders": {},
         "presales": {},
-        "products": {}
+        "products": {},
+        "files": {}
       },
       "auth": {
         "bilanencowebsite": {}

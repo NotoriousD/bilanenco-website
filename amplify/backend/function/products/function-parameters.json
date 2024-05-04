@@ -7,7 +7,19 @@
         "read",
         "update",
         "delete"
+      ],
+      "files": [
+        "create",
+        "read",
+        "update",
+        "delete"
       ]
     }
-  }
+  },
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "bucketName",
+      "environmentVariableName": "BUCKET_NAME"
+    }
+  ]
 }

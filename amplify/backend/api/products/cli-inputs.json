@@ -13,6 +13,20 @@
           "read"
         ]
       }
+    },
+    "/uploads": {
+      "name": "/uploads",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/email": {
+      "name": "/email",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

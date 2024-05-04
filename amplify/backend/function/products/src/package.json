@@ -7,8 +7,10 @@
   "dependencies": {
     "aws-sdk": "^2.1605.0",
     "aws-serverless-express": "^3.3.5",
+    "axios": "^1.6.8",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "nodemailer": "^6.9.13"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92"
