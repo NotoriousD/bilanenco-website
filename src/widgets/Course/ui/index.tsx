@@ -1,3 +1,5 @@
+"use client"
+
 import cn from 'classnames'
 import dynamic from 'next/dynamic'
 import React, { useRef } from 'react'
@@ -13,6 +15,7 @@ import { getDateFromISO } from 'shared/libs/dates'
 import css from './styles.module.scss'
 
 const ResultCarousel = dynamic(() => import('./ResultsCarousel').then(module => module.ResultsCarousel), { ssr: false })
+const Timer = dynamic(() => import('components/Timer').then(module => module.Timer), { ssr: false })
 
 interface Props extends ICourse {
     funnel?: string | null
@@ -117,7 +120,12 @@ export const Course: React.FC<Props> = ({
                 backgroundImage: `url(${footerBanner.src})`,
             }}>
                 <div className={css.sectionHeader}>
-                    {/* <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3> */}
+                    {isSale && (
+                        <>
+                            <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3>
+                            <div className={css.timerWrapper}><Timer expiryTimestamp={endSaleDate} /> до нових цін</div>
+                        </>
+                    )}
                 </div>
                 <section className={css.packages} ref={packagesRef}>
                     <div className={css.container}>
