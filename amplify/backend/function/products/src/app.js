@@ -1,4 +1,38 @@
 /* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_FILES_BUCKETNAME
+	STORAGE_ORDERS_ARN
+	STORAGE_ORDERS_NAME
+	STORAGE_ORDERS_STREAMARN
+	STORAGE_PRODUCTS_ARN
+	STORAGE_PRODUCTS_NAME
+	STORAGE_PRODUCTS_STREAMARN
+Amplify Params - DO NOT EDIT *//*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["PAYMENT_TOKEN"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
+/* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_FILES_BUCKETNAME
+	STORAGE_ORDERS_ARN
+	STORAGE_ORDERS_NAME
+	STORAGE_ORDERS_STREAMARN
+	STORAGE_PRODUCTS_ARN
+	STORAGE_PRODUCTS_NAME
+	STORAGE_PRODUCTS_STREAMARN
+Amplify Params - DO NOT EDIT *//* Amplify Params - DO NOT EDIT
   ENV
   REGION
   STORAGE_FILES_BUCKETNAME
@@ -27,6 +61,12 @@ const express = require('express')
 const nodemailer = require("nodemailer");
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+const {
+  createInvoice,
+  createOrder,
+  getProductById,
+} = require('./orders.controller')
+const { statuses } = require('./utils')
 const docClient = new AWS.DynamoDB.DocumentClient({
   apiVersion: "2012-08-10"
 })
@@ -50,6 +90,7 @@ app.use(function (req, res, next) {
 });
 
 const PRODUCTS_TABLE_NAME = `products-${process.env.ENV}`;
+const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`
 const BUCKET_NAME = 'product-files232730-dev'
 
 /**********************
@@ -170,8 +211,29 @@ app.post('/email', async (req, res) => {
   console.log("Message sent: %s", info.messageId);
 });
 
-app.post('/buy', async (req, res) => {
-  
+app.post('/buy', getProductById, createOrder, createInvoice, async (req, res) => {
+  const { order, invoice } = req
+  await docClient.update({
+    TableName: ORDERS_TABLE_NAME,
+    Key: {
+      id: order.id,
+    },
+    UpdateExpression: 'set #a = :InvoiceId, #b = :Status',
+    ExpressionAttributeNames: {
+      '#a': 'invoice_id',
+      '#b': 'order_status',
+    },
+    ExpressionAttributeValues: {
+      ':InvoiceId': invoice.invoiceId,
+      ':Status': statuses.invoiceCreated,
+    }
+  }, (err, data) => {
+    if (err) {
+      res.status(404).send({ message: 'Order not updated' });
+    } else {
+      res.status(200).json({ pageUrl: invoice.pageUrl })
+    }
+  });
 });
 
 app.listen(3000, function () {

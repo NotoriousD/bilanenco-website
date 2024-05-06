@@ -206,35 +206,10 @@
       "dependsOn": [
         {
           "attributes": [
-            "Name",
-            "Arn",
-            "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "products"
-        },
-        {
-          "attributes": [
             "BucketName"
           ],
           "category": "storage",
           "resourceName": "files"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "statuses": {
-      "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn",
-            "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "events"
         },
         {
           "attributes": [
@@ -252,7 +227,57 @@
             "StreamArn"
           ],
           "category": "storage",
+          "resourceName": "products"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "statuses": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
           "resourceName": "courses"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "files"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "products"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -362,6 +387,14 @@
         }
       ]
     },
+    "AMPLIFY_function_products_callbackUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
     "AMPLIFY_function_products_deploymentBucketName": {
       "usedBy": [
         {
@@ -370,7 +403,23 @@
         }
       ]
     },
+    "AMPLIFY_function_products_paymentUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
     "AMPLIFY_function_products_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_secretsPathAmplifyAppId": {
       "usedBy": [
         {
           "category": "function",

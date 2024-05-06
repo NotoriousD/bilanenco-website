@@ -7,6 +7,35 @@
 	STORAGE_EVENTS_ARN
 	STORAGE_EVENTS_NAME
 	STORAGE_EVENTS_STREAMARN
+	STORAGE_FILES_BUCKETNAME
+	STORAGE_ORDERS_ARN
+	STORAGE_ORDERS_NAME
+	STORAGE_ORDERS_STREAMARN
+	STORAGE_PRODUCTS_ARN
+	STORAGE_PRODUCTS_NAME
+	STORAGE_PRODUCTS_STREAMARN
+Amplify Params - DO NOT EDIT *//* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_COURSES_ARN
+	STORAGE_COURSES_NAME
+	STORAGE_COURSES_STREAMARN
+	STORAGE_EVENTS_ARN
+	STORAGE_EVENTS_NAME
+	STORAGE_EVENTS_STREAMARN
+	STORAGE_FILES_BUCKETNAME
+	STORAGE_ORDERS_ARN
+	STORAGE_ORDERS_NAME
+	STORAGE_ORDERS_STREAMARN
+Amplify Params - DO NOT EDIT *//* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_COURSES_ARN
+	STORAGE_COURSES_NAME
+	STORAGE_COURSES_STREAMARN
+	STORAGE_EVENTS_ARN
+	STORAGE_EVENTS_NAME
+	STORAGE_EVENTS_STREAMARN
 	STORAGE_ORDERS_ARN
 	STORAGE_ORDERS_NAME
 	STORAGE_ORDERS_STREAMARN
@@ -50,15 +79,21 @@ const AWS = require('aws-sdk')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const bodyParser = require('body-parser')
 const express = require('express')
-// const { google } = require('googleapis')
+const nodemailer = require("nodemailer");
 const { spCallback } =  require('./sendPulse')
 const { getTableNameByProductType, getEmailTemplateName } = require('./utils')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
 const sesClient = new AWS.SES({ apiVersion: '2010-12-01' })
+const s3 = new AWS.S3({ signatureVersion: 'v4', region: "eu-west-1" });
+
+let transporter = nodemailer.createTransport({
+  SES: sesClient
+});
 
 const EVENTS_TABLE_NAME = `events-${process.env.ENV}`
 const COURSES_TABLE_NAME = `courses-${process.env.ENV}`
 const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`
+const BUCKET_NAME = 'product-files232730-dev'
 
 // declare a new express app
 const app = express()
@@ -71,6 +106,13 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "*")
   next()
 });
+
+const getS3File = async (bucket, key) => {
+  return await s3.getObject({
+    Bucket: bucket,
+    Key: key
+  }).promise();
+}
 
 const updateStatus = async (req, res, next) => {
   try {
@@ -112,7 +154,7 @@ const updateCoursePackage = async (req, res, next) => {
   }).promise();
 
   if(Object.keys(order).length === 0) {
-    res.status(404).json({ message: 'Order doesnt exist' });
+    res.status(404).json({ message: 'Order does`nt exist' });
     return;
   }
 
@@ -168,7 +210,7 @@ const updateCoursePackage = async (req, res, next) => {
     }
   }
 
-  const price = order.Item.product_type === 'events' ?
+  const price = order.Item.product_type !== 'courses' ?
     product.Item.price :
     product.Item.packages.find((item) => item.id === order.Item.package_id)?.price
 
@@ -181,11 +223,44 @@ const updateCoursePackage = async (req, res, next) => {
   next();
 }
 
-app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
-  const { details } = req;
-  if(req.body.status === 'success') {
-    if(details.tContact_id) {
-      await spCallback(details.tContact_id)
+const sendEmailTemplate = async (req, res, next) => {
+  const { details, body } = req;
+  if(body.status === "success") {
+    
+    if(details.product_type === 'products') {
+      const {
+        Item: product
+      } = await docClient.get({
+        TableName: getTableNameByProductType(details.product_type, process.env.ENV),
+        Key: {
+          id: details.product_id,
+        },
+      }, (err, data) => {
+        if (err) {
+          res.status(404).send({
+            message: 'Product was not found'
+          })
+          return
+        }
+      }).promise();
+    
+      const file = await getS3File(BUCKET_NAME, product.file);
+    
+      let info = await transporter.sendMail({
+        from: 'olexandra.bilanenko@gmail.com',
+        to: details.email,
+        subject: "Hello",                // Subject line
+        text: 'text',                      // plaintext version
+        html: '<div>test</div>', // html version
+        attachments: [{
+            filename: product.file,
+            content: file.Body
+        }]
+      });
+    
+      console.log("Message sent: %s", info.messageId);
+
+      next();
     }
 
     const templateName = getEmailTemplateName(details.product_type, details.order_type)
@@ -210,36 +285,18 @@ app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
     }).promise()
 
     console.log(email);
+  }
+  next();
+}
 
-  //   const auth = new google.auth.GoogleAuth({
-  //     keyFile: `keys-${process.env.ENV}.json`, //the key file
-  //     scopes: ["https://www.googleapis.com/auth/spreadsheets"], 
-  //   });
-  
-  //   //Auth client Object
-  //   const authClientObject = await auth.getClient();
-  
-  //   //Google sheets instance
-  //   const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
-  
-  //   // spreadsheet id
-  //   const spreadsheetId = process.env.GOOGLE_SHEETS_KEY;
-  
-  //   const user = [details.fullName, details.email, details.phone, details.courseName, details.price, details.order_status]
-  
-  //   //write data into the google sheets
-  //   const data = await googleSheetsInstance.spreadsheets.values.append({
-  //       auth,
-  //       spreadsheetId,
-  //       range: "2:2",
-  //       valueInputOption: "USER_ENTERED",
-  //       resource: {
-  //           values: [user]
-  //       },
-  //   });
-  
-  //   res.status(200).json({ data });
-  //   return;
+app.post('/status', updateStatus, updateCoursePackage, sendEmailTemplate, async (req, res) => {
+  const { details } = req;
+  if(req.body.status === 'success') {
+
+    if(details.tContact_id) {
+      await spCallback(details.tContact_id)
+    }
+
   }
   res.status(200).json({ status: req.body.status })
 });

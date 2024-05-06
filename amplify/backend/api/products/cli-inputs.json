@@ -27,6 +27,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/buy": {
+      "name": "/buy",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

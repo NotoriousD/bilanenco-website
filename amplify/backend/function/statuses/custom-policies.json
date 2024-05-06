@@ -1,7 +1,8 @@
 [
   {
     "Action": [
-      "ses:SendTemplatedEmail"
+      "ses:SendTemplatedEmail",
+      "ses:SendRawEmail"
     ],
     "Resource": ["*"]
   }

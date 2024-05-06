@@ -2,13 +2,18 @@
   "lambdaLayers": [],
   "permissions": {
     "storage": {
-      "products": [
+      "files": [
         "create",
         "read",
         "update",
         "delete"
       ],
-      "files": [
+      "orders": [
+        "create",
+        "read",
+        "update"
+      ],
+      "products": [
         "create",
         "read",
         "update",
@@ -20,6 +25,17 @@
     {
       "cloudFormationParameterName": "bucketName",
       "environmentVariableName": "BUCKET_NAME"
+    },
+    {
+      "cloudFormationParameterName": "paymentUrl",
+      "environmentVariableName": "PAYMENT_URL"
+    },
+    {
+      "cloudFormationParameterName": "callbackUrl",
+      "environmentVariableName": "CALLBACK_URL"
     }
+  ],
+  "secretNames": [
+    "PAYMENT_TOKEN"
   ]
 }

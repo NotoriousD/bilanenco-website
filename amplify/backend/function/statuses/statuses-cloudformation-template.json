@@ -52,6 +52,22 @@
       "Type": "String",
       "Default": "storagecoursesStreamArn"
     },
+    "storagefilesBucketName": {
+      "Type": "String",
+      "Default": "storagefilesBucketName"
+    },
+    "storageproductsName": {
+      "Type": "String",
+      "Default": "storageproductsName"
+    },
+    "storageproductsArn": {
+      "Type": "String",
+      "Default": "storageproductsArn"
+    },
+    "storageproductsStreamArn": {
+      "Type": "String",
+      "Default": "storageproductsStreamArn"
+    },
     "clientId": {
       "Type": "String"
     },
@@ -144,6 +160,18 @@
             },
             "STORAGE_COURSES_STREAMARN": {
               "Ref": "storagecoursesStreamArn"
+            },
+            "STORAGE_FILES_BUCKETNAME": {
+              "Ref": "storagefilesBucketName"
+            },
+            "STORAGE_PRODUCTS_NAME": {
+              "Ref": "storageproductsName"
+            },
+            "STORAGE_PRODUCTS_ARN": {
+              "Ref": "storageproductsArn"
+            },
+            "STORAGE_PRODUCTS_STREAMARN": {
+              "Ref": "storageproductsStreamArn"
             },
             "CLIENT_ID": {
               "Ref": "clientId"
@@ -270,6 +298,37 @@
             {
               "Effect": "Allow",
               "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagecoursesArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storagecoursesArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
                 "dynamodb:Put*",
                 "dynamodb:Create*",
                 "dynamodb:BatchWriteItem",
@@ -297,6 +356,44 @@
                         "Ref": "storageeventsArn"
                       },
                       "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagefilesBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagefilesBucketName"
+                      },
+                      "/*"
                     ]
                   ]
                 }
@@ -353,14 +450,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storagecoursesArn"
+                  "Ref": "storageproductsArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storagecoursesArn"
+                        "Ref": "storageproductsArn"
                       },
                       "index/*"
                     ]
@@ -381,7 +478,8 @@
           "Statement": [
             {
               "Action": [
-                "ses:SendTemplatedEmail"
+                "ses:SendTemplatedEmail",
+                "ses:SendRawEmail"
               ],
               "Resource": [
                 "*"

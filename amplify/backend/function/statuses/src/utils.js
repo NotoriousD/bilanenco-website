@@ -12,4 +12,7 @@ exports.getEmailTemplateName = (productType, orderType) => {
             return 'WorkShopFullBuy'
         }
     }
+    if(productType === 'products') {
+        return 'MasterClassInstabook'
+    }
 }

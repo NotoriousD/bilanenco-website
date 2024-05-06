@@ -2,8 +2,16 @@
   "lambdaLayers": [],
   "permissions": {
     "storage": {
+      "courses": [
+        "read",
+        "update"
+      ],
       "events": [
         "create",
+        "read",
+        "update"
+      ],
+      "files": [
         "read",
         "update"
       ],
@@ -12,7 +20,7 @@
         "read",
         "update"
       ],
-      "courses": [
+      "products": [
         "read",
         "update"
       ]
