@@ -5,12 +5,15 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import React, { useCallback, useState } from 'react'
 
-import { Course } from 'widgets/Course'
+// import { Course } from 'widgets/Course'
 
 import { Registration } from 'features/Registration'
 import { RegistrationPresale } from 'features/RegistrationPresale'
 
 import { ICourse } from 'entities/Courses'
+import dynamic from 'next/dynamic'
+
+const Course = dynamic(() => import('widgets/Course').then(module => module.Course), { ssr: false })
 
 interface Props {
     course: ICourse

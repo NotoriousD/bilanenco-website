@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useTimer } from 'react-timer-hook'
 
 import css from './timer.module.scss'
@@ -17,7 +17,6 @@ export const Timer: React.FC<TimerProps> = ({
         days,
         hours,
         minutes,
-        seconds,
     } = useTimer({ expiryTimestamp: new Date(expiryTimestamp), autoStart: false });
 
     const daysText = useMemo(() => {
@@ -28,7 +27,7 @@ export const Timer: React.FC<TimerProps> = ({
 
     return (
         <div className={css.timer}>
-            {Boolean(days) && `${days} ${daysText} :`} {Boolean(hours) && `${String(hours).padStart(2, "0")} год :`} {Boolean(minutes) && `${String(minutes).padStart(2, "0")} хв :`} {`${String(seconds).padStart(2, "0")} сек`}
+            {Boolean(days) && `${days} ${daysText} :`} {Boolean(hours) && `${String(hours).padStart(2, "0")} год :`} {Boolean(minutes) && `${String(minutes).padStart(2, "0")} хв`}
         </div>
     )
 }
