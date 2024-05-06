@@ -1,4 +1,11 @@
 import res1 from '../assets/1.png';
+import res10 from '../assets/10.png';
+import res11 from '../assets/11.png';
+import res12 from '../assets/12.png';
+import res13 from '../assets/13.png';
+import res14 from '../assets/14.png';
+import res15 from '../assets/15.png';
+import res16 from '../assets/16.png';
 import res2 from '../assets/2.png';
 import res3 from '../assets/3.png';
 import res4 from '../assets/4.png';
@@ -7,13 +14,6 @@ import res6 from '../assets/6.png';
 import res7 from '../assets/7.png';
 import res8 from '../assets/8.png';
 import res9 from '../assets/9.png';
-import res10 from '../assets/10.png';
-import res11 from '../assets/11.png';
-import res12 from '../assets/12.png';
-import res13 from '../assets/13.png';
-import res14 from '../assets/14.png';
-import res15 from '../assets/15.png';
-import res16 from '../assets/16.png';
 
 export const resultCarouselItems = [
     {
