@@ -25,4 +25,5 @@ export interface _Product {
     id: string
     title: string
     currency: Currencies
+    price: number
 }
