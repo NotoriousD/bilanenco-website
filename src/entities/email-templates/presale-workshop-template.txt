@@ -611,24 +611,10 @@
                                                                                                     valign="top">
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
                                                                                                         align="left">
-                                                                                                        <strong>Вітаю,
-                                                                                                            ви успішно
-                                                                                                            внесли
-                                                                                                            передплату
-                                                                                                            за навчання
-                                                                                                            на тижневий курс
-                                                                                                            «ВІЖУАЛ»!</strong>
+                                                                                                        <strong>Вітаю з покупкою «SUMMER INSPOBOOK”🤎</strong>
                                                                                                     </p>
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
-                                                                                                        align="left">За
-                                                                                                        вами було
-                                                                                                        заброньоване
-                                                                                                        місце на курсі
-                                                                                                        за найвигіднішою
-                                                                                                        вартістю, внести
-                                                                                                        решту оплати
-                                                                                                        можна до
-                                                                                                        20.05.2024</p>
+                                                                                                        align="left">Тепер ваше літо стане по-справжньому особливим!</p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">
                                                                                                     </div>
@@ -711,9 +697,9 @@
                                                                                                                                     <td align="center"
                                                                                                                                         style="border-collapse:collapse; border-color:transparent; border:0; padding:0; line-height:1">
                                                                                                                                         <a style="text-decoration:none; color:#FFF; display:block; padding:12px 18px; font-family:Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-family-short:arial; font-size:16px; font-weight:bold"
-                                                                                                                                            href="https://www.bilanenco.com/courses/visual">Перейти
+                                                                                                                                            href="https://drive.google.com/drive/folders/1Eph1Msyn0TLFIXnfPZtRFex6oS9HpuPD?usp=share_link">Перейти
                                                                                                                                             до
-                                                                                                                                            оплати</a>
+                                                                                                                                            завантаження</a>
                                                                                                                                     </td>
                                                                                                                                 </tr>
                                                                                                                             </tbody>
@@ -780,11 +766,7 @@
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:inherit; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:center; font-weight:normal; padding:0"
                                                                                                         align="center">
                                                                                                         <span
-                                                                                                            style="font-size: 14px;">На
-                                                                                                            формі оплати
-                                                                                                            перейдіть до
-                                                                                                            вкладки "За
-                                                                                                            передзаписом"</span>
+                                                                                                            style="font-size: 14px;">Перейшовши за посиланням ви можете завантажити книгу на ваш дивайс</span>
                                                                                                     </p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">

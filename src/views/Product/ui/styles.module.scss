@@ -10,8 +10,10 @@ $accent: #FFD34B;
 
 .root {
     color: #fff;
+    // font-weight: 500;
     background-repeat: no-repeat;
     background-size: 100%;
+    font-family: 'Playfair Display', serif;
     background-position: center 100%;
 }
 
@@ -19,14 +21,14 @@ $accent: #FFD34B;
     display: inline-block;
     padding: 15px 30px;
     border-radius: 50px;
-    background-color: $accent;
+    background-color: #f6d563;
     border: 0;
     transition: all .3s ease-in-out;
     outline: none;
     color: $text;
     font-size: 24px;
     font-weight: 700;
-    font-family: 'Courier New Cyr', arial;
+    // font-family: 'Courier New Cyr', arial;
     cursor: pointer;
 
     &:hover {
@@ -36,6 +38,18 @@ $accent: #FFD34B;
     &:disabled {
         background-color: #a98615;
         cursor: default;
+    }
+}
+
+.imageList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -70,15 +84,42 @@ $accent: #FFD34B;
 }
 
 .headerTitle { 
-    font-size: 96px;
+    font-size: 64px;
     line-height: 1.2;
     text-transform: uppercase;
+    color: #72828e;
+    margin-bottom: 24px;
 }
 
 .headerText {
     font-size: 20px;
-    margin-bottom: 30px;
-    max-width: 560px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(114, 130, 142, .6);
+
+    span {
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+
+.more {
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 30px;
+    // color: #72828e;
+    cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        text-align: center;
+    }
+}
+
+.text {
+    color: #72828e;
 }
 
 .accent {
@@ -286,6 +327,7 @@ $accent: #FFD34B;
 
 .sectionTitle {
     text-align: center;
+    color: #72828e;
 
     span {
         text-decoration: underline;

@@ -92,7 +92,8 @@ export const Registration: React.FC<Props> = ({
             </div>
           )}
           <button className={css.close} onClick={onClose}>+</button>
-          <div className={css.title}>Реєстрація</div>
+          <div className={css.title}>Покупка</div>
+          <div className={css.presaleInfo}>Після оплати &quot;Інспобук&quot; буде надіслано вам на пошту</div>
           <form className={css.form} onSubmit={handleSubmit(handleSubmitForm)}>
             <div className={css.row}>
               <Controller

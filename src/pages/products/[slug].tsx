@@ -11,7 +11,7 @@ interface Props {
     product: any;
 }
 
-export default function SingleCoursesPage({ product }: Props) {
+export default function SingleProductPage({ product }: Props) {
     const [packageId, setPackageId] = useState<string | null>(null)
     const [openModal, setOpenModal] = useState<boolean>(false)
     const router = useRouter()
@@ -54,7 +54,8 @@ export default function SingleCoursesPage({ product }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
-    const { data } = await API.get('products', `/product/${slug}`, {})
+    const { data } = await API.get('products', `/product/${slug}`, {});
+    console.log(data);
 
     if (!data) {
         return {
@@ -72,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     return {
         props: {
-            product: null,
+            product: null
         }
-    };
+    }
 };

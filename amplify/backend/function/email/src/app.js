@@ -687,24 +687,10 @@ app.post('/create', function (req, res) {
                                                                                                     valign="top">
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
                                                                                                         align="left">
-                                                                                                        <strong>Вітаю,
-                                                                                                            ви успішно
-                                                                                                            внесли
-                                                                                                            передплату
-                                                                                                            за навчання
-                                                                                                            на тижневий курс
-                                                                                                            «ВІЖУАЛ»!</strong>
+                                                                                                        <strong>Вітаю з покупкою «SUMMER INSPOBOOK”🤎</strong>
                                                                                                     </p>
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:#694d4d; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:left; font-weight:normal; padding:0"
-                                                                                                        align="left">За
-                                                                                                        вами було
-                                                                                                        заброньоване
-                                                                                                        місце на курсі
-                                                                                                        за найвигіднішою
-                                                                                                        вартістю, внести
-                                                                                                        решту оплати
-                                                                                                        можна до
-                                                                                                        05.06.2024</p>
+                                                                                                        align="left">Тепер ваше літо стане по-справжньому особливим!</p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">
                                                                                                     </div>
@@ -787,9 +773,9 @@ app.post('/create', function (req, res) {
                                                                                                                                     <td align="center"
                                                                                                                                         style="border-collapse:collapse; border-color:transparent; border:0; padding:0; line-height:1">
                                                                                                                                         <a style="text-decoration:none; color:#FFF; display:block; padding:12px 18px; font-family:Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-family-short:arial; font-size:16px; font-weight:bold"
-                                                                                                                                            href="https://www.bilanenco.com/courses/visual">Перейти
+                                                                                                                                            href="https://drive.google.com/drive/folders/1Eph1Msyn0TLFIXnfPZtRFex6oS9HpuPD?usp=share_link">Перейти
                                                                                                                                             до
-                                                                                                                                            оплати</a>
+                                                                                                                                            завантаження</a>
                                                                                                                                     </td>
                                                                                                                                 </tr>
                                                                                                                             </tbody>
@@ -856,11 +842,7 @@ app.post('/create', function (req, res) {
                                                                                                     <p style="line-height:inherit; margin:0 0 10px; font-size:inherit; color:inherit; font-family:Georgia, &quot;Times New Roman&quot;, Times, serif; text-align:center; font-weight:normal; padding:0"
                                                                                                         align="center">
                                                                                                         <span
-                                                                                                            style="font-size: 14px;">На
-                                                                                                            формі оплати
-                                                                                                            перейдіть до
-                                                                                                            вкладки "За
-                                                                                                            передзаписом"</span>
+                                                                                                            style="font-size: 14px;">Перейшовши за посиланням ви можете завантажити книгу на ваш дивайс</span>
                                                                                                     </p>
                                                                                                     <div
                                                                                                         style="font-size:18px; line-height:1.5; clear:both">
@@ -978,7 +960,7 @@ app.post('/create', function (req, res) {
                                                                                                             class="desktop  sp-img "
                                                                                                             align="left"
                                                                                                             alt="IMG_9312"
-                                                                                                            src="https://s8234269.sendpul.se/files/emailservice/userfiles/a54ae1d13a922eed7095d710da79b67c8234269/IMG_9312.JPG"
+                                                                                                            src="https://media.canva.com/1/image-resize/1/550_366_92_JPG_F/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS8zSkRkMC9NQUdFdXUzSkRkMC8xL3AuanBn?osig=AAAAAAAAAAAAAAAAAAAAAFfp_G_h-1COBVhAJ9Kpr5M8KPJT6VlA3J12fseL4tvD&exp=1715267251&x-canva-quality=thumbnail_large&x-canva-subsampling=T&csig=AAAAAAAAAAAAAAAAAAAAAMFaGoIhJlP3nHnM8afpKdz4EKFaJ5TdWp4H0iViHPDf"
                                                                                                             iout_block_4_element_0=""
                                                                                                             style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; margin:0; display:block; -ms-interpolation-mode:bicubic"><!--[if !mso]><!-->
                                                                                                         <div
@@ -989,7 +971,7 @@ app.post('/create', function (req, res) {
                                                                                                                 class="mobile  sp-img "
                                                                                                                 align="left"
                                                                                                                 alt="IMG_9312"
-                                                                                                                src="https://s8234269.sendpul.se/files/emailservice/userfiles/a54ae1d13a922eed7095d710da79b67c8234269/IMG_9312.JPG"
+                                                                                                                src="https://media.canva.com/1/image-resize/1/550_366_92_JPG_F/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS8zSkRkMC9NQUdFdXUzSkRkMC8xL3AuanBn?osig=AAAAAAAAAAAAAAAAAAAAAFfp_G_h-1COBVhAJ9Kpr5M8KPJT6VlA3J12fseL4tvD&exp=1715267251&x-canva-quality=thumbnail_large&x-canva-subsampling=T&csig=AAAAAAAAAAAAAAAAAAAAAMFaGoIhJlP3nHnM8afpKdz4EKFaJ5TdWp4H0iViHPDf"
                                                                                                                 iout_block_4_element_0=""
                                                                                                                 style="height:auto; line-height:100%; outline:0; text-decoration:none; border:0; -ms-interpolation-mode:bicubic; display:none; width:100%; max-width:100% !important">
                                                                                                         </div>

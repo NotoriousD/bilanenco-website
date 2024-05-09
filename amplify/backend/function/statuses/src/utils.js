@@ -13,6 +13,6 @@ exports.getEmailTemplateName = (productType, orderType) => {
         }
     }
     if(productType === 'products') {
-        return 'MasterClassInstabook'
+        return 'InspoBookSummer'
     }
 }

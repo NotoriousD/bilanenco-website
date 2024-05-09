@@ -227,41 +227,41 @@ const sendEmailTemplate = async (req, res, next) => {
   const { details, body } = req;
   if(body.status === "success") {
     
-    if(details.product_type === 'products') {
-      const {
-        Item: product
-      } = await docClient.get({
-        TableName: getTableNameByProductType(details.product_type, process.env.ENV),
-        Key: {
-          id: details.product_id,
-        },
-      }, (err, data) => {
-        if (err) {
-          res.status(404).send({
-            message: 'Product was not found'
-          })
-          return
-        }
-      }).promise();
+    // if(details.product_type === 'products') {
+    //   const {
+    //     Item: product
+    //   } = await docClient.get({
+    //     TableName: getTableNameByProductType(details.product_type, process.env.ENV),
+    //     Key: {
+    //       id: details.product_id,
+    //     },
+    //   }, (err, data) => {
+    //     if (err) {
+    //       res.status(404).send({
+    //         message: 'Product was not found'
+    //       })
+    //       return
+    //     }
+    //   }).promise();
     
-      const file = await getS3File(BUCKET_NAME, product.file);
+    //   const file = await getS3File(BUCKET_NAME, product.file);
     
-      let info = await transporter.sendMail({
-        from: 'olexandra.bilanenko@gmail.com',
-        to: details.email,
-        subject: "Hello",                // Subject line
-        text: 'text',                      // plaintext version
-        html: '<div>test</div>', // html version
-        attachments: [{
-            filename: product.file,
-            content: file.Body
-        }]
-      });
+    //   let info = await transporter.sendMail({
+    //     from: 'olexandra.bilanenko@gmail.com',
+    //     to: details.email,
+    //     subject: "Hello",                // Subject line
+    //     text: 'text',                      // plaintext version
+    //     html: '<div>test</div>', // html version
+    //     attachments: [{
+    //         filename: product.file,
+    //         content: file.Body
+    //     }]
+    //   });
     
-      console.log("Message sent: %s", info.messageId);
+    //   console.log("Message sent: %s", info.messageId);
 
-      next();
-    }
+    //   next();
+    // }
 
     const templateName = getEmailTemplateName(details.product_type, details.order_type)
 
@@ -293,8 +293,8 @@ app.post('/status', updateStatus, updateCoursePackage, sendEmailTemplate, async 
   const { details } = req;
   if(req.body.status === 'success') {
 
-    if(details.tContact_id) {
-      await spCallback(details.tContact_id)
+    if(details.contact_id) {
+      await spCallback(details.contact_id)
     }
 
   }

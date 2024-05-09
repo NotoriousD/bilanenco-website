@@ -124,10 +124,6 @@ app.get('/product/:id', async (req, res) => {
     }
   }).promise();
 
-  const file = await getS3File(BUCKET_NAME, product.file);
-
-  console.log(file);
-
   res.json({ data: { ...product } });
 });
 

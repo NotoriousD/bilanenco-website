@@ -1,6 +1,6 @@
 import { Currencies } from "./types"
 
-const currencyTitle = {
+export const currencyTitle = {
     [Currencies.Uah]: 'грн',
     [Currencies.Usd]: '$'
 }
