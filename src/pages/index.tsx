@@ -6,7 +6,7 @@ import Head from "next/head"
 import { useCallback, useEffect } from "react"
 
 import { Intensive, mockIntensive } from "widgets/Intensive"
-import { Masterclasses , mockClasses } from "widgets/Masterclasses"
+import { Masterclasses, mockClasses } from "widgets/Masterclasses"
 import { ServicesBlock, mockServices } from "widgets/ServicesBlock"
 
 import heroBG from 'shared/assets/main.jpg'
@@ -18,7 +18,7 @@ import { Background } from "shared/ui/Background"
 import { Content } from "shared/ui/Content"
 
 
-const Home: NextPage = ({events}:any) => {
+const Home: NextPage = ({ events }: any) => {
     // const fetchPackages = useCallback(async () => {
     //     try {
     //         const response = await API.post('emails', '/send', {
@@ -43,16 +43,16 @@ const Home: NextPage = ({events}:any) => {
                 <title>Home</title>
             </Head>
             <Content classNames="full-height">
-                <Background src={heroBG} alt="Hero bg"/>
+                <Background src={heroBG} alt="Hero bg" />
             </Content>
             <Content>
-                <Background src={servicesBG} alt="services bg"/>
+                <Background src={servicesBG} alt="services bg" />
                 <Masterclasses list={events} />
                 <ServicesBlock title="Послуги" list={mockServices} />
             </Content>
             <Content>
-                <Background src={workshopBg} alt="workshop bg"/>
-                <Intensive list={mockIntensive}/>
+                <Background src={workshopBg} alt="workshop bg" />
+                <Intensive list={mockIntensive} />
             </Content>
         </>
     );
@@ -62,7 +62,6 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const events = await API.get('events', `/events`, {});
-    
 
     if (!events.data) {
         return {

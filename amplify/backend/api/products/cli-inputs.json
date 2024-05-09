@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "paths": {
+    "/product": {
+      "name": "/product",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "read"
+        ],
+        "guest": [
+          "read"
+        ]
+      }
+    },
+    "/uploads": {
+      "name": "/uploads",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/email": {
+      "name": "/email",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/buy": {
+      "name": "/buy",
+      "lambdaFunction": "products",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

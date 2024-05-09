@@ -56,6 +56,20 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
+    "products": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "products"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "status": {
       "dependsOn": [
         {
@@ -69,6 +83,32 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "bilanencowebsite": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
     }
   },
   "function": {
@@ -161,17 +201,15 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "statuses": {
+    "products": {
       "build": true,
       "dependsOn": [
         {
           "attributes": [
-            "Name",
-            "Arn",
-            "StreamArn"
+            "BucketName"
           ],
           "category": "storage",
-          "resourceName": "events"
+          "resourceName": "files"
         },
         {
           "attributes": [
@@ -189,7 +227,57 @@
             "StreamArn"
           ],
           "category": "storage",
+          "resourceName": "products"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "statuses": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
           "resourceName": "courses"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "events"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "files"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "orders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "products"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -291,6 +379,54 @@
         }
       ]
     },
+    "AMPLIFY_function_products_bucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_callbackUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_paymentUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
+    "AMPLIFY_function_products_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
     "AMPLIFY_function_statuses_clientId": {
       "usedBy": [
         {
@@ -349,11 +485,20 @@
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
+    "files": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    },
     "orders": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
     "presales": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "products": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }
