@@ -4,12 +4,12 @@ import React, { useRef } from 'react'
 
 import { _Product } from 'entities/Courses/model/types'
 
+import { getPriceByCurrency } from 'shared/ui/Currencies'
 import mainBanner from '../assets/bg.png'
-import coverImage from '../assets/cover.jpg'
 import contentImage from '../assets/content.jpg'
+import coverImage from '../assets/cover.jpg'
 
 import css from './styles.module.scss'
-import { getPriceByCurrency } from 'shared/ui/Currencies'
 
 interface Props extends _Product {
     funnel?: string | null

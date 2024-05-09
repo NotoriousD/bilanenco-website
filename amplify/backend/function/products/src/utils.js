@@ -9,7 +9,8 @@ exports.productTypes = {
     course: 'courses',
     event: 'events',
     service: 'services',
-    others: 'others'
+    others: 'others',
+    products: 'products'
 }
 
 exports.orderTypes = {
@@ -21,7 +22,8 @@ exports.productNames = {
     [this.productTypes.course]: 'Курс',
     [this.productTypes.event]: 'Івент',
     [this.productTypes.service]: 'Послуга',
-    [this.productTypes.others]: 'Інше',
+    [this.productTypes.service]: 'Послуга',
+    [this.productTypes.products]: 'Продукт',
 }
 
 const funnels = {
