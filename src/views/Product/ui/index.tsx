@@ -1,15 +1,19 @@
 import cn from 'classnames'
+import dynamic from 'next/dynamic'
 import Image from "next/image"
 import React, { useRef } from 'react'
 
 import { _Product } from 'entities/Courses/model/types'
 
 import { getPriceByCurrency } from 'shared/ui/Currencies'
+
 import mainBanner from '../assets/bg.png'
 import contentImage from '../assets/content.jpg'
 import coverImage from '../assets/cover.jpg'
 
 import css from './styles.module.scss'
+
+const ResultCarousel = dynamic(() => import('./ResultsCarousel').then(module => module.ResultsCarousel), { ssr: false })
 
 interface Props extends _Product {
     funnel?: string | null
@@ -102,6 +106,12 @@ export const Product: React.FC<Props> = ({
                         </ul>
                     </div>
                 </div>
+            </section>
+            <section className={css.carousel}>
+                <div className={css.carouselHeader}>
+                    <h3 className={cn(css.sectionTitle, css.accent)}>Відгуки</h3>
+                </div>
+                <ResultCarousel />
             </section>
         </div>
     )
