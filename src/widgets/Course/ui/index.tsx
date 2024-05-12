@@ -46,7 +46,7 @@ export const Course: React.FC<Props> = ({
                     <div className={css.container}>
                         <div className={css.headerTitle}>{title}</div>
                         <div className={cn(css.startDate, css.accent)}>Дата початку: {date}</div>
-                        <div className={css.headerText}>Тижневий онлайн курс з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за два тижні. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
+                        <div className={css.headerText}>2 тижневий онлайн курс з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за два тижні. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
                         <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>{isPresale ? 'Передзапис' : 'Записатися'}</button></div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ export const Course: React.FC<Props> = ({
                 <div className={css.sectionHeader}>
                     {isSale && (
                         <>
-                            <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3>
+                            <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за найвигіднішою вартістю можна до <span>{getDateFromISO(endSaleDate)}</span></h3>
                             <div className={css.timerWrapper}><Timer expiryTimestamp={endSaleDate} /> до нових цін</div>
                         </>
                     )}
@@ -143,7 +143,9 @@ export const Course: React.FC<Props> = ({
                                         </div>
                                         {/* <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? getAvailablePlaces(name, available_places) : 'немає'}</div> */}
                                         <div className={css.benefits} dangerouslySetInnerHTML={{ __html: description }} />
-                                        <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>{isPresale ? "Передзапис" : "Придбати"}</button>
+                                        <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>
+                                            {isDisabled ? "Продано" : isPresale ? "Передзапис" : "Придбати"}
+                                        </button>
                                     </div>
                                 )
                             })}
