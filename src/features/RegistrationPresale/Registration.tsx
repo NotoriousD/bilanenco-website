@@ -80,7 +80,7 @@ export const RegistrationPresale: React.FC<Props> = ({
   };
 
   const getEnumOptions = useMemo(() => {
-    return packages?.filter(({ available_places }) => available_places !== 0).map(({ id, name }) => ({
+    return packages?.map(({ id, name }) => ({
       label: name,
       value: id,
     }))
