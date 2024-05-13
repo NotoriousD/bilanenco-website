@@ -8,6 +8,7 @@ export default function Document() {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
                 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+                <meta name="facebook-domain-verification" content="gk93s1ssjgv5dpwf7utf0jvvt4ys5j" />
             </Head>
             <body>
                 <Main />
