@@ -81,6 +81,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const nodemailer = require("nodemailer");
 const { spCallback } =  require('./sendPulse')
+const { sendPurchaseEvent } = require('./facebook');
 const { getTableNameByProductType, getEmailTemplateName } = require('./utils')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" })
 const sesClient = new AWS.SES({ apiVersion: '2010-12-01' })
@@ -295,6 +296,15 @@ app.post('/status', updateStatus, updateCoursePackage, sendEmailTemplate, async 
 
     if(details.contact_id) {
       await spCallback(details.contact_id)
+    }
+
+    if(details.product_type === 'products') {
+      await sendPurchaseEvent({
+        email: details.email,
+        productName: details.product_id,
+        currency: 'uah',
+        price: details.total_amount,
+      });
     }
 
   }
