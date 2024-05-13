@@ -43,7 +43,7 @@ exports.getProductPriceByCurrency = (currency, price, funnel = null, productType
         total -= rate;
     }
     if(currency === currencies.uah) return total * 100
-    if(currency === currencies.usd) return Math.floor(total * 37.5) * 100
+    if(currency === currencies.usd) return Math.floor(total * 39.2) * 100
 }
 
 exports.getTableNameByProductType = (type, env) => `${type}-${env}`

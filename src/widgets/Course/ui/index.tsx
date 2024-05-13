@@ -1,3 +1,4 @@
+// "use client"
 import cn from 'classnames'
 import dynamic from 'next/dynamic'
 import React, { useRef } from 'react'
@@ -13,6 +14,7 @@ import { getDateFromISO } from 'shared/libs/dates'
 import css from './styles.module.scss'
 
 const ResultCarousel = dynamic(() => import('./ResultsCarousel').then(module => module.ResultsCarousel), { ssr: false })
+const Timer = dynamic(() => import('components/Timer').then(module => module.Timer), { ssr: false })
 
 interface Props extends ICourse {
     funnel?: string | null
@@ -44,8 +46,7 @@ export const Course: React.FC<Props> = ({
                     <div className={css.container}>
                         <div className={css.headerTitle}>{title}</div>
                         <div className={cn(css.startDate, css.accent)}>Дата початку: {date}</div>
-                        <div className={css.saleDate}>До 20.05.2024 у вас є змога зробити передзапис на курс (сума передплати: 999 грн)</div>
-                        <div className={css.headerText}>Тижневий онлайн курс з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за тиждень. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
+                        <div className={css.headerText}>2 тижневий онлайн курс з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за два тижні. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
                         <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>{isPresale ? 'Передзапис' : 'Записатися'}</button></div>
                     </div>
                 </div>
@@ -117,7 +118,12 @@ export const Course: React.FC<Props> = ({
                 backgroundImage: `url(${footerBanner.src})`,
             }}>
                 <div className={css.sectionHeader}>
-                    {/* <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за старими цінами можна до <span>{getDateFromISO(endSaleDate)}</span></h3> */}
+                    {isSale && (
+                        <>
+                            <h3 className={cn(css.sectionTitle, css.accent)}>Придбати курс за найвигіднішою вартістю можна до <span>{getDateFromISO(endSaleDate)}</span></h3>
+                            <div className={css.timerWrapper}><Timer expiryTimestamp={endSaleDate} /> до нових цін</div>
+                        </>
+                    )}
                 </div>
                 <section className={css.packages} ref={packagesRef}>
                     <div className={css.container}>
@@ -137,7 +143,9 @@ export const Course: React.FC<Props> = ({
                                         </div>
                                         {/* <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? getAvailablePlaces(name, available_places) : 'немає'}</div> */}
                                         <div className={css.benefits} dangerouslySetInnerHTML={{ __html: description }} />
-                                        <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>{isPresale ? "Передзапис" : "Придбати"}</button>
+                                        <button className={css.button} onClick={() => handleOpenModal(id)} disabled={isDisabled}>
+                                            {isDisabled ? "Продано" : isPresale ? "Передзапис" : "Придбати"}
+                                        </button>
                                     </div>
                                 )
                             })}

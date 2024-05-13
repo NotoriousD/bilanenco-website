@@ -279,7 +279,9 @@ $accent: #FFD34B;
 
 .sectionHeader {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
     margin: 24px 0;
     font-size: 24px;
 }
@@ -289,6 +291,10 @@ $accent: #FFD34B;
 
     span {
         text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
     }
 }
 
@@ -315,6 +321,23 @@ $accent: #FFD34B;
     font-weight: bold;
     font-style: italic;
     margin-bottom: 12px;
+}
+
+.timerWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: bold;
+    color: $accent;
+
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width: 1200px) {

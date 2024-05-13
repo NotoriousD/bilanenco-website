@@ -85,38 +85,70 @@
       "UnauthRoleName": "amplify-bilanencowebsite-prod-234734-unauthRole",
       "StackName": "amplify-bilanencowebsite-prod-234734",
       "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-bilanencowebsite-prod-234734/a74350d0-7908-11ee-bdd0-0a6bcc6dd84f",
-      "AmplifyAppId": "d2gkohmkzhk22d"
+      "AmplifyAppId": "d2gkohmkzhk22d",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-bilanencowebsite-prod-234734-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "function": {
         "courses": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/courses-55594539434c537a6650-build.zip"
+          "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
+          "s3Key": "amplify-builds/courses-6967454b5441476e3358-build.zip"
         },
         "email": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/email-58514f796f6c62627370-build.zip"
+          "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
+          "s3Key": "amplify-builds/email-4f765643304f66514654-build.zip"
         },
         "events": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
+          "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
           "s3Key": "amplify-builds/events-6442572f43396d44544b-build.zip"
         },
         "orders": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/orders-6f4b2f4f4e4834747245-build.zip",
+          "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
+          "s3Key": "amplify-builds/orders-4f777134426b4f6f5857-build.zip",
           "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://l0ell54uxg.execute-api.eu-west-1.amazonaws.com/prod"
         },
         "statuses": {
-          "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/statuses-726935345337686b4c34-build.zip",
+          "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
+          "s3Key": "amplify-builds/statuses-6d5874637230624f314b-build.zip",
           "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com"
         },
-        "presales": {}
+        "presales": {},
+        "products": {
+          "bucketName": "product-files232730-dev",
+          "paymentUrl": "https://api.monobank.ua",
+          "callbackUrl": "https://l0ell54uxg.execute-api.eu-west-1.amazonaws.com/prod",
+          "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
+          "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
+          "s3Key": "amplify-builds/products-50756c6a412b4b473861-build.zip"
+        },
+        "files": {}
+      },
+      "auth": {
+        "bilanencowebsite": {}
+      },
+      "api": {
+        "courses": {},
+        "emails": {},
+        "events": {},
+        "orders": {},
+        "products": {},
+        "status": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      },
+      "storage": {
+        "courses": {},
+        "events": {},
+        "files": {},
+        "orders": {},
+        "presales": {},
+        "products": {}
       }
     }
   }

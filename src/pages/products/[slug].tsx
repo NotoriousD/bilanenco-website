@@ -72,8 +72,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     }
 
     return {
-        props: {
-            product: null
-        }
+        notFound: true,
     }
 };
