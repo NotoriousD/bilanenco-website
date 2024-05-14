@@ -28,14 +28,14 @@
         },
         "orders": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/orders-7849596f44726c41526e-build.zip",
+          "s3Key": "amplify-builds/orders-4f777134426b4f6f5857-build.zip",
           "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "paymentUrl": "https://api.monobank.ua",
           "callbackUrl": "https://8jpg6jlz69.execute-api.eu-west-1.amazonaws.com/dev"
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/statuses-7369536975756974444f-build.zip",
+          "s3Key": "amplify-builds/statuses-305a6b4e335536436431-build.zip",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com",
@@ -44,7 +44,7 @@
         "presales": {},
         "products": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/products-50756c6a412b4b473861-build.zip",
+          "s3Key": "amplify-builds/products-31512f687769416e3963-build.zip",
           "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "bucketName": "product-files",
           "paymentUrl": "https://api.monobank.ua",
