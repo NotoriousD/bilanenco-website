@@ -82,6 +82,13 @@ export const Registration: React.FC<Props> = ({
     }
   }, []);
 
+  useEffect(() => {
+    if (window && 'fbq' in window) {
+      //@ts-ignore
+      window.fbq('track', 'initialCheckout')
+    }
+  }, []);
+
   return <Portal>
     <div className={css.root}>
       <div className={css.drop}>
