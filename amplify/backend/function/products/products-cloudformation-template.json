@@ -55,6 +55,9 @@
     },
     "callbackUrl": {
       "Type": "String"
+    },
+    "productPixelId": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -161,6 +164,9 @@
             },
             "CALLBACK_URL": {
               "Ref": "callbackUrl"
+            },
+            "PRODUCT_PIXEL_ID": {
+              "Ref": "productPixelId"
             }
           }
         },

@@ -80,6 +80,7 @@ exports.createOrder = async (req, res, next) => {
         tContact_id: req.body.contact_id,
         total_amount,
         invoice_id: null,
+        courseName: req.body.title,
         order_status: statuses.pending,
         created_date: currentDate,
         paied_date: null,

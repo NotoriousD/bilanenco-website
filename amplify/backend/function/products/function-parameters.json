@@ -33,6 +33,10 @@
     {
       "cloudFormationParameterName": "callbackUrl",
       "environmentVariableName": "CALLBACK_URL"
+    },
+    {
+      "cloudFormationParameterName": "productPixelId",
+      "environmentVariableName": "PRODUCT_PIXEL_ID"
     }
   ],
   "secretNames": [

@@ -23,10 +23,10 @@ export default function SingleProductPage({ product }: Props) {
     const contactId = searchParams?.get('contact_id')
     const funnel = searchParams?.get('funnel')
 
-    const handleOpenModal = useCallback((packageId: string) => {
-        setPackageId(packageId)
-        setOpenModal(!openModal)
-    }, [openModal])
+    // const handleOpenModal = useCallback((packageId: string) => {
+    //     setPackageId(packageId)
+    //     setOpenModal(!openModal)
+    // }, [openModal])
 
     const handleCloseModal = () => {
         setOpenModal(!openModal)
@@ -37,7 +37,8 @@ export default function SingleProductPage({ product }: Props) {
             <Head>
                 <title>{product.title}</title>
             </Head>
-            <Product {...product} handleOpenModal={handleOpenModal} />
+            test
+            {/* <Product {...product} handleOpenModal={handleOpenModal} />
             {openModal && packageId && (
                 <Registration
                     contactId={contactId}
@@ -47,31 +48,33 @@ export default function SingleProductPage({ product }: Props) {
                     funnel={funnel}
                     onClose={handleCloseModal}
                 />
-            )}
+            )} */}
         </>
     )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
-    const { data } = await API.get('products', `/product/${slug}`, {});
-    console.log(data);
+    // const { data } = await API.get('products', `/product/${slug}`, {});
+    // console.log(data);
 
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
+    // if (!data) {
+    //     return {
+    //         notFound: true,
+    //     }
+    // }
 
-    if (data) {
-        return {
-            props: {
-                product: data
-            }
-        }
-    }
+    // if (data) {
+    //     return {
+    //         props: {
+    //             product: data
+    //         }
+    //     }
+    // }
 
     return {
-        notFound: true,
+        props: {
+            product: {}
+        }
     }
 };

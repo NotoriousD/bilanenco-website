@@ -411,6 +411,14 @@
         }
       ]
     },
+    "AMPLIFY_function_products_productPixelId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "products"
+        }
+      ]
+    },
     "AMPLIFY_function_products_s3Key": {
       "usedBy": [
         {
