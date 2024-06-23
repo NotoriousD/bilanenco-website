@@ -42,6 +42,13 @@
     {
       "cloudFormationParameterName": "googleSheetsKey",
       "environmentVariableName": "GOOGLE_SHEETS_KEY"
+    },
+    {
+      "cloudFormationParameterName": "productPixelId",
+      "environmentVariableName": "PRODUCT_PIXEL_ID"
     }
+  ],
+  "secretNames": [
+    "PRODUCT_ACCESS_MARKER"
   ]
 }

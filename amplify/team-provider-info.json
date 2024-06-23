@@ -111,11 +111,13 @@
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
-          "s3Key": "amplify-builds/statuses-6d5874637230624f314b-build.zip",
-          "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
+          "s3Key": "amplify-builds/statuses-5536346d6a5558643335-build.zip",
+          "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
-          "sendPulseUrl": "https://api.sendpulse.com"
+          "sendPulseUrl": "https://api.sendpulse.com",
+          "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs",
+          "productPixelId": "456894110068958"
         },
         "presales": {},
         "products": {
@@ -124,7 +126,7 @@
           "callbackUrl": "https://l0ell54uxg.execute-api.eu-west-1.amazonaws.com/prod",
           "secretsPathAmplifyAppId": "d2gkohmkzhk22d",
           "deploymentBucketName": "amplify-bilanencowebsite-prod-234734-deployment",
-          "s3Key": "amplify-builds/products-50756c6a412b4b473861-build.zip"
+          "s3Key": "amplify-builds/products-31512f687769416e3963-build.zip"
         },
         "files": {}
       },

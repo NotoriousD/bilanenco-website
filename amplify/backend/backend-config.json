@@ -459,7 +459,23 @@
         }
       ]
     },
+    "AMPLIFY_function_statuses_productPixelId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
     "AMPLIFY_function_statuses_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "statuses"
+        }
+      ]
+    },
+    "AMPLIFY_function_statuses_secretsPathAmplifyAppId": {
       "usedBy": [
         {
           "category": "function",

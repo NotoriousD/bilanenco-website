@@ -5,13 +5,7 @@
       "name": "/product",
       "lambdaFunction": "products",
       "permissions": {
-        "setting": "protected",
-        "auth": [
-          "read"
-        ],
-        "guest": [
-          "read"
-        ]
+        "setting": "open"
       }
     },
     "/uploads": {
