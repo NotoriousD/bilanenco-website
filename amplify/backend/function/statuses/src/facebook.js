@@ -11,11 +11,11 @@ const ServerEvent = adsSdk.ServerEvent;
 //     baseURL: 'https://graph.facebook.com/v19.0',
 // });
 
-// const clientId = '648513670787345';
-// const clientSecret = 'b622c1032b4f19f55909cdfac5bd340b';
+const clientId = '648513670787345';
+const clientSecret = 'b622c1032b4f19f55909cdfac5bd340b';
 // const clientId = '3676499979290556';
 // const clientSecret = '4ee71ec84ba303d776fb06bea8706d1d';
-// const pixel_id = '456894110068958';
+const pixel_id = '456894110068958';
 // const pixel_id = '1182858509827418';
 
 const PRODUCT_PIXEL_ID = process.env.PRODUCT_PIXEL_ID;
@@ -44,16 +44,18 @@ exports.sendPurchaseEvent = async ({
     price
 }) => {
 
-    const {
-        Parameters
-    } = await (new AWS.SSM())
-    .getParameters({
-            Names: ["PRODUCT_ACCESS_MARKER"].map(secretName => process.env[secretName]),
-            WithDecryption: true,
-        })
-        .promise();
+    // const {
+    //     Parameters
+    // } = await (new AWS.SSM())
+    // .getParameters({
+    //         Names: ["PRODUCT_ACCESS_MARKER"].map(secretName => process.env[secretName]),
+    //         WithDecryption: true,
+    //     })
+    //     .promise();
 
-    const PRODUCT_ACCESS_MARKER = Parameters.pop().Value;
+    // const PRODUCT_ACCESS_MARKER = Parameters.pop().Value;
+
+    // console.log(PRODUCT_ACCESS_MARKER)
 
     let current_timestamp = Math.floor(new Date() / 1000);
 
@@ -78,7 +80,7 @@ exports.sendPurchaseEvent = async ({
         .setActionSource('website');
 
     const eventsData = [serverEvent];
-    const eventRequest = (new EventRequest(PRODUCT_ACCESS_MARKER, PRODUCT_PIXEL_ID))
+    const eventRequest = (new EventRequest(`EAAElHvzRymMBO3iNW7B7xvEeubZCzMBUDPLc81UsWWJgKL5CcfFg9jwNQ8LUfjCXZBY9GdUb7kuW8yYZBWVBH6C9Cgpc7EkG1segJZCq3tapkZCruWoGzYTJR26HgsnGHwTAWekixc2QDzGtCpRv88oMCSaXYiIT9Ha72J5aG03oU1WnsTFJObgZCyhKlOWZAAEOAZDZD`, pixel_id))
         .setEvents(eventsData);
 
     const eventResponse = await eventRequest.execute();

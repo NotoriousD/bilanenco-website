@@ -35,7 +35,7 @@
         },
         "statuses": {
           "deploymentBucketName": "amplify-bilanencowebsite-dev-232730-deployment",
-          "s3Key": "amplify-builds/statuses-70586b64397869636d47-build.zip",
+          "s3Key": "amplify-builds/statuses-35616439336b616f4f55-build.zip",
           "clientId": "98fa8491a3fe0833d0dc84ff80f38218",
           "clientSecret": "671eb58fa97b7177ad2ad5a8a4a16939",
           "sendPulseUrl": "https://api.sendpulse.com",
